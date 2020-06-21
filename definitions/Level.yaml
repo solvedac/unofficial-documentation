@@ -1,4 +1,0 @@
-Level:
-  type: "integer"
-  format: "int64"
-  description: "Unrated부터 Ruby I까지를 0 ~ 31로 표현하는 레벨입니다."
