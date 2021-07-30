@@ -6,23 +6,23 @@ info:
     원작자의 요청에 따라 언제든지 지워질 수 있으며, \
     문서의 내용은 현재 API와 일치하지 않을 수 있습니다. \
     "
-  version: "2020-06.1"
+  version: "2020-07.1"
   title: "solved.ac"
   contact:
     email: "public.ranolp@gmail.com"
-host: "api.solved.ac"
-basePath: "/v2"
+host: "solved.ac"
+basePath: "/api/v3"
 tags:
   - name: "기타"
     description: "아직 분류하지 못한 API입니다"
   - name: "사용자"
     description: "사용자와 관련이 있는 API입니다"
-  - name: "사용자"
+  - name: "문제"
     description: "문제와 관련이 있는 API입니다"
 schemes:
   - "https"
 paths:
-  /search/recommendations.json:
+  /search/suggestion:
     get:
       tags:
         - "기타"
@@ -40,54 +40,42 @@ paths:
           schema:
             type: "object"
             properties:
-              success:
-                description: "요청 성공 여부입니다."
-                type: "boolean"
-                example: true
-              result:
-                type: "object"
-                properties:
-                  autocomplete:
-                    type: "array"
-                    items:
-                      type: "object"
-                      properties:
-                  problems:
-                    description: "검색해서 찾은 백준 문제 목록입니다."
-                    type: "array"
-                    items:
-                      $ref: "#/definitions/Problem"
-                  problem_count:
-                    description: "검색해서 찾은 백준 문제 수입니다."
-                    type: "integer"
-                    format: "int64"
-                    example: 1
-                  users:
-                    description: "검색해서 찾은 사용자 목록입니다."
-                    type: "array"
-                    items:
-                      $ref: "#/definitions/User"
-                  user_count:
-                    description: "검색해서 찾은 사용자 수입니다."
-                    type: "integer"
-                    format: "int64"
-                    example: 1
-                  algorithms:
-                    description: "검색해서 찾은 알고리즘 목록입니다."
-                    type: "array"
-                    items:
-                      $ref: "#/definitions/Algorithm"
-                  algorithm_count:
-                    description: "검색해서 찾은 알고리즘 수입니다."
-                    type: "integer"
-                    format: "int64"
-                    example: 1
-                  wiki_articles:
-                    description: "검색해서 찾은 위키 글 목록입니다."
-                    type: "array"
-                    items:
-                      $ref: "#/definitions/WikiArticle"
-  /site/statistics.json:
+              autocomplete:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+              problems:
+                description: "검색해서 찾은 백준 문제 목록입니다."
+                type: "array"
+                items:
+                  $ref: "#/definitions/Problem"
+              problemCount:
+                description: "검색해서 찾은 백준 문제 수입니다."
+                type: "integer"
+                format: "int64"
+                example: 1
+              users:
+                description: "검색해서 찾은 사용자 목록입니다."
+                type: "array"
+                items:
+                  $ref: "#/definitions/User"
+              userCount:
+                description: "검색해서 찾은 사용자 수입니다."
+                type: "integer"
+                format: "int64"
+                example: 1
+              tags:
+                description: "검색해서 찾은 태그 목록입니다."
+                type: "array"
+                items:
+                  $ref: "#/definitions/Tag"
+              tagCount:
+                description: "검색해서 찾은 태그 수입니다."
+                type: "integer"
+                format: "int64"
+                example: 1
+  /site/stats:
     get:
       tags:
         - "기타"
@@ -99,40 +87,39 @@ paths:
           schema:
             type: "object"
             properties:
-              success:
-                description: "요청 성공 여부입니다."
-                type: "boolean"
-              result:
-                type: "object"
-                properties:
-                  total_problems:
-                    description: "여태까지 색인된 백준 문제 수입니다."
-                    type: "integer"
-                    format: "int64"
-                    example: 16355
-                  voted_problems:
-                    description: "여태까지 투표된 백준 문제 수입니다."
-                    type: "integer"
-                    format: "int64"
-                    example: 9742
-                  total_voters:
-                    description: "여태까지 투표한 사용자 수입니다."
-                    type: "integer"
-                    format: "int64"
-                    example: 470
-                  total_votes:
-                    description: "여태까지 기록된 투표 수입니다."
-                    type: "integer"
-                    format: "int64"
-                    example: 52085
-  /users/problem_stats.json:
+              problemCount:
+                description: "여태까지 색인된 백준 문제 수입니다."
+                type: "integer"
+                format: "int64"
+                example: 20353
+              problemVotedCount:
+                description: "여태까지 난이도가 기여된 백준 문제 수입니다."
+                type: "integer"
+                format: "int64"
+                example: 12463
+              userCount:
+                description: "여태까지 등록한 사용자 수입니다."
+                type: "integer"
+                format: "int64"
+                example: 34249
+              contributorCount:
+                description: "여태까지 난이도에 기여한 사용자 수입니다."
+                type: "integer"
+                format: "int64"
+                example: 1173
+              contributionCount:
+                description: "여태까지 이루어진 난이도 기여의 수입니다."
+                type: "integer"
+                format: "int64"
+                example: 101172
+  /user/problem_stats:
     get:
       tags:
         - "사용자"
       summary: "사용자가 푼 문제 개수를 레벨별로 가져옵니다."
       description: ""
       parameters:
-        - name: "id"
+        - name: "handle"
           in: "query"
           description: "사용자 ID"
           required: true
@@ -141,50 +128,45 @@ paths:
         200:
           description: "서버가 반환에 성공한 경우입니다."
           schema:
-            type: "object"
-            properties:
-              success:
-                description: "요청 성공 여부입니다."
-                type: "boolean"
-                example: true
-              result:
-                type: "array"
-                items:
-                  type: "object"
-                  properties:
-                    level:
-                      description: "문제의 레벨입니다."
-                      type:
-                        $ref: "#/definitions/Level"
-                      example: 0
-                    problems:
-                      description: "solved.ac에 등록된 문제 수입니다."
-                      type: "integer"
-                      format: "int64"
-                      example: 6456
-                    solved:
-                      description: "사용자가 푼 문제 수입니다."
-                      type: "integer"
-                      format: "int64"
-                      example: 105
-                    attempted:
-                      description: "사용자가 시도해본 문제 수입니다."
-                      type: "integer"
-                      format: "int64"
-                      example: 113
-                    solved_exp_sum:
-                      description: "사용자가 해당 레벨에서 획득한 경험치의 합입니다."
-                      type: "integer"
-                      format: "int64"
-                      example: 33600
-  /problems/show.json:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                level:
+                  $ref: "#/definitions/Level"
+                total:
+                  description: "solved.ac에 등록된 해당 레벨의 문제 수입니다."
+                  type: "integer"
+                  format: "int64"
+                  example: 7671
+                solved:
+                  description: "사용자가 푼 문제 수입니다."
+                  type: "integer"
+                  format: "int64"
+                  example: 105
+                partial:
+                  description: "사용자가 부분 성공한 문제 수입니다."
+                  type: "integer"
+                  format: "int64"
+                  example: 17
+                tried:
+                  description: "사용자가 시도해본 문제 수입니다."
+                  type: "integer"
+                  format: "int64"
+                  example: 113
+                exp:
+                  description: "사용자가 해당 레벨에서 획득한 경험치의 합입니다."
+                  type: "integer"
+                  format: "int64"
+                  example: 33600
+  /problem/show:
     get:
       tags:
         - "문제"
       summary: "해당하는 ID의 문제를 가져옵니다."
       description: ""
       parameters:
-        - name: "id"
+        - name: "problemId"
           in: "query"
           description: "문제 ID"
           required: true
@@ -196,22 +178,133 @@ paths:
           schema:
             type: "object"
             properties:
-              success:
-                description: "요청 성공 여부입니다."
+              problemId:
+                description: "문제의 ID입니다."
+                type: "integer"
+                format: "int64"
+                example: 13705
+              titleKo:
+                description: "한국어로 된 문제 제목입니다. HTML entity나 LaTeX 수식을 포함할 수 있습니다."
+                type: "string"
+                example: "Ax+Bsin(x)=C"
+              isSolvable:
+                description: "채점이 가능한지 여부입니다."
                 type: "boolean"
                 example: true
-              result:
-                type: "object"
-                properties:
-                  problems:
-                    type: "array"
-                    items:
-                      $ref: "#/definitions/Problem"
+              isPartial:
+                description: "부분 점수 혹은 서브태스크 문제인지 여부입니다."
+                type: "boolean"
+                example: false
+              acceptedUserCount:
+                description: "맞은 사용자의 수입니다."
+                type: "integer"
+                format: "int64"
+                example: 189
+              level:
+                $ref: "#/definitions/Level"
+              votedUserCount:
+                description: "이 문제의 난이도에 기여를 한 사용자의 수입니다."
+                type: "integer"
+                format: "int64"
+                example: 62
+              isLevelLocked:
+                description: "난이도 기여가 제한되었는지 여부입니다."
+                type: "boolean"
+                example: false
+              averageTries:
+                description: "문제를 푼 사용자의 평균 시도 횟수입니다."
+                type: "number"
+                example: 28.8413
+              tags:
+                description: "문제의 태그 목록입니다."
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    key:
+                      description: "태그의 ID입니다."
+                      type: "string"
+                      example: "arbitrary_precision"
+                    isMeta:
+                      type: "boolean"
+                      example: false
+                    bojTagId:
+                      description: "BOJ에서 사용되는 이 태그의 ID입니다."
+                      type: "integer"
+                      format: "int64"
+                      example: 117
+                    problemCount:
+                      description: "이 태그를 포함하는 문제의 수입니다."
+                      type: "integer"
+                      format: "int64"
+                      example: 113
+                    displayNames:
+                      description: "언어별 태그의 이름 목록입니다."
+                      type: "array"
+                      items:
+                        type: "object"
+                        properties:
+                          language:
+                            description: "언어의 이름입니다."
+                            type: "string"
+                            example: "ko"
+                          name:
+                            description: "태그의 이름입니다."
+                            type: "string"
+                            example: "임의 정밀도 / 큰 수 연산"
+                          short:
+                            type: "string"
+                            example: "임의 정밀도 / 큰 수 연산"
+
 definitions:
   Level:
-    description: "Unrated부터 Ruby I까지를 0 ~ 31로 표현하는 레벨입니다."
+    description: "Unrated부터 Ruby I까지를 0 ~ 31로 표현하는 문제 레벨입니다."
     type: "integer"
     format: "int64"
+  Tier:
+    description: "Bronze V부터 Ruby II까지를 0 ~ 30으로, Master를 31로 표현하는 사용자 레벨입니다."
+    type: "integer"
+    format: "int64"
+  Organization:
+    type: "object"
+    properties:
+      organizationId:
+        description: "조직의 ID입니다."
+        type: "integer"
+        format: "int64"
+        example: 1082
+      name:
+        description: "조직의 이름입니다."
+        type: "string"
+        example: "solved.ac"
+      type:
+        description: "조직의 구분입니다."
+        type: "string"
+        enum: ["community", "university", "company", "high_school"]
+      rating:
+        descripton: "조직의 레이팅입니다."
+        type: "integer"
+        format: "int64"
+        example: 2321
+      userCount:
+        description: "조직에 포함된 사용자의 수입니다."
+        type: "integer"
+        format: "int64"
+        example: 2
+      voteCount:
+        description: "조직의 총 난이도 기여 수입니다."
+        type: "integer"
+        format: "int64"
+        example: 1518
+      solvedCount:
+        description: "조직의 총 푼 문제 수입니다."
+        type: "integer"
+        format: "int64"
+        example: 2729
+      color:
+        description: "조직의 색깔입니다."
+        type: "string"
+        example: "#000000"
   Problem:
     type: "object"
     properties:
@@ -225,10 +318,7 @@ definitions:
         type: "string"
         example: "Generator"
       level:
-        description: "문제의 난이도입니다."
-        type: "#/definitions/Level"
-        format: "int64"
-        example: 23
+        $ref: "#/definitions/Level"
       solved:
         description: "문제를 푼 사람의 수입니다."
         type: "integer"
@@ -247,7 +337,7 @@ definitions:
   User:
     type: "object"
     properties:
-      user_id:
+      handle:
         description: "사용자명입니다."
         type: "string"
         example: "shiftpsh"
@@ -255,81 +345,150 @@ definitions:
         description: "사용자의 자기소개입니다."
         type: "string"
         example: "🧡 이곳의 개발자입니다."
-      profile_image_url:
+      organizations:
+        description: "사용자가 속한 조직 목록입니다."
+        type: "array"
+        items:
+          ref: "#/definitions/Organization"
+      badge:
+        description: "사용자의 배지입니다."
+        type: "object"
+        nullable: true
+        properties:
+          badgeId:
+            description: "배지의 ID입니다."
+            type: "string"
+            example: "anniversary_1st"
+          badgeImageUrl:
+            description: "배지 사진으로 가는 하이퍼링크입니다."
+            type: "string"
+            example: "https://static.solved.ac/profile_badge/anniversary_1st.png"
+          displayName:
+            description: "배지의 이름입니다."
+            type: "string"
+            example: "1솔브"
+          displayDescription:
+            description: "배지의 설명입니다."
+            type: "string"
+            example: "solved.ac의 1주년과 함께했다"
+      background:
+        description: "사용자의 배경 사진입니다."
+        type: "object"
+        properties:
+          backgroundId:
+            description: "배경의 고유 ID입니다."
+            type: "string"
+            example: "balloon_002"
+          backgroundImageUrl:
+            description: "배경 사진으로 가는 하이퍼링크입니다."
+            type: "string"
+            example: "https://static.solved.ac/profile_bg/balloon_002/balloon_002.png"
+          author:
+            description: "배경의 제작자를 표시하는 문구입니다."
+            type: "string"
+            example: "Photo by Al Soot on Unsplash"
+          authorUrl:
+            description: "배경의 제작자와 관련된 사이트로 가는 하이퍼링크입니다."
+            type: "string"
+            example: "https://unsplash.com/photos/yRjLihK35Yw"
+          displayName:
+            description: "배경의 이름입니다."
+            type: "string"
+            example: "하늘을 수놓은 풍선"
+          displayDescription:
+            description: "배경의 설명입니다."
+            type: "string"
+            example: "assorted colored balloons mid airs"
+      profileImageUrl:
         description: "사용자의 프로필 사진으로 가는 하이퍼링크입니다."
         type: "string"
+        nullable: true
         example: "https://static.solved.ac/uploads/profile/0565b63f0b204e990d1b163018a1c358992519b8.png"
-      solved:
+      solvedCount:
         description: "사용자가 푼 문제 수입니다."
         type: "integer"
         format: "int64"
-        example: 2412
+        example: 2658
+      voteCount:
+        description: "사용자가 난이도 기여를 한 횟수입니다."
+        type: "integer"
+        format: "int64"
+        example: 1326
       exp:
         description: "사용자가 여태까지 획득한 경험치량입니다."
         type: "integer"
         format: "int64"
         example: 498605585
-      level:
-        description: "사용자의 레벨입니다."
-        type: "#/definitions/Level"
+      tier:
+        $ref: "#/definitions/Tier"
+      rating:
+        description: "사용자의 레이팅입니다."
+        type: "integer"
+        format: "int64"
+        example: 2641
+      ratingByProblemsSum:
+        description: "푼 문제의 난이도 합으로 계산한 사용자의 레이팅입니다."
+        type: "integer"
+        format: "int64"
+        example: 2211
+      ratingByClass:
+        description: "취득한 클래스에 따른 사용자의 레이팅입니다."
+        type: "integer"
+        format: "int64"
+        example: 230
+      ratingBySolvedCount:
+        description: "푼 문제 수로 계산한 사용자의 레이팅입니다."
+        type: "integer"
+        format: "int64"
+        example: 175
+      ratingByVoteCount:
+        description: "문제 난이도에 기여한 횟수로 계산한 사용자의 레이팅입니다."
+        type: "integer"
+        format: "int64"
         example: 25
       class:
         description: "사용자가 취득한 Class입니다."
         type: "integer"
         format: "int64"
         example: 8
-      class_decoration:
+      classDecoration:
         description: "사용자가 취득한 Class의 수준입니다."
+        type: "string"
+        enum: ["none", "silver", "gold"]
+      rivalCount:
+        description: "사용자의 라이벌 수입니다."
         type: "integer"
         format: "int64"
-        example: 0
-      vote_count:
-        description: "사용자가 한 난이도 투표의 수입니다."
+        example: 38
+      reverseRivalCount:
+        description: "사용자의 역라이벌 수입니다."
         type: "integer"
         format: "int64"
-        example: 1417
-      rank:
-        description: "사용자의 solved.ac 순위입니다."
+        example: 53
+      maxStreak:
+        description: "최대 연속 문제 풀이일 수입니다."
         type: "integer"
         format: "int64"
-        example: 43
-  Algorithm:
+        example: 6
+  Tag:
     type: "object"
     properties:
-      tag_name:
+      key:
         type: "string"
         example: "bitmask"
-      full_name_en:
+      name:
         type: "string"
-        example: "Bitmask"
-      full_name_ko:
-        type: "string"
-        example: "비트마스킹"
-      problem_count:
+        example: "bitmask"
+      problemCount:
         type: "integer"
         format: "int64"
-        example: 150
+        example: 284
       caption:
         type: "string"
         example: "tag:bitmask"
       description:
         type: "string"
-        example: "150문제"
+        example: "284문제"
       href:
         type: "string"
         example: "/problems/tags/bitmask"
-  WikiArticle:
-    type: "object"
-    properties:
-      title:
-        type: "string"
-        example: "완전 탐색"
-      caption:
-        type: "string"
-        example: "완전 탐색"
-      description:
-        type: "string"
-        example: ""
-      href:
-        type: "string"
-        example: "/wiki/w/완전 탐색"
