@@ -112,6 +112,68 @@ paths:
                 type: "integer"
                 format: "int64"
                 example: 101172
+  /account/verify_credentials:
+    get:
+      tags:
+        - "사용자"
+      summary: "현재 로그인한 계정 정보를 가져옵니다."
+      description: ""
+      parameters:
+        - name: "solvedacToken"
+          in: "cookie"
+          description: "사용자 토큰"
+          required: true
+          type: "string"
+      responses:
+        403:
+          description: "solvedacToken이 올바르지 않은 경우입니다."
+        200:
+          description: "서버가 반환에 성공한 경우입니다."
+          schema:
+            type: "object"
+            properties:
+              user:
+                description: "계정의 사용자 정보입니다."
+                allOf:
+                  - $ref: "#/definitions/User"
+                  - type: "object"
+                    properties:
+                      settings:
+                        $ref: "#/definitions/Settings"
+                      email:
+                        description: "계정의 이메일 주소입니다."
+                        type: "string"
+                        format: "email"
+                        example: "kiwiyou.dev@gmail.com"
+  /account/update_settings:
+    patch:
+      tags:
+        - "사용자"
+      summary: "현재 로그인한 계정의 설정을 변경합니다.."
+      description: ""
+      parameters:
+        - name: "solvedacToken"
+          in: "cookie"
+          description: "사용자 토큰"
+          required: true
+          type: "string"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              key:
+                description: "업데이트할 설정의 이름입니다."
+                type: "string"
+                example: "twitterPostOnClassIncrease"
+              value:
+                description: "업데이트할 설정의 새로운 값입니다."
+                example: "true"
+      responses:
+        403:
+          description: "solvedacToken이 올바르지 않은 경우입니다."
+        204:
+          description: "서버가 반환에 성공한 경우입니다."
   /user/problem_stats:
     get:
       tags:
@@ -246,8 +308,8 @@ paths:
                         properties:
                           language:
                             description: "언어의 이름입니다."
-                            type: "string"
-                            example: "ko"
+                            allOf:
+                              - $ref: "#/definitions/Language"
                           name:
                             description: "태그의 이름입니다."
                             type: "string"
@@ -492,3 +554,58 @@ definitions:
       href:
         type: "string"
         example: "/problems/tags/bitmask"
+  Settings:
+    description: "사용자의 solved.ac 설정 정보입니다."
+    type: "object"
+    properties:
+      screenTheme:
+        description: "사이트 디자인 테마입니다."
+        type: "string"
+        enum: ["default", "light", "dark", "black"]
+      tagDisplayLanguage:
+        description: "태그 이름을 나타낼 때 사용할 언어입니다."
+        allOf:
+          - $ref: "#/definitions/Language"
+      iconSchemeSolved:
+        description: "해결한 문제의 난이도 아이콘입니다."
+        allOf:
+          - $ref: "#/definitions/IconScheme"
+      iconSchemeNotSolved:
+        description: "해결하지 못한 문제의 난이도 아이콘입니다."
+        allOf:
+          - $ref: "#/definitions/IconScheme"
+      problemSortBy:
+        description: "문제 목록의 기본 정렬 순서입니다."
+        type: "string"
+        enum: ["id", "level", "title", "solved", "average_try", "random"]
+      twitterPostHandle:
+        description: "트윗에 핸들을 포함하는지 여부입니다."
+        type: "string"
+        format: "boolean"
+        example: "true"
+      twitterPostOnClassIncrease:
+        description: "CLASS가 올랐을 때 트윗을 보내는지 여부입니다."
+        type: "string"
+        format: "boolean"
+        example: "false"
+      twitterPostOnProblemSolve:
+        description: "문제를 처음 해결했을 때 트윗을 보내는지 여부입니다."
+        type: "string"
+        format: "boolean"
+        example: "true"
+      twitterPostOnRatingIncrease:
+        description: "AC 레이팅이 올랐을 때 트윗을 보내는지 여부입니다."
+        type: "string"
+        format: "boolean"
+        example: "false"
+      twitterPostOnTierIncrease:
+        description: "티어가 올랐을 때 트윗을 보내는지 여부입니다."
+        type: "string"
+        format: "boolean"
+        example: "true"
+  IconScheme:
+    type: "string"
+    enum: ["default", "hide-warn", "hide"]
+  Language:
+    type: "string"
+    enum: ["ko", "en"]
