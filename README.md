@@ -1,19 +1,13 @@
-# solvedac/unofficial-documentation
+# @solvedac/unofficial-documentation
 
-이 저장소는 [solved.ac](https://solved.ac/)의 비공식 API 문서를 담고 있습니다.
-[여기](https://solvedac.github.io/unofficial-documentation)를 눌러 접속하실 수 있습니다.
+[![banner](assets/solvedac-ud-full.png)](https://solvedac.github.io/unofficial-documentation)
 
-## Development Server
+> [접속하기](https://solvedac.github.io/unofficial-documentation)
 
-serve를 설치하세요.
+이 프로젝트는 [solved.ac](https://solved.ac/) API를 문서화하는 커뮤니티 프로젝트입니다. 이 저장소는 원작자의 요청에 따라 언제든 지워질 수 있으며, 현재 API와 일치하지 않을 수도 있는 점 양해 부탁드립니다.
 
-```sh
-npm install -g serve
-yarn global add serve
-```
+<small>solved.ac 서비스는 shiftpsh가 기획·개발·디자인·운영하는 프로젝트로, 이 저장소와는 solved.ac의 API를 문서화해둔 것 이외에는 아무런 관련이 없습니다.</small>
 
-프로젝트 폴더에서 다음 명령어를 실행하세요.
+## 기여하기
 
-```sh
-serve -s --cors
-```
+[CONTRIBUTING.md](CONTRIBUTING.md)를 참조해주세요.
