@@ -1,4 +1,4 @@
-s# @solvedac/<ins>unofficial</ins>-documentation
+# @solvedac/<ins>unofficial</ins>-documentation
 
 [![banner](assets/solvedac-ud-full.png)](https://solvedac.github.io/unofficial-documentation)
 
