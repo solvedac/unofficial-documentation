@@ -317,7 +317,27 @@ paths:
                           short:
                             type: "string"
                             example: "임의 정밀도 / 큰 수 연산"
-
+  /problem/level:
+    get:
+      tags:
+        - 문제
+      summary: "각 레벨 별 문제 수 정보를 가져옵니다."
+      description: ""
+      responses:
+        200:
+          description: "서버가 반환에 성공한 경우입니다."
+          schema:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                level: 
+                  $ref: "#/definitions/Level"
+                count:
+                  type: "integer"
+                  format: "int64"
+                  description: "이 레벨의 문제 수입니다."
+                  example: 10
 definitions:
   Level:
     description: "Unrated부터 Ruby I까지를 0 ~ 31로 표현하는 문제 레벨입니다."
