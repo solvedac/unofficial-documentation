@@ -4,6 +4,7 @@ on:
     - cron:  '0 10 * * *'
   repository_dispatch:
     types: [update-swagger-ui]
+  workflow_dispatch:
 jobs:
   updateSwagger:
     runs-on: ubuntu-latest
