@@ -1,4 +1,4 @@
-# <img src="favicon.svg" height="32" /> @solvedac/<ins>unofficial</ins>-documentation
+# <sub><img src="favicon.svg" height="32" /></sub> @solvedac/<ins>unofficial</ins>-documentation
 
 [![banner](assets/solvedac-ud-full.png)](https://solvedac.github.io/unofficial-documentation)
 
