@@ -7,19 +7,21 @@ info: { title: "", version: "" }
 paths:
   Path:
     get:
-      tags:
-        - "문제"
       summary: "ID로 문제 가져오기"
       description: "해당하는 ID의 문제를 가져옵니다."
+      tags:
+        - 문제
+      operationId: getProblemById
       parameters:
         - name: "problemId"
-          in: "query"
-          type: "integer"
-          format: "int64"
           description: "문제 ID"
+          in: "query"
           required: true
+          schema:
+            type: "integer"
+            format: "int64"
       responses:
-        200:
+        "200":
           description: "서버가 반환에 성공한 경우입니다."
           content:
             application/json:

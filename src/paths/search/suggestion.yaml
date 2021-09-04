@@ -7,18 +7,22 @@ info: { title: "", version: "" }
 paths:
   Path:
     get:
-      tags:
-        - "기타"
       summary: "백준 문제 검색하기"
       description: "주어진 쿼리에 따라 백준 문제를 검색합니다."
+      tags:
+        - "기타"
+      operationId: getSearchAutoCompletion
+
       parameters:
         - name: "query"
           in: "query"
           description: "쿼리 문자열"
           required: true
-          type: "string"
+          schema:
+            type: "string"
+
       responses:
-        200:
+        "200":
           description: "서버가 반환에 성공한 경우입니다."
           content:
             application/json:

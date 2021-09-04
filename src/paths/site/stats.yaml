@@ -7,12 +7,14 @@ info: { title: "", version: "" }
 paths:
   Path:
     get:
-      tags:
-        - "기타"
       summary: "solved.ac 통계 가져오기"
       description: "solved.ac 통계를 가져옵니다."
+      tags:
+        - "기타"
+      operationId: getSiteStats
+
       responses:
-        200:
+        "200":
           description: "서버가 반환에 성공한 경우입니다."
           content:
             application/json:
