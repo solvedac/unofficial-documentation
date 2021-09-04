@@ -2,59 +2,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <title>Swagger UI</title>
-    <link rel="stylesheet" type="text/css" href="dist/swagger-ui.css" />
-    <link rel="icon" type="image/png" href="dist/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="dist/favicon-16x16.png" sizes="16x16" />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>@solvedac/unofficial-documentation</title>
+    <link rel="icon" type="svg" href="favicon.svg" />
+    <script src="https://unpkg.com/@stoplight/elements/web-components.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@stoplight/elements/styles.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
     <style>
-      html
-      {
-        box-sizing: border-box;
-        overflow: -moz-scrollbars-vertical;
-        overflow-y: scroll;
-      }
-
-      *,
-      *:before,
-      *:after
-      {
-        box-sizing: inherit;
-      }
-
-      body
-      {
-        margin:0;
-        background: #fafafa;
+      :root {
+        --font-prose: Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+          Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
+          'Noto Sans KR', 'Malgun Gothic', sans-serif;
+        --font-ui: Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+          Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
+          'Noto Sans KR', 'Malgun Gothic', sans-serif;
       }
     </style>
   </head>
 
   <body>
-    <div id="swagger-ui"></div>
-
-    <script src="dist/swagger-ui-bundle.js" charset="UTF-8"> </script>
-    <script src="dist/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
-    <script>
-    window.onload = function() {
-      // Begin Swagger UI call region
-      const ui = SwaggerUIBundle({
-        url: "swagger.yaml",
-        dom_id: '#swagger-ui',
-        deepLinking: true,
-        presets: [
-          SwaggerUIBundle.presets.apis,
-          SwaggerUIStandalonePreset
-        ],
-        plugins: [
-          SwaggerUIBundle.plugins.DownloadUrl
-        ],
-        layout: "StandaloneLayout"
-      });
-      // End Swagger UI call region
-
-      window.ui = ui;
-    };
-  </script>
+    <elements-api
+      apiDescriptionUrl="openapi.yaml"
+      router="hash"
+      logo="./favicon.svg"
+    />
   </body>
 </html>

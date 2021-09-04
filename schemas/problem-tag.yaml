@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+components:
+  schemas:
+    Schema:
+      type: "object"
+      properties:
+        key:
+          description: "태그의 ID입니다."
+          type: "string"
+          example: "arbitrary_precision"
+        isMeta:
+          type: "boolean"
+          example: false
+        bojTagId:
+          description: "BOJ에서 사용되는 이 태그의 ID입니다."
+          type: "integer"
+          format: "int64"
+          example: 117
+        problemCount:
+          description: "이 태그를 포함하는 문제의 수입니다."
+          type: "integer"
+          format: "int64"
+          example: 113
+        displayNames:
+          description: "언어별 태그의 이름 목록입니다."
+          type: "array"
+          items:
+            type: "object"
+            properties:
+              language:
+                $ref: "./language.yaml#/components/schemas/Schema"
+              name:
+                description: "태그의 이름입니다."
+                type: "string"
+                example: "임의 정밀도 / 큰 수 연산"
+              short:
+                type: "string"
+                description: "태그의 짧은 이름입니다."
+                example: "임의 정밀도 / 큰 수 연산"

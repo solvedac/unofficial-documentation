@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+paths:
+  Path:
+    patch:
+      tags:
+        - "계정"
+      summary: "계정 설정 변경하기"
+      description: "계정의 설정을 변경합니다."
+      security:
+        - solvedacToken: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                key:
+                  description: "업데이트할 설정의 이름입니다."
+                  type: "string"
+                  example: "twitterPostOnClassIncrease"
+                value:
+                  description: "업데이트할 설정의 새로운 값입니다."
+                  example: "true"
+      responses:
+        403:
+          description: "solvedacToken이 올바르지 않은 경우입니다."
+        204:
+          description: "서버가 반환에 성공한 경우입니다."

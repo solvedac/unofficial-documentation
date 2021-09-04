@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+components:
+  schemas:
+    Schema:
+      type: "integer"
+      format: "int64"
+      description: |
+        Unrated를 0, Bronze V를 1, ... Ruby II를 29, Ruby I을 30으로 표현하는 문제 레벨입니다.
+        자세한 값 정보는 표1. 수치 - 이름 표를 펼쳐 참고하십시오.
+
+        <details>
+          <summary>
+            표1. 수치 - 이름 표
+          </summary>
+
+          | 수치 | 이름         |
+          | ---: | ------------ |
+          |    0 | Unrated      |
+          |    1 | Bronze V     |
+          |    2 | Bronze IV    |
+          |    3 | Bronze III   |
+          |    4 | Bronze II    |
+          |    5 | Bronze I     |
+          |    6 | Silver V     |
+          |    7 | Silver IV    |
+          |    8 | Silver III   |
+          |    9 | Silver II    |
+          |   10 | Silver I     |
+          |   11 | Gold V       |
+          |   12 | Gold IV      |
+          |   13 | Gold III     |
+          |   14 | Gold II      |
+          |   15 | Gold I       |
+          |   16 | Platinum V   |
+          |   17 | Platinum IV  |
+          |   18 | Platinum III |
+          |   19 | Platinum II  |
+          |   20 | Platinum I   |
+          |   21 | Diamond V    |
+          |   22 | Diamond IV   |
+          |   23 | Diamond III  |
+          |   24 | Diamond II   |
+          |   25 | Diamond I    |
+          |   26 | Ruby V       |
+          |   27 | Ruby IV      |
+          |   28 | Ruby III     |
+          |   29 | Ruby II      |
+          |   30 | Ruby I       |
+
+        </details>

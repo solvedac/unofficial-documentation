@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+components:
+  schemas:
+    Schema:
+      description: "난이도 아이콘 표시 정책입니다."
+      type: "string"
+      enum:
+        - default
+        - hide-warn
+        - hide
