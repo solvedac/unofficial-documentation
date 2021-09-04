@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+components:
+  securitySchemes:
+    SecurityScheme:
+      type: apiKey
+      in: cookie
+      name: solvedacToken
+      description: "JWT로 인코드된 solved.ac 토큰입니다."

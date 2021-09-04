@@ -6,25 +6,25 @@
 
 ## 문서 작성 방법
 
-현재 이 프로젝트는 루트에 있는 `swagger.yaml` 하나만 편집하고 있습니다. API Route를 문서화하기 위해서는 해당 파일을 수정하면 됩니다. 문서 안에서 말투는 기본적으로 하십시오체를 사용합니다. 내용은 간결하고 알아듣기 쉽게 작성하도록 합니다.
+API를 문서화하기 위해서는 paths/나 schemas/ 아래 파일을 수정·추가하면 됩니다. 문서 안에서 말투는 기본적으로 하십시오체를 사용하며, `paths` 내부 `summary`는 -하기로 끝냅니다. 내용을 작성할 때에는 간결하고 알아듣기 쉽게 작성하도록 합니다.
 
 ### 개발 서버 가동
 
 프로젝트 루트 폴더 속 정적 파일을 HTTP로 제공하면 됩니다. 그 방법은 여러가지가 있을 수 있으나, 여기서는 다음 방법만 설명하도록 합니다.
 
-#### (npm/yarn) serve 이용
+#### (npm/yarn) servor 이용
 
 1. serve를 설치하세요.
 
     ```sh
-    npm install -g serve
-    yarn global add serve
+    npm install -g servor
+    yarn global add servor
     ```
 
 2. 프로젝트 루트 폴더에서 다음 명령어를 실행하세요.
 
     ```sh
-    serve -s --cors
+    servor --reload
     ```
 
 ## Pull Request 절차
