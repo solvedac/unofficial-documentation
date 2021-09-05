@@ -23,7 +23,7 @@ components:
           type: "string"
           enum: ["community", "university", "company", "high_school"]
         rating:
-          descripton: "조직의 레이팅입니다."
+          description: "조직의 레이팅입니다."
           type: "integer"
           format: "int64"
           example: 2321

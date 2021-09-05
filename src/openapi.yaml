@@ -24,6 +24,8 @@ servers:
   - url: https://solved.ac/api/v3
 
 tags:
+  - name: "검색"
+    description: "검색과 관련이 있는 API입니다"
   - name: "계정"
     description: "계정과 관련이 있는 API입니다"
   - name: "문제"
@@ -42,8 +44,14 @@ paths:
     $ref: "./paths/problem/show.yaml#/paths/Path"
   /problem/level:
     $ref: "./paths/problem/level.yaml#/paths/Path"
+  /search/problem:
+    $ref: "./paths/search/problem.yaml#/paths/Path"
   /search/suggestion:
     $ref: "./paths/search/suggestion.yaml#/paths/Path"
+  /search/tag:
+    $ref: "./paths/search/tag.yaml#/paths/Path"
+  /search/user:
+    $ref: "./paths/search/user.yaml#/paths/Path"
   /site/stats:
     $ref: "./paths/site/stats.yaml#/paths/Path"
   /user/problem_stats.yaml:
@@ -58,12 +66,16 @@ components:
       $ref: "./schemas/icon-scheme.yaml#/components/schemas/Schema"
     Language:
       $ref: "./schemas/language.yaml#/components/schemas/Schema"
+    TaggedProblem:
+      $ref: "./schemas/tagged-problem.yaml#/components/schemas/Schema"
     Problem:
       $ref: "./schemas/problem.yaml#/components/schemas/Schema"
     ProblemLevel:
       $ref: "./schemas/problem-level.yaml#/components/schemas/Schema"
     ProblemTag:
       $ref: "./schemas/problem-tag.yaml#/components/schemas/Schema"
+    RankedUser:
+      $ref: "./schemas/ranked-user.yaml#/components/schemas/Schema"
     Settings:
       $ref: "./schemas/settings.yaml#/components/schemas/Schema"
     User:

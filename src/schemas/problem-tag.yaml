@@ -17,7 +17,7 @@ components:
           type: "boolean"
           example: false
         bojTagId:
-          description: "BOJ에서 사용되는 이 태그의 ID입니다."
+          description: "백준에서 사용되는 이 태그의 ID입니다."
           type: "integer"
           format: "int64"
           example: 117
@@ -42,3 +42,13 @@ components:
                 type: "string"
                 description: "태그의 짧은 이름입니다."
                 example: "임의 정밀도 / 큰 수 연산"
+        aliases:
+          description: "태그의 별칭입니다."
+          type: "array"
+          items:
+            type: "object"
+            properties:
+              alias:
+                description: "별칭입니다."
+                type: "string"
+                example: "bigdecimal"

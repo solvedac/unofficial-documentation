@@ -7,6 +7,8 @@ info: { title: "", version: "" }
 components:
   schemas:
     Schema:
+      description: |
+        사용자 정보입니다.
       type: "object"
       properties:
         handle:

@@ -48,8 +48,3 @@ components:
           description: "평균 시도 횟수입니다."
           type: "number"
           example: 28.8413
-        tags:
-          description: "태그 목록입니다."
-          type: "array"
-          items:
-            $ref: "./problem-tag.yaml#/components/schemas/Schema"

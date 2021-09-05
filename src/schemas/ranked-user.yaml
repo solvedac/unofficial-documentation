@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+components:
+  schemas:
+    Schema:
+      description: |
+        사용자 정보입니다.
+      allOf:
+        - $ref: "./user.yaml#/components/schemas/Schema"
+        - type: "object"
+          properties:
+            rank:
+              description: "사용자의 순위입니다."
+              type: "integer"
+              format: "int64"

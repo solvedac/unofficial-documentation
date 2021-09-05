@@ -26,4 +26,4 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../../schemas/problem.yaml#/components/schemas/Schema"
+                $ref: "../../schemas/tagged-problem.yaml#/components/schemas/Schema"
