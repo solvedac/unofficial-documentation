@@ -7,8 +7,8 @@ info: { title: "", version: "" }
 paths:
   Path:
     get:
-      summary: "백준 문제 검색하기"
-      description: "주어진 쿼리에 따라 백준 문제를 검색합니다."
+      summary: "문제 검색 자동완성 구하기"
+      description: "주어진 쿼리에 따라 문제를 검색해보고, 자동 완성에 적합하도록 가공한 정보를 돌려줍니다."
       tags:
         - "기타"
       operationId: getSearchAutoCompletion
