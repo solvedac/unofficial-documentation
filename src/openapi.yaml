@@ -36,14 +36,44 @@ tags:
     description: "아직 분류하지 못한 API입니다"
 
 paths:
+  /account/redeem:
+    post:
+      description: "TODO"
   /account/update_settings:
     $ref: "./paths/account/update_settings.yaml#/paths/Path"
   /account/verify_credentials:
     $ref: "./paths/account/verify_credentials.yaml#/paths/Path"
+  /post/show:
+    get:
+      description: "TODO"
+  /problem/class:
+    get:
+      description: "TODO"
   /problem/show:
     $ref: "./paths/problem/show.yaml#/paths/Path"
   /problem/level:
     $ref: "./paths/problem/level.yaml#/paths/Path"
+  /ranking/tier:
+    get:
+      description: "TODO"
+  /ranking/class:
+    get:
+      description: "TODO"
+  /ranking/streak:
+    get:
+      description: "TODO"
+  /ranking/contribution:
+    get:
+      description: "TODO"
+  /ranking/rival:
+    get:
+      description: "TODO"
+  /ranking/reverse_rival:
+    get:
+      description: "TODO"
+  /ranking/organization:
+    get:
+      description: "TODO"
   /search/problem:
     $ref: "./paths/search/problem.yaml#/paths/Path"
   /search/suggestion:
@@ -54,8 +84,23 @@ paths:
     $ref: "./paths/search/user.yaml#/paths/Path"
   /site/stats:
     $ref: "./paths/site/stats.yaml#/paths/Path"
-  /user/problem_stats.yaml:
+  /tag/list:
+    get:
+      description: "TODO"
+  /user/class_stats:
+    get:
+      description: "TODO"
+  /user/contribution_stats:
+    get:
+      description: "TODO"
+  /user/problem_stats:
     $ref: "./paths/user/problem_stats.yaml#/paths/Path"
+  /user/problem_tag_stats:
+    get:
+      description: "TODO"
+  /user/show:
+    get:
+      description: "TODO"
 
 components:
   securitySchemes:
