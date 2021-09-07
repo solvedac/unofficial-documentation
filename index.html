@@ -33,9 +33,24 @@
 
   <body>
     <elements-api
+      id="elements"
       apiDescriptionUrl="src/openapi.yaml"
       router="hash"
       logo="./favicon.svg"
     />
   </body>
+
+  <script>
+    const elements = document.getElementById('elements');
+
+    function updateLayout() {
+      if (window.innerWidth <= 1200) {
+        elements.layout = 'stacked';
+      } else {
+        elements.layout = 'sidebar';
+      }
+    }
+
+    window.addEventListener('resize', updateLayout);
+  </script>
 </html>

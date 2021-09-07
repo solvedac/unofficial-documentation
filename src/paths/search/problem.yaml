@@ -10,7 +10,7 @@ paths:
       summary: "문제 검색하기"
       description: "주어진 쿼리에 따라 문제를 검색합니다."
       tags:
-        - "검색"
+        - search
       operationId: searchProblem
 
       parameters:

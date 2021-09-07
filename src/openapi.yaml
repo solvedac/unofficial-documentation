@@ -4,7 +4,7 @@ openapi: "3.1.0"
 
 info:
   title: "@solvedac/unofficial-documentation"
-  version: "3.2021.09+b1"
+  version: "3.2021.09+b2"
   description: |
     이 프로젝트는 [solved.ac](https://solved.ac/) API를 문서화하는 커뮤니티 프로젝트입니다.
     이 저장소는 원작자의 요청에 따라 언제든 지워질 수 있으며, 현재 API와 일치하지 않을 수도 있는 점 양해 부탁드립니다.
@@ -24,16 +24,16 @@ servers:
   - url: https://solved.ac/api/v3
 
 tags:
-  - name: "검색"
-    description: "검색과 관련이 있는 API입니다"
-  - name: "계정"
+  - name: "account"
     description: "계정과 관련이 있는 API입니다"
-  - name: "문제"
-    description: "문제와 관련이 있는 API입니다"
-  - name: "사용자"
-    description: "사용자와 관련이 있는 API입니다"
-  - name: "기타"
+  - name: "other"
     description: "아직 분류하지 못한 API입니다"
+  - name: "problem"
+    description: "문제와 관련이 있는 API입니다"
+  - name: "search"
+    description: "검색과 관련이 있는 API입니다"
+  - name: "user"
+    description: "사용자와 관련이 있는 API입니다"
 
 paths:
   /account/redeem:

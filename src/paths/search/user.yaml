@@ -10,7 +10,7 @@ paths:
       summary: "사용자 검색하기"
       description: "주어진 쿼리에 따라 사용자를 검색합니다."
       tags:
-        - "검색"
+        - search
       operationId: searchUser
 
       parameters:

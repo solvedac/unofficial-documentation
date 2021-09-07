@@ -10,7 +10,7 @@ paths:
       summary: 수준별 문제 수 가져오기
       description: 문제 개수를 문제 수준별로 가져옵니다.
       tags:
-        - 문제
+        - problem
       operationId: getProblemLevel
 
       responses:

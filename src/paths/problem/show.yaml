@@ -10,7 +10,7 @@ paths:
       summary: "ID로 문제 가져오기"
       description: "해당하는 ID의 문제를 가져옵니다."
       tags:
-        - 문제
+        - problem
       operationId: getProblemById
       parameters:
         - name: "problemId"
