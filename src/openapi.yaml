@@ -56,24 +56,45 @@ paths:
   /ranking/tier:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /ranking/class:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /ranking/streak:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /ranking/contribution:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /ranking/rival:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /ranking/reverse_rival:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /ranking/organization:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /search/problem:
     $ref: "./paths/search/problem.yaml#/paths/Path"
   /search/suggestion:
@@ -87,20 +108,35 @@ paths:
   /tag/list:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /user/class_stats:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /user/contribution_stats:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /user/problem_stats:
     $ref: "./paths/user/problem_stats.yaml#/paths/Path"
   /user/problem_tag_stats:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /user/show:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
 
 components:
   securitySchemes:
