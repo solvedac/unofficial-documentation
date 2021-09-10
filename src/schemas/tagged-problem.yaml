@@ -6,7 +6,7 @@ info: { title: "", version: "" }
 
 components:
   schemas:
-    Schema:
+    TaggedProblem:
       title: TaggedProblem
       description: |
         문제 정보입니다.

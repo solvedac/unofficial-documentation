@@ -159,7 +159,7 @@ components:
     Language:
       $ref: "./schemas/language.yaml#/components/schemas/Language"
     TaggedProblem:
-      $ref: "./schemas/tagged-problem.yaml#/components/schemas/Schema"
+      $ref: "./schemas/tagged-problem.yaml#/components/schemas/TaggedProblem"
     Organization:
       $ref: "./schemas/organization.yaml#/components/schemas/Organization"
     Problem:
