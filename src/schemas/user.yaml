@@ -10,6 +10,26 @@ components:
       description: |
         사용자 정보입니다.
       type: "object"
+      required:
+        - handle
+        - bio
+        - organizations
+        - background
+        - profileImageUrl
+        - solvedCount
+        - voteCount
+        - exp
+        - tier
+        - rating
+        - ratingByProblemsSum
+        - ratingByClass
+        - ratingBySolvedCount
+        - ratingByVoteCount
+        - class
+        - classDecoration
+        - rivalCount
+        - reverseRivalCount
+        - maxStreak
       properties:
         handle:
           description: "사용자명입니다."
@@ -25,26 +45,9 @@ components:
           items:
             $ref: "./organization.yaml#/components/schemas/Schema"
         badge:
-          description: "사용자의 배지입니다."
-          type: "object"
-          nullable: true
-          properties:
-            badgeId:
-              description: "배지의 ID입니다."
-              type: "string"
-              example: "anniversary_1st"
-            badgeImageUrl:
-              description: "배지 사진으로 가는 하이퍼링크입니다."
-              type: "string"
-              example: "https://static.solved.ac/profile_badge/anniversary_1st.png"
-            displayName:
-              description: "배지의 이름입니다."
-              type: "string"
-              example: "1솔브"
-            displayDescription:
-              description: "배지의 설명입니다."
-              type: "string"
-              example: "solved.ac의 1주년과 함께했다"
+          allOf:
+            - $ref: "./badge.yaml#/components/schemas/Schema"
+            - description: "사용자가 지금 사용 중인 뱃지입니다."
         background:
           description: "사용자의 배경 사진입니다."
           type: "object"

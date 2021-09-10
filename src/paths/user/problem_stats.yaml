@@ -32,7 +32,9 @@ paths:
                   type: "object"
                   properties:
                     level:
-                      $ref: "../../schemas/problem-level.yaml#/components/schemas/Schema"
+                      allOf:
+                        - $ref: "../../schemas/problem-level.yaml#/components/schemas/Schema"
+                        - description: "문제 수준입니다."
                     total:
                       description: "solved.ac에 등록된 해당 레벨의 문제 수입니다."
                       type: "integer"

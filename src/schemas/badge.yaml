@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+components:
+  schemas:
+    Schema:
+      description: |
+        사용자가 사용할 수 있는 뱃지입니다.
+      type: "object"
+      required:
+        - badgeId
+        - badgeImageUrl
+        - displayName
+        - displayDescription
+      properties:
+        badgeId:
+          description: "뱃지의 ID입니다."
+          type: "string"
+          example: "anniversary_1st"
+        badgeImageUrl:
+          description: "뱃지 사진으로 가는 하이퍼링크입니다."
+          type: "string"
+          example: "https://static.solved.ac/profile_badge/anniversary_1st.png"
+        displayName:
+          description: "뱃지의 이름입니다."
+          type: "string"
+          example: "1솔브"
+        displayDescription:
+          description: "뱃지의 설명입니다."
+          type: "string"
+          example: "solved.ac의 1주년과 함께했다"

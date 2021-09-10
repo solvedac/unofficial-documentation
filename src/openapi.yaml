@@ -152,6 +152,8 @@ components:
     solvedacToken:
       $ref: "./security-schemes/auth.yaml#/components/securitySchemes/SecurityScheme"
   schemas:
+    Badge:
+      $ref: "./schemas/badge.yaml#/components/schemas/Schema"
     IconScheme:
       $ref: "./schemas/icon-scheme.yaml#/components/schemas/Schema"
     Language:

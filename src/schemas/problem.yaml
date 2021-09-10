@@ -34,7 +34,9 @@ components:
           format: "int64"
           example: 189
         level:
-          $ref: "./problem-level.yaml#/components/schemas/Schema"
+          allOf:
+            - $ref: "./problem-level.yaml#/components/schemas/Schema"
+            - description: "문제 수준입니다."
         votedUserCount:
           description: "난이도 기여자의 수입니다."
           type: "integer"
