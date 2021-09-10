@@ -13,6 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Override OpenAPI Version to 3.0.x (generator doe snot support 3.1)
+        run: |
+          for file in `find src -type f`; do
+            sed -i 's/openapi: "3.1.0"/openapi: "3.0.0"/' $file
+          done
       - uses: stoplightio/spectral-action@v0.7.3
         with:
           file_glob: "src/*.yaml"
