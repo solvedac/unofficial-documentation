@@ -24,9 +24,7 @@ paths:
                   type: "object"
                   properties:
                     level:
-                      allOf:
-                        - $ref: "../../schemas/problem-level.yaml#/components/schemas/Schema"
-                        - description: "문제 수준입니다."
+                      $ref: "../../schemas/problem-level.yaml#/components/schemas/Schema"
                     count:
                       type: "integer"
                       format: "int64"
