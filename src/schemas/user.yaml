@@ -45,9 +45,8 @@ components:
           items:
             $ref: "./organization.yaml#/components/schemas/Schema"
         badge:
-          allOf:
-            - $ref: "./badge.yaml#/components/schemas/Schema"
-            - description: "사용자가 지금 사용 중인 뱃지입니다."
+          description: "사용자가 지금 사용 중인 뱃지입니다."
+          $ref: "./badge.yaml#/components/schemas/Schema"
         background:
           description: "사용자의 배경 사진입니다."
           type: "object"

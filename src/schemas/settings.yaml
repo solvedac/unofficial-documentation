@@ -15,17 +15,17 @@ components:
           type: "string"
           enum: ["default", "light", "dark", "black"]
         tagDisplayLanguage:
-          description: "태그 이름을 나타낼 때 사용할 언어입니다."
           allOf:
             - $ref: "./language.yaml#/components/schemas/Schema"
+            - description: "태그 이름을 나타낼 때 사용할 언어입니다."
         iconSchemeSolved:
-          description: "해결한 문제의 난이도 아이콘입니다."
           allOf:
             - $ref: "./icon-scheme.yaml#/components/schemas/Schema"
+            - description: "해결한 문제의 난이도 아이콘입니다."
         iconSchemeNotSolved:
-          description: "해결하지 못한 문제의 난이도 아이콘입니다."
           allOf:
             - $ref: "./icon-scheme.yaml#/components/schemas/Schema"
+            - description: "해결하지 못한 문제의 난이도 아이콘입니다."
         problemSortBy:
           description: "문제 목록의 기본 정렬 순서입니다."
           type: "string"
