@@ -1,5 +1,7 @@
 # <sub><img src="favicon.svg" height="32" /></sub> @solvedac/<ins>unofficial</ins>-documentation
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/solvedac/unofficial-documentation/lint?label=code+quality+check&style=for-the-badge)
+
 [![banner](assets/solvedac-ud-full.png)](https://solvedac.github.io/unofficial-documentation)
 
 > [접속하기](https://solvedac.github.io/unofficial-documentation)
