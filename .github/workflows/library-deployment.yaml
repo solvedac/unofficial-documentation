@@ -17,6 +17,6 @@ jobs:
       - name: Invoke Workflow
         uses: benc-uk/workflow-dispatch@v1
         with:
-          workflow: Deployment
+          workflow: Follow Up
           token: ${{ secrets.WORKFLOW_DISPATCH }}
           repo: ${{ matrix.repo }}
