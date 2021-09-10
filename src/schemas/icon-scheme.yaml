@@ -7,6 +7,7 @@ info: { title: "", version: "" }
 components:
   schemas:
     Schema:
+      title: IconScheme
       description: "난이도 아이콘 표시 정책입니다."
       type: "string"
       enum:

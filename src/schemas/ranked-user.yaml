@@ -7,6 +7,7 @@ info: { title: "", version: "" }
 components:
   schemas:
     Schema:
+      title: RankedUser
       description: |
         사용자 정보입니다.
       allOf:

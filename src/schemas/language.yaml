@@ -7,6 +7,7 @@ info: { title: "", version: "" }
 components:
   schemas:
     Schema:
+      title: Language
       description: "언어입니다."
       type: "string"
       enum:
