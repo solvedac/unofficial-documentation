@@ -43,4 +43,4 @@ paths:
                     description: "찾은 사용자 목록입니다."
                     type: "array"
                     items:
-                      $ref: "../../schemas/ranked-user.yaml#/components/schemas/Schema"
+                      $ref: "../../schemas/ranked-user.yaml#/components/schemas/RankedUser"

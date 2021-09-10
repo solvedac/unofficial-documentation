@@ -6,12 +6,12 @@ info: { title: "", version: "" }
 
 components:
   schemas:
-    Schema:
+    RankedUser:
       title: RankedUser
       description: |
         사용자 정보입니다.
       allOf:
-        - $ref: "./user.yaml#/components/schemas/Schema"
+        - $ref: "./user.yaml#/components/schemas/User"
         - type: "object"
           properties:
             rank:

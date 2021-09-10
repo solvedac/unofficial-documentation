@@ -6,7 +6,7 @@ info: { title: "", version: "" }
 
 components:
   schemas:
-    Schema:
+    User:
       title: User
       description: |
         사용자 정보입니다.
@@ -44,10 +44,10 @@ components:
           description: "사용자가 속한 조직 목록입니다."
           type: "array"
           items:
-            $ref: "./organization.yaml#/components/schemas/Schema"
+            $ref: "./organization.yaml#/components/schemas/Organization"
         badge:
           description: "사용자가 지금 사용 중인 뱃지입니다."
-          $ref: "./badge.yaml#/components/schemas/Schema"
+          $ref: "./badge.yaml#/components/schemas/Badge"
         background:
           description: "사용자의 배경 사진입니다."
           type: "object"
@@ -97,7 +97,7 @@ components:
           format: "int64"
           example: 498605585
         tier:
-          $ref: "./user-tier.yaml#/components/schemas/Schema"
+          $ref: "./user-tier.yaml#/components/schemas/UserTier"
         rating:
           description: "사용자의 레이팅입니다."
           type: "integer"

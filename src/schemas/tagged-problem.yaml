@@ -11,11 +11,11 @@ components:
       description: |
         문제 정보입니다.
       allOf:
-        - $ref: "./problem.yaml#/components/schemas/Schema"
+        - $ref: "./problem.yaml#/components/schemas/Problem"
         - type: "object"
           properties:
             tags:
               description: "태그 목록입니다."
               type: "array"
               items:
-                $ref: "./problem-tag.yaml#/components/schemas/Schema"
+                $ref: "./problem-tag.yaml#/components/schemas/ProblemTag"

@@ -6,7 +6,7 @@ info: { title: "", version: "" }
 
 components:
   schemas:
-    Schema:
+    Problem:
       title: Problem
       type: "object"
       description: |
@@ -35,7 +35,7 @@ components:
           format: "int64"
           example: 189
         level:
-          $ref: "./problem-level.yaml#/components/schemas/Schema"
+          $ref: "./problem-level.yaml#/components/schemas/ProblemLevel"
         votedUserCount:
           description: "난이도 기여자의 수입니다."
           type: "integer"

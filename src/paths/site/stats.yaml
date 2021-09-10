@@ -19,4 +19,4 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "../../schemas/solvedac-statistics.yaml#/components/schemas/Schema"
+                $ref: "../../schemas/solvedac-statistics.yaml#/components/schemas/SolvedAcStatistics"

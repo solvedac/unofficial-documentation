@@ -6,7 +6,7 @@ info: { title: "", version: "" }
 
 components:
   schemas:
-    Schema:
+    SolvedAcStatistics:
       title: SolvedAcStatistics
       type: "object"
       properties:

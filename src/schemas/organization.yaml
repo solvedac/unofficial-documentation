@@ -6,7 +6,7 @@ info: { title: "", version: "" }
 
 components:
   schemas:
-    Schema:
+    Organization:
       title: Organization
       type: "object"
       properties:

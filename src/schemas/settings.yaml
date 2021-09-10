@@ -6,7 +6,7 @@ info: { title: "", version: "" }
 
 components:
   schemas:
-    Schema:
+    Settings:
       title: Settings
       description: "사용자의 solved.ac 설정 정보입니다."
       type: "object"
@@ -17,15 +17,15 @@ components:
           enum: ["default", "light", "dark", "black"]
         tagDisplayLanguage:
           allOf:
-            - $ref: "./language.yaml#/components/schemas/Schema"
+            - $ref: "./language.yaml#/components/schemas/Language"
             - description: "태그 이름을 나타낼 때 사용할 언어입니다."
         iconSchemeSolved:
           allOf:
-            - $ref: "./icon-scheme.yaml#/components/schemas/Schema"
+            - $ref: "./icon-scheme.yaml#/components/schemas/IconScheme"
             - description: "해결한 문제의 난이도 아이콘입니다."
         iconSchemeNotSolved:
           allOf:
-            - $ref: "./icon-scheme.yaml#/components/schemas/Schema"
+            - $ref: "./icon-scheme.yaml#/components/schemas/IconScheme"
             - description: "해결하지 못한 문제의 난이도 아이콘입니다."
         problemSortBy:
           description: "문제 목록의 기본 정렬 순서입니다."

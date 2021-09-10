@@ -44,7 +44,7 @@ paths:
                     description: "찾은 문제 목록입니다."
                     type: "array"
                     items:
-                      $ref: "../../schemas/problem.yaml#/components/schemas/Schema"
+                      $ref: "../../schemas/problem.yaml#/components/schemas/Problem"
                   problemCount:
                     description: "찾은 문제 수입니다."
                     type: "integer"
@@ -54,7 +54,7 @@ paths:
                     description: "찾은 사용자 목록입니다."
                     type: "array"
                     items:
-                      $ref: "../../schemas/user.yaml#/components/schemas/Schema"
+                      $ref: "../../schemas/user.yaml#/components/schemas/User"
                   userCount:
                     description: "찾은 사용자 수입니다."
                     type: "integer"
@@ -64,7 +64,7 @@ paths:
                     description: "찾은 태그 목록입니다."
                     type: "array"
                     items:
-                      $ref: "../../schemas/problem-tag.yaml#/components/schemas/Schema"
+                      $ref: "../../schemas/problem-tag.yaml#/components/schemas/ProblemTag"
                   tagCount:
                     description: "찾은 태그 수입니다."
                     type: "integer"

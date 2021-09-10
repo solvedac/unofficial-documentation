@@ -153,24 +153,28 @@ components:
       $ref: "./security-schemes/auth.yaml#/components/securitySchemes/SecurityScheme"
   schemas:
     Badge:
-      $ref: "./schemas/badge.yaml#/components/schemas/Schema"
+      $ref: "./schemas/badge.yaml#/components/schemas/Badge"
     IconScheme:
-      $ref: "./schemas/icon-scheme.yaml#/components/schemas/Schema"
+      $ref: "./schemas/icon-scheme.yaml#/components/schemas/IconScheme"
     Language:
-      $ref: "./schemas/language.yaml#/components/schemas/Schema"
+      $ref: "./schemas/language.yaml#/components/schemas/Language"
     TaggedProblem:
       $ref: "./schemas/tagged-problem.yaml#/components/schemas/Schema"
+    Organization:
+      $ref: "./schemas/organization.yaml#/components/schemas/Organization"
     Problem:
-      $ref: "./schemas/problem.yaml#/components/schemas/Schema"
+      $ref: "./schemas/problem.yaml#/components/schemas/Problem"
     ProblemLevel:
-      $ref: "./schemas/problem-level.yaml#/components/schemas/Schema"
+      $ref: "./schemas/problem-level.yaml#/components/schemas/ProblemLevel"
     ProblemTag:
-      $ref: "./schemas/problem-tag.yaml#/components/schemas/Schema"
+      $ref: "./schemas/problem-tag.yaml#/components/schemas/ProblemTag"
     RankedUser:
-      $ref: "./schemas/ranked-user.yaml#/components/schemas/Schema"
+      $ref: "./schemas/ranked-user.yaml#/components/schemas/RankedUser"
     Settings:
-      $ref: "./schemas/settings.yaml#/components/schemas/Schema"
+      $ref: "./schemas/settings.yaml#/components/schemas/Settings"
+    SolvedAcStatistics:
+      $ref: "./schemas/solvedac-statistics.yaml#/components/schemas/SolvedAcStatistics"
     User:
-      $ref: "./schemas/user.yaml#/components/schemas/Schema"
+      $ref: "./schemas/user.yaml#/components/schemas/User"
     UserTier:
-      $ref: "./schemas/user-tier.yaml#/components/schemas/Schema"
+      $ref: "./schemas/user-tier.yaml#/components/schemas/UserTier"

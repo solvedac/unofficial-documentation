@@ -6,7 +6,7 @@ info: { title: "", version: "" }
 
 components:
   schemas:
-    Schema:
+    ProblemLevel:
       title: ProblemLevel
       type: "integer"
       format: "int64"

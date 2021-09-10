@@ -6,7 +6,7 @@ info: { title: "", version: "" }
 
 components:
   schemas:
-    Schema:
+    UserTier:
       title: UserTier
       type: "integer"
       format: "int64"

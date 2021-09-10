@@ -6,7 +6,7 @@ info: { title: "", version: "" }
 
 components:
   schemas:
-    Schema:
+    ProblemTag:
       title: ProblemTag
       type: "object"
       properties:
@@ -34,7 +34,7 @@ components:
             type: "object"
             properties:
               language:
-                $ref: "./language.yaml#/components/schemas/Schema"
+                $ref: "./language.yaml#/components/schemas/Language"
               name:
                 description: "태그의 이름입니다."
                 type: "string"

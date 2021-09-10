@@ -43,4 +43,4 @@ paths:
                     description: "찾은 태그 목록입니다."
                     type: "array"
                     items:
-                      $ref: "../../schemas/problem-tag.yaml#/components/schemas/Schema"
+                      $ref: "../../schemas/problem-tag.yaml#/components/schemas/ProblemTag"

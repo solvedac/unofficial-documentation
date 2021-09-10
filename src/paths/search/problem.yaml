@@ -93,4 +93,4 @@ paths:
                     description: "찾은 문제 목록입니다."
                     type: "array"
                     items:
-                      $ref: "../../schemas/problem.yaml#/components/schemas/Schema"
+                      $ref: "../../schemas/problem.yaml#/components/schemas/Problem"

@@ -6,7 +6,7 @@ info: { title: "", version: "" }
 
 components:
   schemas:
-    Schema:
+    Badge:
       title: Badge
       description: |
         사용자가 사용할 수 있는 뱃지입니다.

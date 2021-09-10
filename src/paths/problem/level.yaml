@@ -24,7 +24,7 @@ paths:
                   type: "object"
                   properties:
                     level:
-                      $ref: "../../schemas/problem-level.yaml#/components/schemas/Schema"
+                      $ref: "../../schemas/problem-level.yaml#/components/schemas/ProblemLevel"
                     count:
                       type: "integer"
                       format: "int64"
