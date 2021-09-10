@@ -39,6 +39,9 @@ paths:
   /account/redeem:
     post:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /account/update_settings:
     $ref: "./paths/account/update_settings.yaml#/paths/Path"
   /account/verify_credentials:
@@ -46,9 +49,15 @@ paths:
   /post/show:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /problem/class:
     get:
       description: "TODO"
+      responses:
+        "200":
+          description: "TODO"
   /problem/show:
     $ref: "./paths/problem/show.yaml#/paths/Path"
   /problem/level:
