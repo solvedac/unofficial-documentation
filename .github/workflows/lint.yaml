@@ -21,3 +21,18 @@ jobs:
       - uses: stoplightio/spectral-action@v0.7.3
         with:
           file_glob: "src/*.yaml"
+  library-deployment:
+    needs: [lint]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        repo:
+          - "solvedac/api.ts"
+          - "solvedac/api.rs"
+    steps:
+      - name: Invoke Workflow
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Follow Up
+          token: ${{ secrets.WORKFLOW_DISPATCH }}
+          repo: ${{ matrix.repo }}
