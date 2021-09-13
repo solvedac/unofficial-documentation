@@ -148,6 +148,8 @@ components:
     solvedacToken:
       $ref: "./security-schemes/auth.yaml#/components/securitySchemes/SecurityScheme"
   schemas:
+    ClassDecoration:
+      $ref: "./schemas/class-decoration.yaml#/components/schemas/ClassDecoration"
     Badge:
       $ref: "./schemas/badge.yaml#/components/schemas/Badge"
     FullUser:

@@ -130,8 +130,7 @@ components:
           example: 8
         classDecoration:
           description: "사용자가 취득한 Class의 수준입니다."
-          type: "string"
-          enum: ["none", "silver", "gold"]
+          $ref: "./class-decoration.yaml#/components/schemas/ClassDecoration"
         rivalCount:
           description: "사용자의 라이벌 수입니다."
           type: "integer"
