@@ -141,11 +141,7 @@ paths:
         "200":
           description: "TODO"
   /user/show:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
+    $ref: "./paths/user/show.yaml#/paths/Path"
 
 components:
   securitySchemes:
@@ -154,6 +150,8 @@ components:
   schemas:
     Badge:
       $ref: "./schemas/badge.yaml#/components/schemas/Badge"
+    FullUser:
+      $ref: "./schemas/full-user.yaml#/components/schemas/FullUser"
     IconScheme:
       $ref: "./schemas/icon-scheme.yaml#/components/schemas/IconScheme"
     Language:
