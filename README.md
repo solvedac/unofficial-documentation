@@ -13,3 +13,9 @@
 ## 기여하기
 
 [CONTRIBUTING.md](CONTRIBUTING.md)를 참조해주세요.
+
+### shiftpsh 님의 시간을 아낍시다
+
+![shiftpsh blog](assets/shiftpsh-blog.png)
+
+- [solved.ac 화이트리스트 관련 입장 (5/8)](https://blog.shift.moe/2020/05/08/solved-ac-%ed%99%94%ec%9d%b4%ed%8a%b8%eb%a6%ac%ec%8a%a4%ed%8a%b8-%ea%b4%80%eb%a0%a8-%ec%9e%85%ec%9e%a5-5-8/), 2020/05/08, Shifted
