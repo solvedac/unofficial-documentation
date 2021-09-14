@@ -11,9 +11,13 @@ components:
       description: |
         사용자 정보입니다.
       allOf:
-        - $ref: "./ranked-user.yaml#/components/schemas/RankedUser"
+        - $ref: "./user.yaml#/components/schemas/User"
         - type: "object"
           properties:
+            rank:
+              description: "사용자의 순위입니다."
+              type: "integer"
+              format: "int64"
             isRival:
               description: "라이벌 여부입니다."
               type: "boolean"
