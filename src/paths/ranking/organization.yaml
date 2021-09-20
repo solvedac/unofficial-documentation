@@ -37,4 +37,4 @@ paths:
                     description: "레이팅 순위로 정렬된 조직 목록입니다."
                     type: "array"
                     items:
-                      $ref: "../../schemas/user.yaml#/components/schemas/Organization"
+                      $ref: "../../schemas/organization.yaml#/components/schemas/Organization"
