@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+paths:
+  Path:
+    post:
+      summary: "코드 교환"
+      description: "리딤 코드와 배지, 배경 등을 교환합니다."
+      tags:
+        - account
+      operationId: redeemCode
+
+      security:
+        - solvedacToken: []
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: "object"
+              properties:
+                code:
+                  description: "리딤 코드입니다."
+                  type: "string"
+                  example: "R33D3MC0D3"
+
+      responses:
+        "404":
+          description: "리딤 코드가 올바르지 않은 경우입니다."
+        # TODO: 반환에 성공한 경우
