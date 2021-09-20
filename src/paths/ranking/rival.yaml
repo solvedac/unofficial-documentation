@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+paths:
+  Path:
+    get:
+      summary: "라이벌 순위 가져오기"
+      description: "현재 사용자의 라이벌 티어 순위를 가져옵니다."
+      tags:
+        - ranking
+      operationId: getRivalRanking
+
+      security:
+        - solvedacToken: []
+        
+      parameters:
+        - name: "page"
+          in: "query"
+          description: "페이지"
+          schema:
+            type: "number"
+
+      responses:
+        "403":
+          description: "solvedacToken이 올바르지 않은 경우입니다."
+        "200":
+          description: "서버가 반환에 성공한 경우입니다."
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  count:
+                    description: "순위가 배정된 라이벌의 수입니다."
+                    type: "integer"
+                    format: "int64"
+                    example: 26
+                  items:
+                    description: "티어 순위로 정렬된 라이벌 목록입니다."
+                    type: "array"
+                    items:
+                      $ref: "../../schemas/user.yaml#/components/schemas/User"

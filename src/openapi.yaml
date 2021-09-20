@@ -55,47 +55,19 @@ paths:
   /problem/level:
     $ref: "./paths/problem/level.yaml#/paths/Path"
   /ranking/tier:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
+    $ref: "./paths/ranking/tier.yaml#/paths/Path"
   /ranking/class:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
+    $ref: "./paths/ranking/class.yaml#/paths/Path"
   /ranking/streak:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
+    $ref: "./paths/ranking/streak.yaml#/paths/Path"
   /ranking/contribution:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
+    $ref: "./paths/ranking/contribution.yaml#/paths/Path"
   /ranking/rival:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
+    $ref: "./paths/ranking/rival.yaml#/paths/Path"
   /ranking/reverse_rival:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
+    $ref: "./paths/ranking/reverse_rival.yaml#/paths/Path"
   /ranking/organization:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
+    $ref: "./paths/ranking/organization.yaml#/paths/Path"
   /search/problem:
     $ref: "./paths/search/problem.yaml#/paths/Path"
   /search/suggestion:
