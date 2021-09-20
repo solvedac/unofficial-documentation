@@ -7,7 +7,7 @@ info: { title: "", version: "" }
 paths:
   Path:
     post:
-      summary: "코드 교환"
+      summary: "코드 교환하기"
       description: "리딤 코드와 배지, 배경 등을 교환합니다."
       tags:
         - account
@@ -29,6 +29,8 @@ paths:
                   example: "R33D3MC0D3"
 
       responses:
+        "403":
+          description: "solvedacToken이 올바르지 않은 경우입니다."
         "404":
           description: "리딤 코드가 올바르지 않은 경우입니다."
         # TODO: 반환에 성공한 경우

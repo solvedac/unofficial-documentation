@@ -7,15 +7,15 @@ info: { title: "", version: "" }
 paths:
   Path:
     get:
-      summary: CLASS별 문제 수 가져오기
-      description: 문제 개수를 문제 CLASS별로 가져옵니다.
+      summary: "CLASS별 문제 수 가져오기"
+      description: "문제 개수를 문제 CLASS별로 가져옵니다."
       tags:
         - problem
       operationId: getClassProblemCount
 
       responses:
         "200":
-          description: 서버가 반환에 성공한 경우입니다.
+          description: "서버가 반환에 성공한 경우입니다."
           content:
             application/json:
               schema:
