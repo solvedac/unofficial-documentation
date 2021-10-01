@@ -11,7 +11,7 @@ paths:
       description: "해당하는 ID의 문제 목록을 가져옵니다."
       tags:
         - problem
-      operationId: getProblemById
+      operationId: getProblemByIdArray
       parameters:
         - name: "problemIds"
           description: "쉼표로 구분한 문제 ID 목록"
