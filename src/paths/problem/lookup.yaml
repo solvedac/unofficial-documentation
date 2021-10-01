@@ -7,7 +7,7 @@ info: { title: "", version: "" }
 paths:
   Path:
     get:
-      summary: "ID로 문제 목록 가져오기"
+      summary: "ID 목록으로 문제 목록 가져오기"
       description: "해당하는 ID의 문제 목록을 가져옵니다."
       tags:
         - problem
@@ -18,8 +18,7 @@ paths:
           in: "query"
           required: true
           schema:
-            type: "integer"
-            format: "int64"
+            type: "string"
       responses:
         "200":
           description: "서버가 반환에 성공한 경우입니다."
