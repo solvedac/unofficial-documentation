@@ -50,6 +50,8 @@ paths:
           description: "TODO"
   /problem/class:
     $ref: "./paths/problem/class.yaml#/paths/Path"
+  /problem/lookup:
+    $ref: "./paths/problem/lookup.yaml#/paths/Path"
   /problem/show:
     $ref: "./paths/problem/show.yaml#/paths/Path"
   /problem/level:
