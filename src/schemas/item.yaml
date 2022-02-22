@@ -34,7 +34,7 @@ components:
         usable:
           description: "아이템 사용 가능 여부입니다."
           type: "boolean"
-          example: "true"
+          example: true
         displayName:
           description: "아이템의 이름입니다."
           type: "string"

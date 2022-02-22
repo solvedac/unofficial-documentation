@@ -1,4 +1,3 @@
 extends: spectral:oas
 rules:
   oas3-unused-component: hint
-  oas3-unused-component-schema: hint
