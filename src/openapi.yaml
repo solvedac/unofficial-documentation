@@ -48,6 +48,8 @@ paths:
     $ref: "./paths/account/verify_credentials.yaml#/paths/Path"
   /coins/exchange_rate:
     $ref: "./paths/coins/exchange_rate.yaml#/paths/Path"
+  /coins/shop/list:
+    $ref: "./paths/coins/shop/list.yaml#/paths/Path"
   /post/show:
     get:
       description: "TODO"
@@ -122,12 +124,16 @@ components:
   schemas:
     ClassDecoration:
       $ref: "./schemas/class-decoration.yaml#/components/schemas/ClassDecoration"
+    CoinshopProduct:
+      $ref: "./schemas/coinshop-product.yaml#/components/schemas/CoinshopProduct"
     Badge:
       $ref: "./schemas/badge.yaml#/components/schemas/Badge"
     FullUser:
       $ref: "./schemas/full-user.yaml#/components/schemas/FullUser"
     IconScheme:
       $ref: "./schemas/icon-scheme.yaml#/components/schemas/IconScheme"
+    Item:
+      $ref: "./schemas/item.yaml#/components/schemas/Item"
     Language:
       $ref: "./schemas/language.yaml#/components/schemas/Language"
     TaggedProblem:

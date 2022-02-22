@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+components:
+  schemas:
+    CoinshopProduct:
+      title: CoinshopProduct
+      description: |
+        코인샵에서 판매하고 있는 상품입니다.
+      type: "object"
+      required:
+        - skuId
+        - badgeImageUrl
+        - displayName
+        - displayDescription
+      properties:
+        skuId:
+          description: "상품의 ID입니다."
+          type: "integer"
+          example: 0
+        item:
+          description: "판매하고 있는 아이템입니다."
+          $ref: "./item.yaml#/components/schemas/Item"
+        units:
+          description: "1회 구매에 획득하는 개수입니다."
+          type: "integer"
+          example: 1
+        price:
+          description: "가격입니다. 별조각의 경우 나누기 100을 해야 표시 가격이 됩니다."
+          type: "integer"
+          example: 99
+        priceUnit:
+          description: "가격의 단위입니다."
+          type: "string"
+          example: coins
+          enum:
+            - coins
+            - stardusts
+        itemUseTimeLimited:
+          description: "아이템 사용 시간의 제한 여부입니다."
+          type: "boolean"
+          example: false
+        itemSellTimeLimited:
+          description: "아이템 구매 시간의 제한 여부입니다."
+          type: "boolean"
+          example: false
