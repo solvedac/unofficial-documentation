@@ -14,8 +14,6 @@ info:
       이 저장소와는 solved.ac의 API를 문서화해둔 것 이외에는 아무런 관련이 없습니다.
     </sup>
 
-    **주의**: account 하위 루트를 탐색할 경우, 현재 로그인된 solvedacToken이 노출·오용될 수 있으니 주의하십시오.
-
     [GitHub에서 보기](https://github.com/solvedac/unofficial-documentation)
 
     ![@solvedac/unofficial-documentation banner](./assets/solvedac-ud-compact.png)
