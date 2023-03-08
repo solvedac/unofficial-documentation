@@ -1,6 +1,6 @@
 # <sub><img src="favicon.svg" height="32" /></sub> @solvedac/<ins>unofficial</ins>-documentation
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/solvedac/unofficial-documentation/lint?label=documentation+validity+check&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/solvedac/unofficial-documentation/lint.yaml?branch=main&label=documentation+validity+check&style=for-the-badge)
 
 [![banner](assets/solvedac-ud-full.png)](https://solvedac.github.io/unofficial-documentation)
 
