@@ -10,6 +10,8 @@
 
 <sup>solved.ac 서비스는 shiftpsh가 기획·개발·디자인·운영하는 프로젝트로, 이 저장소와는 solved.ac의 API를 문서화해둔 것 이외에는 아무런 관련이 없습니다.</sup>
 
+**주의**: (2023/03/08~) CORS 문제로 인해 API는 사이트 내에서 호출할 수 없으므로 별도 도구를 이용해주십시오. ([#51](https://github.com/solvedac/unofficial-documentation/issues/51))
+
 ## 기여하기
 
 [CONTRIBUTING.md](CONTRIBUTING.md)를 참조해주세요.
