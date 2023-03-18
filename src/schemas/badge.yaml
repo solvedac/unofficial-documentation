@@ -33,3 +33,17 @@ components:
           description: "뱃지의 설명입니다."
           type: "string"
           example: "solved.ac의 1주년과 함께했다"
+        badgeTier:
+          type: "string"
+          enum:
+            - "bronze"
+            - "silver"
+            - "gold"
+            - "master"
+        badgeCategory:
+          type: "string"
+          enum:
+            - "achievement"
+            - "season"
+            - "event"
+            - "contest"

@@ -28,6 +28,10 @@ servers:
 tags:
   - name: "account"
     description: "계정과 관련이 있는 API입니다"
+  - name: "badge"
+    description: "뱃지와 관련이 있는 API입니다"
+  - name: "background"
+    description: "배경과 관련이 있는 API입니다"
   - name: "coins"
     description: "코인/별조각과 관련이 있는 API입니다"
   - name: "other"
@@ -46,6 +50,10 @@ paths:
     $ref: "./paths/account/update_settings.yaml#/paths/Path"
   /account/verify_credentials:
     $ref: "./paths/account/verify_credentials.yaml#/paths/Path"
+  /background/show:
+    $ref: "./paths/background/show.yaml#/paths/Path"
+  /badge/show:
+    $ref: "./paths/badge/show.yaml#/paths/Path"
   /coins/exchange_rate:
     $ref: "./paths/coins/exchange_rate.yaml#/paths/Path"
   /coins/shop/list:
@@ -128,8 +136,14 @@ components:
       $ref: "./schemas/class-decoration.yaml#/components/schemas/ClassDecoration"
     CoinshopProduct:
       $ref: "./schemas/coinshop-product.yaml#/components/schemas/CoinshopProduct"
+    Background:
+      $ref: "./schemas/background.yaml#/components/schemas/Background"
     Badge:
       $ref: "./schemas/badge.yaml#/components/schemas/Badge"
+    BadgeCategory:
+      $ref: "./schemas/badge-category.yaml#/components/schemas/BadgeCategory"
+    BadgeTier:
+      $ref: "./schemas/badge-tier.yaml#/components/schemas/BadgeTier"
     FullUser:
       $ref: "./schemas/full-user.yaml#/components/schemas/FullUser"
     IconScheme:
