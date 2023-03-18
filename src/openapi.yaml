@@ -106,6 +106,8 @@ paths:
       responses:
         "200":
           description: "TODO"
+  /user/organizations:
+    $ref: "./paths/user/organizations.yaml#/paths/Path"
   /user/problem_stats:
     $ref: "./paths/user/problem_stats.yaml#/paths/Path"
   /user/problem_tag_stats:
