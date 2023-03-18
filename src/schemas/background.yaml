@@ -70,7 +70,6 @@ components:
           type: "array"
           items:
             type: "object"
-            example: [ { "authorId": "havana723","role": "Illustration","authorUrl": null,"handle": "havana723","twitter": null,"instagram": null,"displayName": "havana723" } ]
             properties:
               authorId:
                 description: "작가의 ID입니다."
