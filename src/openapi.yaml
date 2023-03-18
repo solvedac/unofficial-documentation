@@ -116,6 +116,8 @@ paths:
           description: "TODO"
   /user/show:
     $ref: "./paths/user/show.yaml#/paths/Path"
+  /user/grass:
+    $ref: "./paths/user/grass.yaml#/paths/Path"
 
 components:
   securitySchemes:
