@@ -50,9 +50,11 @@ components:
           description: "사용자가 지금 사용 중인 뱃지의 아이디입니다."
           type: "string"
           nullable: true
+          example: "ghudegy2022-1"
         backgroundId:
-            description: "사용자가 지금 사용 중인 배경의 아이디입니다."
-            type: "string"
+          description: "사용자가 지금 사용 중인 배경의 아이디입니다."
+          type: "string"
+          example: "boardgame_7"
         profileImageUrl:
           description: "사용자의 프로필 사진으로 가는 하이퍼링크입니다."
           type: "string"
