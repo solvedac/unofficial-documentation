@@ -15,7 +15,7 @@ components:
         - handle
         - bio
         - organizations
-        - background
+        - backgroundId
         - profileImageUrl
         - solvedCount
         - voteCount
@@ -31,6 +31,12 @@ components:
         - rivalCount
         - reverseRivalCount
         - maxStreak
+        - coins
+        - stardusts
+        - joinedAt
+        - bannedUntil
+        - proUntil
+        - rank
       properties:
         handle:
           description: "사용자명입니다."
@@ -40,42 +46,13 @@ components:
           description: "사용자의 자기소개입니다."
           type: "string"
           example: "🧡 이곳의 개발자입니다."
-        organizations:
-          description: "사용자가 속한 조직 목록입니다."
-          type: "array"
-          items:
-            $ref: "./organization.yaml#/components/schemas/Organization"
-        badge:
-          description: "사용자가 지금 사용 중인 뱃지입니다."
-          $ref: "./badge.yaml#/components/schemas/Badge"
-        background:
-          description: "사용자의 배경 사진입니다."
-          type: "object"
-          properties:
-            backgroundId:
-              description: "배경의 고유 ID입니다."
-              type: "string"
-              example: "balloon_002"
-            backgroundImageUrl:
-              description: "배경 사진으로 가는 하이퍼링크입니다."
-              type: "string"
-              example: "https://static.solved.ac/profile_bg/balloon_002/balloon_002.png"
-            author:
-              description: "배경의 제작자를 표시하는 문구입니다."
-              type: "string"
-              example: "Photo by Al Soot on Unsplash"
-            authorUrl:
-              description: "배경의 제작자와 관련된 사이트로 가는 하이퍼링크입니다."
-              type: "string"
-              example: "https://unsplash.com/photos/yRjLihK35Yw"
-            displayName:
-              description: "배경의 이름입니다."
-              type: "string"
-              example: "하늘을 수놓은 풍선"
-            displayDescription:
-              description: "배경의 설명입니다."
-              type: "string"
-              example: "assorted colored balloons mid airs"
+        badgeId:
+          description: "사용자가 지금 사용 중인 뱃지의 아이디입니다."
+          type: "string"
+          nullable: true
+        backgroundId:
+            description: "사용자가 지금 사용 중인 배경의 아이디입니다."
+            type: "string"
         profileImageUrl:
           description: "사용자의 프로필 사진으로 가는 하이퍼링크입니다."
           type: "string"
@@ -146,3 +123,33 @@ components:
           type: "integer"
           format: "int64"
           example: 6
+        coins:
+          description: "사용자가 가지고 있는 코인의 수입니다."
+          type: "integer"
+          format: "int64"
+          example: 3845
+        stardusts:
+          description: "사용자가 가지고 있는 별가루의 수입니다."
+          type: "integer"
+          format: "int64"
+          example: 264680
+        joinedAt:
+          description: "사용자가 가입한 날짜입니다."
+          type: "string"
+          format: "date-time"
+          example: "2021-06-19T00:00:00.000Z"
+        bannedUntil:
+          description: "사용자의 정지 종료 날짜입니다."
+          type: "string"
+          format: "date-time"
+          example: "1970-01-01T00:00:00.000Z"
+        proUntil:
+          description: "사용자의 PRO 종료 날짜입니다."
+          type: "string"
+          format: "date-time"
+          example: "9999-12-31T00:00:00.000Z"
+        rank:
+          description: "사용자의 순위입니다."
+          type: "integer"
+          format: "int64"
+          example: 104
