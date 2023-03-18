@@ -35,15 +35,7 @@ components:
           example: "solved.ac의 1주년과 함께했다"
         badgeTier:
           type: "string"
-          enum:
-            - "bronze"
-            - "silver"
-            - "gold"
-            - "master"
+          $ref: "./badge-tier.yaml#/components/schemas/BadgeTier"
         badgeCategory:
           type: "string"
-          enum:
-            - "achievement"
-            - "season"
-            - "event"
-            - "contest"
+          $ref: "./badge-category.yaml#/components/schemas/BadgeCategory"
