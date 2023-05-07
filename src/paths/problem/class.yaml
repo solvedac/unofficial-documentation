@@ -33,10 +33,16 @@ paths:
                       format: "int64"
                       minimum: 0
                       description: "이 CLASS에 속한 에센셜이 아닌 문제 수입니다."
-                      example: 24
-                    essential:
+                      example: 36
+                    essentials:
                       type: "integer"
                       format: "in64"
                       minimum: 0
                       description: "이 CLASS에 속한 에센셜 문제 수입니다."
-                      example: 20
+                      example: 16
+                    criteria:
+                      type: "integer"
+                      format: "in64"
+                      minimum: 0
+                      description: "이 CLASS를 취득하기 위한 최소 문제 수입니다."
+                      example: 16
