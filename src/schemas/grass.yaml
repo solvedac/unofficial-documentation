@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+components:
+  schemas:
+    Grass:
+      title: Grass
+      description: |
+        사용자의 스트릭 및 문제를 푼 날 정보입니다.
+      type: "object"
+      required:
+        - grass
+        - currentStreak
+        - longestStreak
+      properties:
+        grass:
+          description: "문제를 푼 날짜별 푼 문제 수 목록입니다."
+          type: "array"
+          items:
+            type: "object"
+            properties:
+              date:
+                description: "문제를 푼 날짜입니다."
+                type: "string"
+                format: "YYYY-MM-dd"
+                example: "2023-01-26"
+              value:
+                description: "푼 문제의 수입니다."
+                type: "integer"
+                example: 35
+        theme:
+          description: "스트릭 색상입니다."
+          type: "string"
+          example: "special_hanbyeol"
+        currentStreak:
+          description: "현재 스트릭 기간입니다."
+          type: "integer"
+          example: 0
+        longestStreak:
+          description: "최대 스트릭 기간입니다."
+          type: "integer"
+          example: 186
