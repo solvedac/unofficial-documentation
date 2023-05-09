@@ -37,36 +37,223 @@ paths:
                         caption:
                           description: "자동완성 제목입니다. 해당 값으로 자동완성됩니다."
                           type: "string"
+                          example: "tree"
                         description:
                           description: "자동완성 요소에 대한 설명입니다."
                           type: "string"
+                          example: ""
                   problems:
-                    description: "찾은 문제 목록입니다."
+                    description: "찾은 문제 목록입니다. 최대 5문제까지 표시됩니다."
                     type: "array"
                     items:
-                      $ref: "../../schemas/problem.yaml#/components/schemas/Problem"
+                      type: "object"
+                      properties:
+                        id:
+                          type: int
+                          description: "문제 ID입니다."
+                          example: 1763
+                        title:
+                          type: str
+                          description: "문제 제목입니다."
+                          example: "트리 색칠"
+                        level:
+                          $ref: "../../schemas/problem-level.yaml#/components/schemas/ProblemLevel"
+                        solved:
+                          type: int
+                          description: "문제를 푼 사람 수입니다."
+                          example: 126
+                        caption:
+                          type: str
+                          example: "트리 색칠"
+                        description:
+                          type: str
+                          example: "#1763"
+                        href:
+                          type: str
+                          example: "https://www.acmicpc.net/problem/1763"
                   problemCount:
                     description: "찾은 문제 수입니다."
                     type: "integer"
                     format: "int64"
                     example: 1
-                  users:
-                    description: "찾은 사용자 목록입니다."
-                    type: "array"
-                    items:
-                      $ref: "../../schemas/user.yaml#/components/schemas/User"
-                  userCount:
-                    description: "찾은 사용자 수입니다."
-                    type: "integer"
-                    format: "int64"
-                    example: 1
                   tags:
-                    description: "찾은 태그 목록입니다."
+                    description: "찾은 태그 목록입니다. 최대 5개까지 표시됩니다."
                     type: "array"
                     items:
-                      $ref: "../../schemas/problem-tag.yaml#/components/schemas/ProblemTag"
+                      type: "object"
+                      properties:
+                        key:
+                          description: "태그의 ID입니다."
+                          type: "string"
+                          example: "trees"
+                        name:
+                          description: "태그의 이름입니다."
+                          type: "string"
+                          example: "tree"
+                        problemCount:
+                          description: "이 태그를 포함하는 문제의 수입니다."
+                          type: "integer"
+                          example: 1080
+                        caption:
+                          type: "string"
+                          example: "tag:trees"
+                        description:
+                          type: "string"
+                          example: "1080 problems"
+                        href:
+                          type: "string"
+                          example: "/problems/tags/trees"
                   tagCount:
                     description: "찾은 태그 수입니다."
                     type: "integer"
                     format: "int64"
                     example: 1
+                  users:
+                    description: "찾은 사용자 목록입니다. 최대 5명까지 표시됩니다."
+                    type: "array"
+                    items:
+                      type: "object"
+                      required:
+                        - handle
+                        - bio
+                        - organizations
+                        - backgroundId
+                        - profileImageUrl
+                        - solvedCount
+                        - voteCount
+                        - exp
+                        - tier
+                        - rating
+                        - ratingByProblemsSum
+                        - ratingByClass
+                        - ratingBySolvedCount
+                        - ratingByVoteCount
+                        - class
+                        - classDecoration
+                        - rivalCount
+                        - reverseRivalCount
+                        - maxStreak
+                        - coins
+                        - stardusts
+                        - joinedAt
+                        - bannedUntil
+                        - proUntil
+                      properties:
+                        handle:
+                          description: "사용자명입니다."
+                          type: "string"
+                          example: "shiftpsh"
+                        bio:
+                          description: "사용자의 자기소개입니다."
+                          type: "string"
+                          example: "🧡 이곳의 개발자입니다."
+                        badgeId:
+                          description: "사용자가 지금 사용 중인 뱃지의 아이디입니다."
+                          type: "string"
+                          nullable: true
+                          example: "ghudegy2022-1"
+                        backgroundId:
+                          description: "사용자가 지금 사용 중인 배경의 아이디입니다."
+                          type: "string"
+                          example: "boardgame_7"
+                        profileImageUrl:
+                          description: "사용자의 프로필 사진으로 가는 하이퍼링크입니다."
+                          type: "string"
+                          nullable: true
+                          example: "https://static.solved.ac/uploads/profile/0565b63f0b204e990d1b163018a1c358992519b8.png"
+                        solvedCount:
+                          description: "사용자가 푼 문제 수입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 2658
+                        voteCount:
+                          description: "사용자가 난이도 기여를 한 횟수입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 1326
+                        class:
+                          description: "사용자가 취득한 Class입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 8
+                        classDecoration:
+                          description: "사용자가 취득한 Class의 수준입니다."
+                          $ref: "../../schemas/class-decoration.yaml#/components/schemas/ClassDecoration"
+                        rivalCount:
+                          description: "사용자의 라이벌 수입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 38
+                        reverseRivalCount:
+                          description: "사용자의 역라이벌 수입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 53
+                        tier:
+                          $ref: "../../schemas/user-tier.yaml#/components/schemas/UserTier"
+                        rating:
+                          description: "사용자의 레이팅입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 2641
+                        exp:
+                          description: "사용자가 여태까지 획득한 경험치량입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 498605585
+                        ratingByProblemsSum:
+                          description: "푼 문제의 난이도 합으로 계산한 사용자의 레이팅입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 2211
+                        ratingByClass:
+                          description: "취득한 클래스에 따른 사용자의 레이팅입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 230
+                        ratingBySolvedCount:
+                          description: "푼 문제 수로 계산한 사용자의 레이팅입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 175
+                        ratingByVoteCount:
+                          description: "문제 난이도에 기여한 횟수로 계산한 사용자의 레이팅입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 25
+                        maxStreak:
+                          description: "최대 연속 문제 풀이일 수입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 6
+                        coins:
+                          description: "사용자가 가지고 있는 코인의 수입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 3845
+                        stardusts:
+                          description: "사용자가 가지고 있는 별가루의 수입니다."
+                          type: "integer"
+                          format: "int64"
+                          example: 264680
+                        joinedAt:
+                          description: "사용자가 가입한 날짜입니다."
+                          type: "string"
+                          format: "date-time"
+                          example: "2021-06-19T00:00:00.000Z"
+                        bannedUntil:
+                          description: "사용자의 정지 종료 날짜입니다."
+                          type: "string"
+                          format: "date-time"
+                          example: "1970-01-01T00:00:00.000Z"
+                        proUntil:
+                          description: "사용자의 PRO 종료 날짜입니다."
+                          type: "string"
+                          format: "date-time"
+                          example: "9999-12-31T00:00:00.000Z"
+                  userCount:
+                    description: "찾은 사용자 수입니다."
+                    type: "integer"
+                    format: "int64"
+                    example: 1
+
