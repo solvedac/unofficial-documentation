@@ -121,7 +121,6 @@ paths:
                         - profileImageUrl
                         - solvedCount
                         - voteCount
-                        - exp
                         - tier
                         - rating
                         - ratingByProblemsSum
@@ -196,11 +195,6 @@ paths:
                           type: "integer"
                           format: "int64"
                           example: 2641
-                        exp:
-                          description: "사용자가 여태까지 획득한 경험치량입니다."
-                          type: "integer"
-                          format: "int64"
-                          example: 498605585
                         ratingByProblemsSum:
                           description: "푼 문제의 난이도 합으로 계산한 사용자의 레이팅입니다."
                           type: "integer"

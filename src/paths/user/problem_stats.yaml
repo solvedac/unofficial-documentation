@@ -53,8 +53,3 @@ paths:
                       type: "integer"
                       format: "int64"
                       example: 113
-                    exp:
-                      description: "사용자가 해당 레벨에서 획득한 경험치의 합입니다."
-                      type: "integer"
-                      format: "int64"
-                      example: 33600
