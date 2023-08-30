@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+paths:
+  Path:
+    get:
+      summary: 아레나 목록 가져오기
+      description: 아레나 목록을 가져옵니다.
+      tags:
+        - arena
+      operationId: getUserContests
+
+      parameters:
+        - name: "handle"
+          in: "query"
+          description: "사용자 ID"
+          required: true
+          schema:
+            type: "string"
+        - name: "page"
+          in: "query"
+          description: "페이지 번호"
+          required: false
+          schema:
+            type: "integer"
+            minimum: 1
+            default: 1
+        - name: "sort"
+          in: "query"
+          description: |
+            정렬 기준
+
+            <details>
+              <summary>
+                열거형 값 설명
+              </summary>
+
+              | 값          | 설명                   |
+              | ----------- | ---------------------- |
+              | id          | 백준에서의 문제 ID     |
+              | performance | 퍼포먼스              |
+              | rank        | 순위                   |
+
+            </details>
+          required: false
+
+      responses:
+        "200":
+          description: "서버가 반환에 성공한 경우입니다."
+          content:
+            application/json:
+              schema:
+                type: "object"
+                properties:
+                  count:
+                    description: "사용자가 참여한 아레나 수입니다."
+                    type: "integer"
+                    format: "int64"
+                    example: 1
+                    maximum: 100
+                  items:
+                    description: "사용자가 참여한 아레나 목록입니다."
+                    type: "array"
+                    items:
+                      $ref: "../../schemas/arena.yaml#/components/schemas/Arena"
