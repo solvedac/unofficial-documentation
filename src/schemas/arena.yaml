@@ -1,0 +1,130 @@
+# yaml-language-server: $schema=https://spec.openapis.org/oas/3.1/schema/2021-05-20
+---
+# for the intellisense
+openapi: "3.1.0"
+info: { title: "", version: "" }
+
+components:
+  schemas:
+    Arena:
+      title: Arena
+      description: |
+        아레나 정보입니다.
+      type: "object"
+      required:
+        - arenaId
+        - arenaIdFixed
+        - arenaBojContestId
+        - title
+        - isGrandArena
+        - grandArenaId
+        - startTime
+        - endTime
+        - registerEndTime
+        - ratedRangeStart
+        - ratedRangeEnd
+        - isRated
+        - ratedContestants
+        - totalContestants
+        - isScoreBased
+        - isLevelSorted
+        - givesLanguageBonus
+        - penaltyMinutes
+        - bojNoticeLink
+        - registrationOpen
+        - languages
+      properties:
+        arenaId:
+          description: "아레나의 ID입니다."
+          type: "integer"
+          example: 1
+        arenaIdFixed:
+          description: "아레나의 ID가 고정되었는지 여부입니다."
+          type: "boolean"
+          example: true
+        arenaBojContestId:
+          description: "아레나의 백준 대회 ID입니다."
+          type: "integer"
+          example: 1065
+        title:
+          description: "아레나의 제목입니다."
+          type: "string"
+          example: "solved.ac Grand Arena #1"
+        isGrandArena:
+          description: "아레나가 그랜드 아레나인지 여부입니다."
+          type: "boolean"
+          example: true
+        grandArenaId:
+          description: "그랜드 아레나의 ID입니다."
+          type: "integer"
+          example: 1
+        startTime:
+          description: "아레나의 시작 시간입니다."
+          type: "string"
+          format: "date-time"
+          example: "2023-08-06T05:00:00.000Z"
+        endTime:
+          description: "아레나의 종료 시간입니다."
+          type: "string"
+          format: "date-time"
+          example: "2023-08-06T08:00:00.000Z"
+        registerEndTime:
+          description: "아레나의 등록 종료 시간입니다."
+          type: "string"
+          format: "date-time"
+          example: "2023-08-06T04:55:00.000Z"
+        ratedRangeStart:
+          description: "아레나의 레이팅 범위의 시작입니다."
+          type: "integer"
+          format: "int64"
+          example: 0
+        ratedRangeEnd:
+          description: "아레나의 레이팅 범위의 끝입니다."
+          type: "integer"
+          format: "int64"
+          example: 10
+        isRated:
+          description: "아레나가 레이팅 대상인지 여부입니다."
+          type: "boolean"
+          example: true
+        ratedContestants:
+          description: "아레나에 등록한 사람 중 레이팅 대상인 사람의 수입니다."
+          type: "integer"
+          format: "int64"
+          example: 1363
+        totalContestants:
+          description: "아레나에 등록한 사람의 수입니다."
+          type: "integer"
+          format: "int64"
+          example: 1363
+        isScoreBased:
+          description: "아레나가 점수 기반인지 여부입니다."
+          type: "boolean"
+          example: false
+        isLevelSorted:
+          description: "아레나의 문제가 난이도 순으로 정렬되는지 여부입니다."
+          type: "boolean"
+          example: false
+        givesLanguageBonus:
+          description: "아레나가 언어 보너스를 주는지 여부입니다."
+          type: "boolean"
+          example: true
+        penaltyMinutes:
+          description: "아레나의 페널티 시간입니다."
+          type: "integer"
+          format: "int64"
+          example: 20
+        bojNoticeLink:
+          description: "아레나의 백준 공지 링크입니다."
+          type: "string"
+          example: "https://www.acmicpc.net/board/view/121450"
+        registrationOpen:
+          description: "아레나의 등록이 열려있는지 여부입니다."
+          type: "boolean"
+          example: true
+        languages:
+          description: "아레나에서 사용할 수 있는 언어의 목록입니다."
+          type: "array"
+          items:
+            type: "string"
+            example: [ "ko", "en" ]
