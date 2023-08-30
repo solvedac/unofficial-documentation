@@ -20,3 +20,9 @@ components:
             isReverseRival:
               description: "역라이벌 여부입니다."
               type: "boolean"
+            blocked:
+              description: "차단 여부입니다."
+              type: "boolean"
+            reverseBlocked:
+              description: "역차단 여부입니다."
+              type: "boolean"

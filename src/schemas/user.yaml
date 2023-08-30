@@ -19,16 +19,21 @@ components:
         - profileImageUrl
         - solvedCount
         - voteCount
+        - class
+        - classDecoration
+        - rivalCount
+        - reverseRivalCount
         - tier
         - rating
         - ratingByProblemsSum
         - ratingByClass
         - ratingBySolvedCount
         - ratingByVoteCount
-        - class
-        - classDecoration
-        - rivalCount
-        - reverseRivalCount
+        - arenaTier
+        - arenaRating
+        - arenaMaxTier
+        - arenaMaxRating
+        - arenaCompetedRoundCount
         - maxStreak
         - coins
         - stardusts
@@ -149,3 +154,23 @@ components:
           type: "integer"
           format: "int64"
           example: 104
+        arenaTier:
+          description: "사용자의 아레나 티어입니다."
+          type: "integer"
+          format: "int64"
+          example: 12
+        arenaRating:
+          description: "사용자의 아레나 레이팅입니다."
+          type: "integer"
+          format: "int64"
+          example: 2641
+        arenaMaxTier:
+          description: "사용자의 아레나 최고 티어입니다."
+          type: "integer"
+          format: "int64"
+          example: 12
+        arenaMaxRating:
+          description: "사용자의 아레나 최고 레이팅입니다."
+          type: "integer"
+          format: "int64"
+          example: 2641
