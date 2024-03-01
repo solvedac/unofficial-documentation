@@ -111,12 +111,6 @@ components:
       $ref: "./schemas/coinshop-product.yaml#/components/schemas/CoinshopProduct"
     Background:
       $ref: "./schemas/background.yaml#/components/schemas/Background"
-    Badge:
-      $ref: "./schemas/badge.yaml#/components/schemas/Badge"
-    BadgeCategory:
-      $ref: "./schemas/badge-category.yaml#/components/schemas/BadgeCategory"
-    BadgeTier:
-      $ref: "./schemas/badge-tier.yaml#/components/schemas/BadgeTier"
     FullUser:
       $ref: "./schemas/full-user.yaml#/components/schemas/FullUser"
     IconScheme:
