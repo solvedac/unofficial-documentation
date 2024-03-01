@@ -25,7 +25,6 @@
     "hono": "^4.0.8",
     "nodemon": "^3.1.0",
     "prettier": "^3.2.5",
-    "serve": "^14.2.1",
     "serve-reload-replace": "^4.0.3",
     "yaml": "^2.4.0"
   },
