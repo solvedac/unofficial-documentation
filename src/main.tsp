@@ -4,8 +4,8 @@ import "@typespec/openapi";
 import "@typespec/openapi3";
 import "@typespec/versioning";
 
-import "./operations/main.tsp";
-import "./models/main.tsp";
+import "./operations/_barrel.tsp";
+import "./models/_barrel.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.OpenAPI;
