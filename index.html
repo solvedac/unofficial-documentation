@@ -1,5 +1,5 @@
 <!-- HTML for static distribution bundle build -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -55,30 +55,21 @@
           Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
           'Noto Sans KR', 'Malgun Gothic', sans-serif;
       }
+      #elements {
+        display: block;
+        height: 100vh;
+      }
     </style>
   </head>
 
   <body>
     <elements-api
       id="elements"
-      apiDescriptionUrl="src/openapi.yaml"
+      apiDescriptionUrl="tsp-output/@typespec/openapi3/openapi.yaml"
       router="hash"
       logo="./favicon.svg"
       tryItCredentialsPolicy="include"
+      layout="responsive"
     />
   </body>
-
-  <script>
-    const elements = document.getElementById('elements');
-
-    function updateLayout() {
-      if (window.innerWidth <= 1200) {
-        elements.layout = 'stacked';
-      } else {
-        elements.layout = 'sidebar';
-      }
-    }
-
-    window.addEventListener('resize', updateLayout);
-  </script>
 </html>

@@ -1,0 +1,10 @@
+diff --git a/lib/bin.js b/lib/bin.js
+index 8628ed0638e271935f9298e2eb0f3e9ba286990b..8e06fd6f4844008354024bb13fd516fadb368626 100755
+--- a/lib/bin.js
++++ b/lib/bin.js
+@@ -34,4 +34,4 @@ if (args.help) {
+ 
+ const server = new SRR(args)
+ 
+-server.start()
++server.start(args)

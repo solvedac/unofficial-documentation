@@ -1,0 +1,84 @@
+diff --git a/dist/src/schema-emitter.js b/dist/src/schema-emitter.js
+index 377d1afa8874b64aa99fbeb6e309875c0ff24458..dc3d6cbc97ab2894d721ebaa431fe835598107b3 100644
+--- a/dist/src/schema-emitter.js
++++ b/dist/src/schema-emitter.js
+@@ -10,7 +10,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
+     return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+ };
+ var _OpenAPI3SchemaEmitter_instances, _OpenAPI3SchemaEmitter_metadataInfo, _OpenAPI3SchemaEmitter_visibilityUsage, _OpenAPI3SchemaEmitter_options, _OpenAPI3SchemaEmitter_applyExternalDocs, _OpenAPI3SchemaEmitter_typeNameOptions, _OpenAPI3SchemaEmitter_getVisibilityContext, _OpenAPI3SchemaEmitter_getContentType, _OpenAPI3SchemaEmitter_requiredModelProperties, _OpenAPI3SchemaEmitter_isBytesKeptRaw, _OpenAPI3SchemaEmitter_enumSchema, _OpenAPI3SchemaEmitter_unionSchema, _OpenAPI3SchemaEmitter_getDiscriminatorMapping, _OpenAPI3SchemaEmitter_attachExtensions, _OpenAPI3SchemaEmitter_getSchemaForScalar, _OpenAPI3SchemaEmitter_getSchemaForStdScalars, _OpenAPI3SchemaEmitter_applyConstraints, _OpenAPI3SchemaEmitter_inlineType, _OpenAPI3SchemaEmitter_createDeclaration, _OpenAPI3SchemaEmitter_isStdType, _OpenAPI3SchemaEmitter_applyEncoding, _OpenAPI3SchemaEmitter_mergeFormatAndEncoding;
+-import { compilerAssert, getDeprecated, getDiscriminatedUnion, getDiscriminator, getDoc, getEncode, getFormat, getKnownValues, getMaxItems, getMaxLength, getMaxValue, getMaxValueExclusive, getMinItems, getMinLength, getMinValue, getMinValueExclusive, getNamespaceFullName, getPattern, getSummary, getTypeName, ignoreDiagnostics, isArrayModelType, isNeverType, isNullType, isSecret, isTemplateDeclaration, resolveEncodedName, stringTemplateToString, } from "@typespec/compiler";
++import { SyntaxKind, compilerAssert, getDeprecated, getDiscriminatedUnion, getDiscriminator, getDoc, getEncode, getFormat, getKnownValues, getMaxItems, getMaxLength, getMaxValue, getMaxValueExclusive, getMinItems, getMinLength, getMinValue, getMinValueExclusive, getNamespaceFullName, getPattern, getSourceLocation, getSummary, getTypeName, ignoreDiagnostics, isArrayModelType, isNeverType, isNullType, isSecret, isTemplateDeclaration, resolveEncodedName, stringTemplateToString, } from "@typespec/compiler";
+ import { ArrayBuilder, ObjectBuilder, Placeholder, TypeEmitter, } from "@typespec/compiler/emitter-framework";
+ import { Visibility, getVisibilitySuffix } from "@typespec/http";
+ import { checkDuplicateTypeName, getExtensions, getExternalDocs, getOpenAPITypeName, isReadonlyProperty, shouldInline, } from "@typespec/openapi";
+@@ -603,6 +603,19 @@ _OpenAPI3SchemaEmitter_metadataInfo = new WeakMap(), _OpenAPI3SchemaEmitter_visi
+     if (!__classPrivateFieldGet(this, _OpenAPI3SchemaEmitter_instances, "m", _OpenAPI3SchemaEmitter_isStdType).call(this, type) || type.name !== "url") {
+         applyConstraint(getFormat, "format");
+     }
++    const examples = [];
++    for (const doc of type.node?.docs ?? []) {
++        for (const dTag of doc.tags) {
++            if (dTag.kind === SyntaxKind.DocUnknownTag && dTag.tagName.sv === "example") {
++                examples.push(extractExample(dTag));
++            }
++        }
++    }
++    if (examples.length === 1) {
++        schema.example = examples[0].content;
++    } else if (examples.length > 1) {
++        schema.examples = Object.fromEntries(examples.map((example, i) => [example.title ?? i, example.content]));
++    }
+     applyConstraint(getDoc, "description");
+     applyConstraint(getSummary, "title");
+     applyConstraint((p, t) => (getDeprecated(p, t) !== undefined ? true : undefined), "deprecated");
+@@ -680,6 +693,50 @@ _OpenAPI3SchemaEmitter_metadataInfo = new WeakMap(), _OpenAPI3SchemaEmitter_visi
+             return encodeAsFormat !== null && encodeAsFormat !== void 0 ? encodeAsFormat : encoding;
+     }
+ };
++function checkIfTagHasDocOnSameLine(tag) {
++    const start = tag.content[0]?.pos;
++    const end = tag.content[0]?.end;
++    const file = getSourceLocation(tag.content[0]).file;
++  
++    let hasFirstLine = false;
++    console.log(file.text.slice(start, end));
++    for (let i = start; i < end; i++) {
++        const ch = file.text[i];
++        if (ch === "\n") {
++            break;
++        }
++        // Todo reuse compiler whitespace logic or have a way to get this info from the parser.
++        if (ch !== " ") {
++            hasFirstLine = true;
++        }
++    }
++    return hasFirstLine;
++  }
++function extractExample(tag) {
++    const content = getDocContent(tag.content);
++    const hasInfoOnFirstLine = checkIfTagHasDocOnSameLine(tag);
++    if (hasInfoOnFirstLine) {
++        const [title, ...contents] = content.split("\n");
++        if (contents.length > 0) {
++            return { title, content: contents.join("\n") };
++        } else {
++            return { content };
++        }
++    } else {
++        return { content };
++    }
++}
++function getDocContent(content) {
++    const docs = [];
++    for (const node of content) {
++        compilerAssert(
++            node.kind === SyntaxKind.DocText,
++            "No other doc content node kinds exist yet. Update this code appropriately when more are added."
++        );
++        docs.push(node.text);
++    }
++    return docs.join("");
++}
+ function isLiteralType(type) {
+     return type.kind === "Boolean" || type.kind === "String" || type.kind === "Number";
+ }

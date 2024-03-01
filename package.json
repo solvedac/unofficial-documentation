@@ -1,0 +1,38 @@
+{
+  "name": "@solvedac/unofficial-documentation",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently npm:watch npm:serve",
+    "build": "tsp compile src",
+    "watch": "nodemon --exec npm run build -e tsp",
+    "serve": "srr --port=8481",
+    "lint:format": "prettier -c **/*.tsp",
+    "prepare": "git config core.hooksPath ./scripts/git-hooks"
+  },
+  "dependencies": {
+    "@typespec/best-practices": "^0.46.0-dev.0",
+    "@typespec/compiler": "0.54.0-dev.21",
+    "@typespec/http": "0.54.0-dev.7",
+    "@typespec/openapi": "0.54.0-dev.3",
+    "@typespec/openapi3": "0.54.0-dev.11",
+    "@typespec/prettier-plugin-typespec": "0.54.0-dev.2",
+    "@typespec/rest": "0.54.0-dev.2",
+    "@typespec/versioning": "0.54.0-dev.4",
+    "concurrently": "^8.2.2",
+    "deepmerge": "^4.3.1",
+    "hono": "^4.0.8",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5",
+    "serve": "^14.2.1",
+    "serve-reload-replace": "^4.0.3",
+    "yaml": "^2.4.0"
+  },
+  "private": true,
+  "pnpm": {
+    "patchedDependencies": {
+      "serve-reload-replace@4.0.3": "patches/serve-reload-replace@4.0.3.patch",
+      "@typespec/openapi3@0.54.0-dev.11": "patches/@typespec__openapi3@0.54.0-dev.11.patch"
+    }
+  }
+}
