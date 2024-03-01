@@ -22,8 +22,6 @@ tags:
     description: "사용자와 관련이 있는 API입니다"
 
 paths:
-  /account/update_settings:
-    $ref: "./paths/account/update_settings.yaml#/paths/Path"
   /account/verify_credentials:
     $ref: "./paths/account/verify_credentials.yaml#/paths/Path"
   /background/show:
@@ -106,9 +104,6 @@ paths:
     $ref: "./paths/user/top_100.yaml#/paths/Path"
 
 components:
-  securitySchemes:
-    solvedacToken:
-      $ref: "./security-schemes/auth.yaml#/components/securitySchemes/SecurityScheme"
   schemas:
     ClassDecoration:
       $ref: "./schemas/class-decoration.yaml#/components/schemas/ClassDecoration"

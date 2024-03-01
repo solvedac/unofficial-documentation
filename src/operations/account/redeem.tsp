@@ -2,6 +2,7 @@
  * @TODO: 반환에 성공한 경우 문서화하기
  */
 using TypeSpec.Http;
+
 namespace SolvedAC {
   /**
    * 리딤 코드와 배지, 배경 등을 교환합니다.
@@ -16,24 +17,18 @@ namespace SolvedAC {
   op redeemCode(
     /**
      * 리딤 코드입니다.
-     * @example R33D3MC0D3
+     * @example "R33D3MC0D3"
      */
     code: string,
-  ): NotAuthorized | NotFound;
+  ): NotAuthorized | RedeemCode.NotFound;
 }
 
-/**
- * `solvedacToken`이 올바르지 않은 경우입니다.
- */
-@error
-model NotAuthorized {
-  @statusCode status: 403;
-}
-
-/**
- * 리딤 코드가 올바르지 않은 경우입니다.
- */
-@error
-model NotFound {
-  @statusCode status: 404;
+namespace RedeemCode {
+  /**
+   * 리딤 코드가 올바르지 않은 경우입니다.
+   */
+  @error
+  model NotFound {
+    @statusCode status: 404;
+  }
 }
