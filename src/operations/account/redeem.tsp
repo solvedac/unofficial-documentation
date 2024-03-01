@@ -7,8 +7,6 @@ namespace SolvedAC {
    * 리딤 코드와 배지, 배경 등을 교환합니다.
    *
    * **주의**: 로그인이 필요한 API는 사이트 내에서 호출할 수 없으므로 별도 도구를 이용해주십시오.
-   *
-   * @param code
    */
   @summary("코드 교환하기")
   @tag("account")
