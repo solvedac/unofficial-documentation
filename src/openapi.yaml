@@ -143,5 +143,3 @@ components:
       $ref: "./schemas/solvedac-statistics.yaml#/components/schemas/SolvedAcStatistics"
     User:
       $ref: "./schemas/user.yaml#/components/schemas/User"
-    UserTier:
-      $ref: "./schemas/user-tier.yaml#/components/schemas/UserTier"
