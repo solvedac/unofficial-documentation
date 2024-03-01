@@ -1,5 +1,5 @@
 diff --git a/dist/src/schema-emitter.js b/dist/src/schema-emitter.js
-index 377d1afa8874b64aa99fbeb6e309875c0ff24458..dc3d6cbc97ab2894d721ebaa431fe835598107b3 100644
+index 377d1afa8874b64aa99fbeb6e309875c0ff24458..ee443d4f40ae6447742a720820437dc874f0d20e 100644
 --- a/dist/src/schema-emitter.js
 +++ b/dist/src/schema-emitter.js
 @@ -10,7 +10,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
@@ -31,7 +31,7 @@ index 377d1afa8874b64aa99fbeb6e309875c0ff24458..dc3d6cbc97ab2894d721ebaa431fe835
      applyConstraint(getDoc, "description");
      applyConstraint(getSummary, "title");
      applyConstraint((p, t) => (getDeprecated(p, t) !== undefined ? true : undefined), "deprecated");
-@@ -680,6 +693,50 @@ _OpenAPI3SchemaEmitter_metadataInfo = new WeakMap(), _OpenAPI3SchemaEmitter_visi
+@@ -680,6 +693,49 @@ _OpenAPI3SchemaEmitter_metadataInfo = new WeakMap(), _OpenAPI3SchemaEmitter_visi
              return encodeAsFormat !== null && encodeAsFormat !== void 0 ? encodeAsFormat : encoding;
      }
  };
@@ -41,7 +41,6 @@ index 377d1afa8874b64aa99fbeb6e309875c0ff24458..dc3d6cbc97ab2894d721ebaa431fe835
 +    const file = getSourceLocation(tag.content[0]).file;
 +  
 +    let hasFirstLine = false;
-+    console.log(file.text.slice(start, end));
 +    for (let i = start; i < end; i++) {
 +        const ch = file.text[i];
 +        if (ch === "\n") {

@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   '@typespec/openapi3@0.54.0-dev.11':
-    hash: ztpt6jvgumblldvgcnlxnsjugq
+    hash: bgubmcym6tmpyhlcbr2o6mbu3i
     path: patches/@typespec__openapi3@0.54.0-dev.11.patch
   serve-reload-replace@4.0.3:
     hash: h332zoerndja7mh3wsa6t3gely
@@ -27,7 +27,7 @@ dependencies:
     version: 0.54.0-dev.3(@typespec/compiler@0.54.0-dev.21)(@typespec/http@0.54.0-dev.7)
   '@typespec/openapi3':
     specifier: 0.54.0-dev.11
-    version: 0.54.0-dev.11(patch_hash=ztpt6jvgumblldvgcnlxnsjugq)(@typespec/compiler@0.54.0-dev.21)(@typespec/http@0.54.0-dev.7)(@typespec/openapi@0.54.0-dev.3)(@typespec/versioning@0.54.0-dev.4)
+    version: 0.54.0-dev.11(patch_hash=bgubmcym6tmpyhlcbr2o6mbu3i)(@typespec/compiler@0.54.0-dev.21)(@typespec/http@0.54.0-dev.7)(@typespec/openapi@0.54.0-dev.3)(@typespec/versioning@0.54.0-dev.4)
   '@typespec/prettier-plugin-typespec':
     specifier: 0.54.0-dev.2
     version: 0.54.0-dev.2
@@ -157,7 +157,7 @@ packages:
       '@typespec/compiler': 0.54.0-dev.21
     dev: false
 
-  /@typespec/openapi3@0.54.0-dev.11(patch_hash=ztpt6jvgumblldvgcnlxnsjugq)(@typespec/compiler@0.54.0-dev.21)(@typespec/http@0.54.0-dev.7)(@typespec/openapi@0.54.0-dev.3)(@typespec/versioning@0.54.0-dev.4):
+  /@typespec/openapi3@0.54.0-dev.11(patch_hash=bgubmcym6tmpyhlcbr2o6mbu3i)(@typespec/compiler@0.54.0-dev.21)(@typespec/http@0.54.0-dev.7)(@typespec/openapi@0.54.0-dev.3)(@typespec/versioning@0.54.0-dev.4):
     resolution: {integrity: sha512-aOf/QYkt61O5c+YZd4hTCZsyTuKdJNZN7yuOMCwAePIhwQlNExi5E9GZCX1D5YT5dUgkXnQDFDUPVTEwLo9HFA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
