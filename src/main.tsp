@@ -58,9 +58,7 @@ using TypeSpec.OpenAPI;
     email: "me@ranolp.dev",
   },
 })
-namespace SolvedAC {
-
-}
+namespace SolvedAC;
 
 enum DocumentationVersion {
   latest: "3.2024.03+b1",
