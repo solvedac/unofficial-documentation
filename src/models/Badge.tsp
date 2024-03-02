@@ -8,25 +8,25 @@ namespace SolvedAC;
 model Badge {
   /**
    * 뱃지의 고유 ID입니다.
-   * @example anniversary_1st
+   * @example "anniversary_1st"
    */
   badgeId: string;
 
   /**
    * 뱃지 사진으로 가는 하이퍼링크입니다.
-   * @example https://static.solved.ac/profile_badge/anniversary_1st.png
+   * @example "https://static.solved.ac/profile_badge/anniversary_1st.png"
    */
   badgeImageUrl: url;
 
   /**
    * 뱃지가 표시되는 이름입니다.
-   * @example 1솔브
+   * @example "1솔브"
    */
   displayName: string;
 
   /**
    * 뱃지의 설명입니다.
-   * @example solved.ac의 1주년과 함께했다
+   * @example "solved.ac의 1주년과 함께했다"
    */
   displayDescription: string;
 
@@ -34,15 +34,15 @@ model Badge {
    * 뱃지를 획득한 사용자 수입니다.
    * @example 5000
    */
-  unlockedUserCount: int64;
+  unlockedUserCount: uint64;
 
   /**
-   * @example gold
+   * @example "gold"
    */
   badgeTier: BadgeTier;
 
   /**
-   * @example season
+   * @example "season"
    */
   badgeCategory: BadgeCategory;
 
@@ -54,7 +54,7 @@ model Badge {
 
   /**
    * 뱃지가 만들어진 시각입니다.
-   * @example 2021-06-05T15:00:00.000Z
+   * @example "2021-06-05T15:00:00.000Z"
    */
   createdAt: offsetDateTime;
 }

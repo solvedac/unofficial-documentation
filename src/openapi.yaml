@@ -24,8 +24,6 @@ tags:
 paths:
   /account/verify_credentials:
     $ref: "./paths/account/verify_credentials.yaml#/paths/Path"
-  /background/show:
-    $ref: "./paths/background/show.yaml#/paths/Path"
   /coins/exchange_rate:
     $ref: "./paths/coins/exchange_rate.yaml#/paths/Path"
   /coins/shop/list:
@@ -107,8 +105,6 @@ components:
       $ref: "./schemas/class-decoration.yaml#/components/schemas/ClassDecoration"
     CoinshopProduct:
       $ref: "./schemas/coinshop-product.yaml#/components/schemas/CoinshopProduct"
-    Background:
-      $ref: "./schemas/background.yaml#/components/schemas/Background"
     FullUser:
       $ref: "./schemas/full-user.yaml#/components/schemas/FullUser"
     IconScheme:

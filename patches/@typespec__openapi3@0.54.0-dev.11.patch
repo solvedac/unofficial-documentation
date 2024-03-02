@@ -1,5 +1,5 @@
 diff --git a/dist/src/schema-emitter.js b/dist/src/schema-emitter.js
-index 377d1afa8874b64aa99fbeb6e309875c0ff24458..ee443d4f40ae6447742a720820437dc874f0d20e 100644
+index 377d1afa8874b64aa99fbeb6e309875c0ff24458..dd421235ca8ebf173a19dd4162573396c9ffe90b 100644
 --- a/dist/src/schema-emitter.js
 +++ b/dist/src/schema-emitter.js
 @@ -10,7 +10,7 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
@@ -31,7 +31,7 @@ index 377d1afa8874b64aa99fbeb6e309875c0ff24458..ee443d4f40ae6447742a720820437dc8
      applyConstraint(getDoc, "description");
      applyConstraint(getSummary, "title");
      applyConstraint((p, t) => (getDeprecated(p, t) !== undefined ? true : undefined), "deprecated");
-@@ -680,6 +693,49 @@ _OpenAPI3SchemaEmitter_metadataInfo = new WeakMap(), _OpenAPI3SchemaEmitter_visi
+@@ -680,6 +693,54 @@ _OpenAPI3SchemaEmitter_metadataInfo = new WeakMap(), _OpenAPI3SchemaEmitter_visi
              return encodeAsFormat !== null && encodeAsFormat !== void 0 ? encodeAsFormat : encoding;
      }
  };
@@ -56,15 +56,20 @@ index 377d1afa8874b64aa99fbeb6e309875c0ff24458..ee443d4f40ae6447742a720820437dc8
 +function extractExample(tag) {
 +    const content = getDocContent(tag.content);
 +    const hasInfoOnFirstLine = checkIfTagHasDocOnSameLine(tag);
-+    if (hasInfoOnFirstLine) {
-+        const [title, ...contents] = content.split("\n");
-+        if (contents.length > 0) {
-+            return { title, content: contents.join("\n") };
++    try {
++        if (hasInfoOnFirstLine) {
++            const [title, ...contents] = content.split("\n");
++            if (contents.length > 0) {
++                return { title, content: JSON.parse(contents.join("\n")) };
++            } else {
++                return { content: JSON.parse(content) };
++            }
 +        } else {
-+            return { content };
++            return { content: JSON.parse(content) };
 +        }
-+    } else {
-+        return { content };
++    } catch (e) {
++        console.error(`Error: ${e?.message}\n${content} is not a valid json.`);
++        return `ERROR: ${e?.message}`;
 +    }
 +}
 +function getDocContent(content) {
@@ -76,7 +81,7 @@ index 377d1afa8874b64aa99fbeb6e309875c0ff24458..ee443d4f40ae6447742a720820437dc8
 +        );
 +        docs.push(node.text);
 +    }
-+    return docs.join("");
++    return docs.join("").replace(/\\\n/g, "");
 +}
  function isLiteralType(type) {
      return type.kind === "Boolean" || type.kind === "String" || type.kind === "Number";
