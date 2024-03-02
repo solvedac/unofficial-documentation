@@ -6,3 +6,4 @@ import "./Background.tsp";
 import "./BackgroundCategory.tsp";
 import "./BackgroundAuthor.tsp";
 import "./Language.tsp";
+import "./SiteStatistics.tsp";

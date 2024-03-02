@@ -64,8 +64,6 @@ paths:
     $ref: "./paths/search/tag.yaml#/paths/Path"
   /search/user:
     $ref: "./paths/search/user.yaml#/paths/Path"
-  /site/stats:
-    $ref: "./paths/site/stats.yaml#/paths/Path"
   /tag/list:
     get:
       description: "TODO"
@@ -127,7 +125,5 @@ components:
       $ref: "./schemas/ranked-user.yaml#/components/schemas/RankedUser"
     Settings:
       $ref: "./schemas/settings.yaml#/components/schemas/Settings"
-    SolvedAcStatistics:
-      $ref: "./schemas/solvedac-statistics.yaml#/components/schemas/SolvedAcStatistics"
     User:
       $ref: "./schemas/user.yaml#/components/schemas/User"
