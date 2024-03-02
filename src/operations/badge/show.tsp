@@ -15,6 +15,12 @@ namespace SolvedAC;
 @route("/badge/show")
 op getBadge(
   /**
+   * 응답을 받을 언어입니다.
+   */
+  @header
+  `x-solvedac-language`?: Language,
+
+  /**
    * 뱃지 ID
    */
   @query
@@ -22,7 +28,7 @@ op getBadge(
 ): GetBadge.Ok;
 
 namespace GetBadge {
-  @extension("x-internal", "true")
+  @extension(XInternal, true)
   model Ok extends SolvedAC.Badge {
     @statusCode status: 200;
   }

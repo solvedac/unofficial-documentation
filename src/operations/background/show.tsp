@@ -13,10 +13,18 @@ namespace SolvedAC;
 @tag("background")
 @get
 @route("/background/show")
-op getBackground(@query backgroundId: string): GetBackground.Ok;
+op getBackground(
+  /**
+   * 응답을 받을 언어입니다.
+   */
+  @header
+  `x-solvedac-language`?: Language,
+
+  @query backgroundId: string,
+): GetBackground.Ok;
 
 namespace GetBackground {
-  @extension("x-internal", "true")
+  @extension(XInternal, true)
   model Ok is Background {
     @statusCode status: 200;
   }

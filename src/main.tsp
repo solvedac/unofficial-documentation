@@ -6,6 +6,7 @@ import "@typespec/versioning";
 
 import "./operations/_barrel.tsp";
 import "./models/_barrel.tsp";
+import "./extensions.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.OpenAPI;
