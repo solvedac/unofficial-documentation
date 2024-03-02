@@ -6,10 +6,10 @@ settings:
 
 patchedDependencies:
   '@typespec/openapi3@0.54.0-dev.11':
-    hash: bgubmcym6tmpyhlcbr2o6mbu3i
+    hash: glq3uwocccqvnxjoslhpdweciy
     path: patches/@typespec__openapi3@0.54.0-dev.11.patch
   serve-reload-replace@4.0.3:
-    hash: h332zoerndja7mh3wsa6t3gely
+    hash: nstziahcznsfatxn5mga5gmyom
     path: patches/serve-reload-replace@4.0.3.patch
 
 dependencies:
@@ -27,7 +27,7 @@ dependencies:
     version: 0.54.0-dev.3(@typespec/compiler@0.54.0-dev.21)(@typespec/http@0.54.0-dev.7)
   '@typespec/openapi3':
     specifier: 0.54.0-dev.11
-    version: 0.54.0-dev.11(patch_hash=bgubmcym6tmpyhlcbr2o6mbu3i)(@typespec/compiler@0.54.0-dev.21)(@typespec/http@0.54.0-dev.7)(@typespec/openapi@0.54.0-dev.3)(@typespec/versioning@0.54.0-dev.4)
+    version: 0.54.0-dev.11(patch_hash=glq3uwocccqvnxjoslhpdweciy)(@typespec/compiler@0.54.0-dev.21)(@typespec/http@0.54.0-dev.7)(@typespec/openapi@0.54.0-dev.3)(@typespec/versioning@0.54.0-dev.4)
   '@typespec/prettier-plugin-typespec':
     specifier: 0.54.0-dev.2
     version: 0.54.0-dev.2
@@ -43,9 +43,6 @@ dependencies:
   deepmerge:
     specifier: ^4.3.1
     version: 4.3.1
-  hono:
-    specifier: ^4.0.8
-    version: 4.0.8
   nodemon:
     specifier: ^3.1.0
     version: 3.1.0
@@ -54,7 +51,7 @@ dependencies:
     version: 3.2.5
   serve-reload-replace:
     specifier: ^4.0.3
-    version: 4.0.3(patch_hash=h332zoerndja7mh3wsa6t3gely)
+    version: 4.0.3(patch_hash=nstziahcznsfatxn5mga5gmyom)
   yaml:
     specifier: ^2.4.0
     version: 2.4.0
@@ -154,7 +151,7 @@ packages:
       '@typespec/compiler': 0.54.0-dev.21
     dev: false
 
-  /@typespec/openapi3@0.54.0-dev.11(patch_hash=bgubmcym6tmpyhlcbr2o6mbu3i)(@typespec/compiler@0.54.0-dev.21)(@typespec/http@0.54.0-dev.7)(@typespec/openapi@0.54.0-dev.3)(@typespec/versioning@0.54.0-dev.4):
+  /@typespec/openapi3@0.54.0-dev.11(patch_hash=glq3uwocccqvnxjoslhpdweciy)(@typespec/compiler@0.54.0-dev.21)(@typespec/http@0.54.0-dev.7)(@typespec/openapi@0.54.0-dev.3)(@typespec/versioning@0.54.0-dev.4):
     resolution: {integrity: sha512-aOf/QYkt61O5c+YZd4hTCZsyTuKdJNZN7yuOMCwAePIhwQlNExi5E9GZCX1D5YT5dUgkXnQDFDUPVTEwLo9HFA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
@@ -514,11 +511,6 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /hono@4.0.8:
-    resolution: {integrity: sha512-zhTXu32vXeEXajsqZVjPfoyO0/fgAKLLmPBpSDzRBMr7zZ5N8yV1FmsfWl2MYtm+MD8hD7knLCovx8Oaqubd4w==}
-    engines: {node: '>=16.0.0'}
-    dev: false
-
   /ignore-by-default@1.0.1:
     resolution: {integrity: sha512-Ius2VYcGNk7T90CppJqcIkS5ooHUZyIQK+ClZfMfMNFEF9VSE73Fq+906u/CWu92x4gzZMWOwfFYckPObzdEbA==}
     dev: false
@@ -736,7 +728,7 @@ packages:
       lru-cache: 6.0.0
     dev: false
 
-  /serve-reload-replace@4.0.3(patch_hash=h332zoerndja7mh3wsa6t3gely):
+  /serve-reload-replace@4.0.3(patch_hash=nstziahcznsfatxn5mga5gmyom):
     resolution: {integrity: sha512-j1+tpVu/bxmeuhXXUOzeaHeYCSJTiHFIWwBcHl+gBpRAJncG+9hngXgjjrs2gH8iPzMLqSjhSMcpRXjHzLEIJA==}
     engines: {node: '>=14'}
     hasBin: true

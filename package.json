@@ -6,7 +6,7 @@
     "dev": "concurrently npm:watch npm:serve",
     "build": "tsp compile src",
     "watch": "nodemon --exec npm run build -e tsp",
-    "serve": "srr --port=8481",
+    "serve": "srr --port=8481 --ignore=node_modules/ --proxy=https://solved.ac/api/v3",
     "format": "prettier -w src",
     "lint:format": "prettier -c src",
     "prepare": "git config core.hooksPath ./scripts/git-hooks"
@@ -22,7 +22,6 @@
     "@typespec/versioning": "0.54.0-dev.4",
     "concurrently": "^8.2.2",
     "deepmerge": "^4.3.1",
-    "hono": "^4.0.8",
     "nodemon": "^3.1.0",
     "prettier": "^3.2.5",
     "serve-reload-replace": "^4.0.3",

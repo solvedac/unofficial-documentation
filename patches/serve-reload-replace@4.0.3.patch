@@ -1,10 +1,128 @@
 diff --git a/lib/bin.js b/lib/bin.js
-index 8628ed0638e271935f9298e2eb0f3e9ba286990b..8e06fd6f4844008354024bb13fd516fadb368626 100755
+index 8628ed0638e271935f9298e2eb0f3e9ba286990b..aa98d191e9f7b50f999da0bcb955a3853565e894 100755
 --- a/lib/bin.js
 +++ b/lib/bin.js
-@@ -34,4 +34,4 @@ if (args.help) {
+@@ -12,11 +12,15 @@ const options = {
+   '--index': String,
+   '--port': String,
+   '--root': String,
++  '--ignore': String,
++  '--proxy': String,
+   '--verbose': Boolean
+ }
+ 
+ const usage = `Usage: srr [options]
+   ${chalk.yellow('--root')}     Path to serve & watch                                 default: $PWD
++  ${chalk.yellow('--ignore')}   Regex filter to ignore files from being watched       default: null
++  ${chalk.yellow('--proxy')}    WHat url should the proxy point to                    default: null
+   ${chalk.yellow('--client')}   Path to custom EventSource client                     default: built-in
+   ${chalk.yellow('--address')}  Specify network interface to use                      default: 0.0.0.0
+   ${chalk.yellow('--port')}     Specify a port to use                                 default: 8080
+@@ -34,4 +38,4 @@ if (args.help) {
  
  const server = new SRR(args)
  
 -server.start()
 +server.start(args)
+diff --git a/lib/client.js b/lib/client.js
+index 7deb3eca3c97ce67e6fb28e1f0e7f25aa1506796..4646aa9c7c3529392de2ae178153769dbcf3e0c7 100644
+--- a/lib/client.js
++++ b/lib/client.js
+@@ -9,3 +9,8 @@ sse.addEventListener('error', event => {
+ })
+ 
+ // TODO: track resources on page
++
++const originalFetch = globalThis.fetch;
++globalThis.fetch = function proxiedFetch(url, ...args) {
++  return originalFetch(PROXY_HOST && url.startsWith(PROXY_HOST) ? url.replace(PROXY_HOST, 'proxy') : url, ...args);
++}
+diff --git a/lib/handler.js b/lib/handler.js
+index 9c49dcdfa10772985ae3ac8230c75a6b2a72ad13..ac9484dc3d18805df1b118b3145806ad5be5463a 100644
+--- a/lib/handler.js
++++ b/lib/handler.js
+@@ -8,7 +8,7 @@ const headerFormat = headers => {
+   return Object.keys(headers).map(() => '%s:gray: %s:dim').join(' ')
+ }
+ 
+-module.exports = function ({ client, clients, root, index, verbose }) {
++module.exports = function ({ client, clients, root, index, verbose, proxy }) {
+   return async (request, response) => {
+     // set headers object
+     response.headers = {}
+@@ -50,16 +50,27 @@ module.exports = function ({ client, clients, root, index, verbose }) {
+       return
+     }
+ 
++    if (proxy && request.url.startsWith('/proxy')) {
++      const path = request.url.substring('/proxy'.length) || '/';
++      const fetchResp = await fetch(proxy + path, {
++        method: request.method,
++        headers: request.headers,
++      });
++      response.writeHead(fetchResp.status, Object.fromEntries(fetchResp.headers));
++      response.end(await fetchResp.text());
++      return;
++    }
++
+     try {
+       if (request.url === '/__client') {
+         try {
+           const path = client ? urlToPath(root, `/${client}`) : urlToPath(__dirname, '/client.js')
+-          const script = await readFile(path)
++          const script = await readFile(path, { encoding: 'utf8' })
+           response.writeHead(200, {
+             'content-type': 'text/javascript',
+             'cache-control': 'no-store'
+           })
+-          response.end(script)
++          response.end(script.replace(/PROXY_HOST/g, proxy ? JSON.stringify(proxy) : 'null'))
+           return
+         } catch (err) {
+           const error = new Error(`Error Loading Client: ${err.message}`)
+diff --git a/lib/server.js b/lib/server.js
+index 50590f6c1e4f83481a310c2b253e707ed808b3f2..383899de32a33d02474d4de8e84dcdf40a7e8c24 100644
+--- a/lib/server.js
++++ b/lib/server.js
+@@ -15,7 +15,7 @@ class SRR {
+   #clients = {}
+   #instance = null
+ 
+-  constructor ({ verbose = false, root = process.cwd(), index = 'index.html', client } = {}) {
++  constructor ({ verbose = false, root = process.cwd(), index = 'index.html', client, ignore, proxy } = {}) {
+     this.#instance = new Server()
+     this.#options = { verbose, root, index, client }
+ 
+@@ -25,7 +25,7 @@ class SRR {
+     const cwd = expandTilde(root)
+     const watcher = watch('.', { cwd, ignoreInitial: true })
+ 
+-    watcher.on('all', sse(this.#clients))
++    watcher.on('all', sse(this.#clients, ignore))
+ 
+     /* istanbul ignore next */
+     watcher.on('ready', () => log('%dot:green Watching files in %s:yellow', cwd))
+@@ -44,7 +44,7 @@ class SRR {
+     })
+ 
+     // main handler
+-    this.#instance.on('request', request({ client, clients: this.#clients, root, index, verbose }))
++    this.#instance.on('request', request({ client, clients: this.#clients, root, index, verbose, proxy }))
+   }
+ 
+   start ({ address = '0.0.0.0', port = 8080 } = {}) {
+diff --git a/lib/sse.js b/lib/sse.js
+index 029b922088eab603d1bb4ff3e0759204ded3197f..dd2d5e5c723a6e202fdd1a97dd7df0b966f80b3d 100644
+--- a/lib/sse.js
++++ b/lib/sse.js
+@@ -1,7 +1,9 @@
+ const { log } = require('./log')
+ 
+-module.exports = function (clients, passThrough = false) {
++module.exports = function (clients, ignore, passThrough = false) {
++  ignore = typeof ignore === 'string' ? new RegExp(ignore) : null;
+   return (event, path) => {
++    if (ignore && ignore.test(path)) return;
+     log('%dot:yellow %s:dim %s:blue', event, path)
+ 
+     Object.values(clients).forEach(response => {
