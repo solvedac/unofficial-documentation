@@ -38,7 +38,7 @@ index 7deb3eca3c97ce67e6fb28e1f0e7f25aa1506796..4646aa9c7c3529392de2ae178153769d
 +  return originalFetch(PROXY_HOST && url.startsWith(PROXY_HOST) ? url.replace(PROXY_HOST, 'proxy') : url, ...args);
 +}
 diff --git a/lib/handler.js b/lib/handler.js
-index 9c49dcdfa10772985ae3ac8230c75a6b2a72ad13..ac9484dc3d18805df1b118b3145806ad5be5463a 100644
+index 9c49dcdfa10772985ae3ac8230c75a6b2a72ad13..7d7120172b3c57df2b16bda9faa48b62c1057d19 100644
 --- a/lib/handler.js
 +++ b/lib/handler.js
 @@ -8,7 +8,7 @@ const headerFormat = headers => {
@@ -50,7 +50,7 @@ index 9c49dcdfa10772985ae3ac8230c75a6b2a72ad13..ac9484dc3d18805df1b118b3145806ad
    return async (request, response) => {
      // set headers object
      response.headers = {}
-@@ -50,16 +50,27 @@ module.exports = function ({ client, clients, root, index, verbose }) {
+@@ -50,16 +50,31 @@ module.exports = function ({ client, clients, root, index, verbose }) {
        return
      }
  
@@ -60,8 +60,12 @@ index 9c49dcdfa10772985ae3ac8230c75a6b2a72ad13..ac9484dc3d18805df1b118b3145806ad
 +        method: request.method,
 +        headers: request.headers,
 +      });
-+      response.writeHead(fetchResp.status, Object.fromEntries(fetchResp.headers));
-+      response.end(await fetchResp.text());
++      response.writeHead(fetchResp.status, {
++        ...Object.fromEntries(fetchResp.headers),
++        'content-encoding': '',
++      });
++      response.end(Buffer.from(await fetchResp.arrayBuffer());
++      log('%dot:green %s:white %s:magenta ↦  %s:white %s:dim (proxied)', request.method, request.url, response.statusCode, response.statusMessage)
 +      return;
 +    }
 +
