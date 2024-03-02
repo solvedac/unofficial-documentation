@@ -2,7 +2,7 @@ namespace SolvedAC;
 
 /**
  * 뱃지의 등급입니다.
- * @example "bronze"
+ * @example bronze
  */
 enum BadgeTier {
   Bronze: "bronze",

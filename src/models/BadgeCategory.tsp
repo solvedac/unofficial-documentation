@@ -2,7 +2,7 @@ namespace SolvedAC;
 
 /**
  * 뱃지 획득 유형 분류입니다.
- * @example "season"
+ * @example season
  */
 enum BadgeCategory {
   /**

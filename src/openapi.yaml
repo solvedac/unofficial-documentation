@@ -26,8 +26,6 @@ paths:
     $ref: "./paths/account/verify_credentials.yaml#/paths/Path"
   /background/show:
     $ref: "./paths/background/show.yaml#/paths/Path"
-  /badge/show:
-    $ref: "./paths/badge/show.yaml#/paths/Path"
   /coins/exchange_rate:
     $ref: "./paths/coins/exchange_rate.yaml#/paths/Path"
   /coins/shop/list:

@@ -9,13 +9,14 @@ import "./models/_barrel.tsp";
 
 using TypeSpec.Http;
 using TypeSpec.OpenAPI;
+using TypeSpec.Versioning;
 
-@TypeSpec.Versioning.versioned(DocumentationVersion)
 @service({
   title: "@solvedac/unofficial-documentation",
 })
 @server("https://solved.ac/api/v3", "")
 @info({
+  version: "3.2024.03+b1",
   description: """
     이 프로젝트는 [solved.ac](https://solved.ac/) API를 문서화하는 커뮤니티 프로젝트입니다.
 
@@ -41,10 +42,4 @@ using TypeSpec.OpenAPI;
     email: "me@ranolp.dev",
   },
 })
-namespace SolvedAC {
-
-}
-
-enum DocumentationVersion {
-  latest: "3.2024.03+b1",
-}
+namespace SolvedAC;
