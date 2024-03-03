@@ -9,7 +9,7 @@ patchedDependencies:
     hash: glq3uwocccqvnxjoslhpdweciy
     path: patches/@typespec__openapi3@0.54.0-dev.11.patch
   serve-reload-replace@4.0.3:
-    hash: mx4yebedg4etvdfvlu5y7w5hie
+    hash: fetg5rrpoylm4dg6wpqucmqhfa
     path: patches/serve-reload-replace@4.0.3.patch
 
 dependencies:
@@ -51,7 +51,7 @@ dependencies:
     version: 3.2.5
   serve-reload-replace:
     specifier: ^4.0.3
-    version: 4.0.3(patch_hash=mx4yebedg4etvdfvlu5y7w5hie)
+    version: 4.0.3(patch_hash=fetg5rrpoylm4dg6wpqucmqhfa)
   yaml:
     specifier: ^2.4.0
     version: 2.4.0
@@ -728,7 +728,7 @@ packages:
       lru-cache: 6.0.0
     dev: false
 
-  /serve-reload-replace@4.0.3(patch_hash=mx4yebedg4etvdfvlu5y7w5hie):
+  /serve-reload-replace@4.0.3(patch_hash=fetg5rrpoylm4dg6wpqucmqhfa):
     resolution: {integrity: sha512-j1+tpVu/bxmeuhXXUOzeaHeYCSJTiHFIWwBcHl+gBpRAJncG+9hngXgjjrs2gH8iPzMLqSjhSMcpRXjHzLEIJA==}
     engines: {node: '>=14'}
     hasBin: true

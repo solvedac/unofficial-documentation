@@ -38,7 +38,7 @@ index 7deb3eca3c97ce67e6fb28e1f0e7f25aa1506796..4646aa9c7c3529392de2ae178153769d
 +  return originalFetch(PROXY_HOST && url.startsWith(PROXY_HOST) ? url.replace(PROXY_HOST, 'proxy') : url, ...args);
 +}
 diff --git a/lib/handler.js b/lib/handler.js
-index 9c49dcdfa10772985ae3ac8230c75a6b2a72ad13..7d7120172b3c57df2b16bda9faa48b62c1057d19 100644
+index 9c49dcdfa10772985ae3ac8230c75a6b2a72ad13..2b082beec37037ebd8d948194a7cccac8ffee622 100644
 --- a/lib/handler.js
 +++ b/lib/handler.js
 @@ -8,7 +8,7 @@ const headerFormat = headers => {
@@ -64,7 +64,7 @@ index 9c49dcdfa10772985ae3ac8230c75a6b2a72ad13..7d7120172b3c57df2b16bda9faa48b62
 +        ...Object.fromEntries(fetchResp.headers),
 +        'content-encoding': '',
 +      });
-+      response.end(Buffer.from(await fetchResp.arrayBuffer());
++      response.end(Buffer.from(await fetchResp.arrayBuffer()));
 +      log('%dot:green %s:white %s:magenta ↦  %s:white %s:dim (proxied)', request.method, request.url, response.statusCode, response.statusMessage)
 +      return;
 +    }
