@@ -56,8 +56,6 @@ paths:
     $ref: "./paths/ranking/reverse_rival.yaml#/paths/Path"
   /ranking/organization:
     $ref: "./paths/ranking/organization.yaml#/paths/Path"
-  /search/problem:
-    $ref: "./paths/search/problem.yaml#/paths/Path"
   /search/suggestion:
     $ref: "./paths/search/suggestion.yaml#/paths/Path"
   /search/tag:
@@ -109,18 +107,10 @@ components:
       $ref: "./schemas/icon-scheme.yaml#/components/schemas/IconScheme"
     Item:
       $ref: "./schemas/item.yaml#/components/schemas/Item"
-    Language:
-      $ref: "./schemas/language.yaml#/components/schemas/Language"
-    TaggedProblem:
-      $ref: "./schemas/tagged-problem.yaml#/components/schemas/TaggedProblem"
     Organization:
       $ref: "./schemas/organization.yaml#/components/schemas/Organization"
-    Problem:
-      $ref: "./schemas/problem.yaml#/components/schemas/Problem"
     ProblemLevel:
       $ref: "./schemas/problem-level.yaml#/components/schemas/ProblemLevel"
-    ProblemTag:
-      $ref: "./schemas/problem-tag.yaml#/components/schemas/ProblemTag"
     RankedUser:
       $ref: "./schemas/ranked-user.yaml#/components/schemas/RankedUser"
     Settings:

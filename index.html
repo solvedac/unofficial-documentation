@@ -65,6 +65,7 @@
       }
       /* directly taken from solved.ac */
       :root {
+        --solve-tier-zero: #2d2d2d;
         --solve-tier-bronze5: #9d4900;
         --solve-tier-bronze4: #a54f00;
         --solve-tier-bronze3: #ad5600;
@@ -97,97 +98,107 @@
         --solve-tier-ruby1: #ff3071;
         --solve-tier-master: #c67739;
       }
-      .solve-tier-bronze5 {
+      .solve-tier.zero {
+        color: var(--solve-tier-zero);
+      }
+      [data-theme='dark'] .solve-tier.zero {
+        text-shadow:
+          1px 1px 0 #7a7a7a,
+          -0.5px 0.5px 0 #5a5a5a,
+          0.5px -0.5px 0 #5a5a5a,
+          -0.5px -0.5px 0 #5a5a5a;
+      }
+      .solve-tier.bronze5 {
         color: var(--solve-tier-bronze5);
       }
-      .solve-tier-bronze4 {
+      .solve-tier.bronze4 {
         color: var(--solve-tier-bronze4);
       }
-      .solve-tier-bronze3 {
+      .solve-tier.bronze3 {
         color: var(--solve-tier-bronze3);
       }
-      .solve-tier-bronze2 {
+      .solve-tier.bronze2 {
         color: var(--solve-tier-bronze2);
       }
-      .solve-tier-bronze1 {
+      .solve-tier.bronze1 {
         color: var(--solve-tier-bronze1);
       }
-      .solve-tier-silver5 {
+      .solve-tier.silver5 {
         color: var(--solve-tier-silver5);
       }
-      .solve-tier-silver4 {
+      .solve-tier.silver4 {
         color: var(--solve-tier-silver4);
       }
-      .solve-tier-silver3 {
+      .solve-tier.silver3 {
         color: var(--solve-tier-silver3);
       }
-      .solve-tier-silver2 {
+      .solve-tier.silver2 {
         color: var(--solve-tier-silver2);
       }
-      .solve-tier-silver1 {
+      .solve-tier.silver1 {
         color: var(--solve-tier-silver1);
       }
-      .solve-tier-gold5 {
+      .solve-tier.gold5 {
         color: var(--solve-tier-gold5);
       }
-      .solve-tier-gold4 {
+      .solve-tier.gold4 {
         color: var(--solve-tier-gold4);
       }
-      .solve-tier-gold3 {
+      .solve-tier.gold3 {
         color: var(--solve-tier-gold3);
       }
-      .solve-tier-gold2 {
+      .solve-tier.gold2 {
         color: var(--solve-tier-gold2);
       }
-      .solve-tier-gold1 {
+      .solve-tier.gold1 {
         color: var(--solve-tier-gold1);
       }
-      .solve-tier-platinum5 {
+      .solve-tier.platinum5 {
         color: var(--solve-tier-platinum5);
       }
-      .solve-tier-platinum4 {
+      .solve-tier.platinum4 {
         color: var(--solve-tier-platinum4);
       }
-      .solve-tier-platinum3 {
+      .solve-tier.platinum3 {
         color: var(--solve-tier-platinum3);
       }
-      .solve-tier-platinum2 {
+      .solve-tier.platinum2 {
         color: var(--solve-tier-platinum2);
       }
-      .solve-tier-platinum1 {
+      .solve-tier.platinum1 {
         color: var(--solve-tier-platinum1);
       }
-      .solve-tier-diamond5 {
+      .solve-tier.diamond5 {
         color: var(--solve-tier-diamond5);
       }
-      .solve-tier-diamond4 {
+      .solve-tier.diamond4 {
         color: var(--solve-tier-diamond4);
       }
-      .solve-tier-diamond3 {
+      .solve-tier.diamond3 {
         color: var(--solve-tier-diamond3);
       }
-      .solve-tier-diamond2 {
+      .solve-tier.diamond2 {
         color: var(--solve-tier-diamond2);
       }
-      .solve-tier-diamond1 {
+      .solve-tier.diamond1 {
         color: var(--solve-tier-diamond1);
       }
-      .solve-tier-ruby5 {
+      .solve-tier.ruby5 {
         color: var(--solve-tier-ruby5);
       }
-      .solve-tier-ruby4 {
+      .solve-tier.ruby4 {
         color: var(--solve-tier-ruby4);
       }
-      .solve-tier-ruby3 {
+      .solve-tier.ruby3 {
         color: var(--solve-tier-ruby3);
       }
-      .solve-tier-ruby2 {
+      .solve-tier.ruby2 {
         color: var(--solve-tier-ruby2);
       }
-      .solve-tier-ruby1 {
+      .solve-tier.ruby1 {
         color: var(--solve-tier-ruby1);
       }
-      .solve-tier-master {
+      .solve-tier.master {
         background-color: #b491ff;
         background-image: linear-gradient(0deg, #ff7ca8, #b491ff, #7cf9ff);
         background-size: 80%;
@@ -220,6 +231,7 @@
       hideInternal="true"
     />
     <script>
+      // https://github.com/stoplightio/elements/issues/1439#issuecomment-1922387443
       // adapted from https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/themes/nightOwl.js
       const darkTheme = {
         mode: 'dark',
@@ -408,7 +420,7 @@
       content: ({ type }) => {
         const iconMap = {
           'solve-tier': () => {
-            const match = /solve-tier:(\d+)/.exec(type);
+            const match = /solve-tier:(\d+|nr)/.exec(type);
             return match
               ? `https://static.solved.ac/tier_small/${match[1]}.svg`
               : null;
