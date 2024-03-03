@@ -197,7 +197,6 @@
       }
     </style>
   </head>
-
   <body>
     <script>
       if (window.matchMedia) {
@@ -208,7 +207,6 @@
         };
 
         match.addEventListener('change', (e) => updateTheme(e.matches));
-
         updateTheme(match.matches);
       }
     </script>
@@ -221,6 +219,185 @@
       layout="responsive"
       hideInternal="true"
     />
+    <script>
+      // adapted from https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/themes/nightOwl.js
+      const darkTheme = {
+        mode: 'dark',
+        plain: {
+          // color: '#d6deeb',
+          // backgroundColor: '#011627',
+        },
+        styles: [
+          {
+            types: ['changed'],
+            style: { color: 'rgb(162, 191, 252)', fontStyle: 'italic' },
+          },
+          {
+            types: ['deleted'],
+            style: { color: 'rgba(239, 83, 80, 0.56)', fontStyle: 'italic' },
+          },
+          {
+            types: ['inserted', 'attr-name', 'function', 'url'],
+            style: { color: '#d2a8ff' },
+          },
+          { types: ['string', 'attr-value'], style: { color: '#a5d6ff' } },
+          { types: ['punctuation'], style: { color: 'inherit' } },
+          { types: ['comment'], style: { color: '#8b949e' } },
+          { types: ['variable'], style: { color: 'rgb(214, 222, 235)' } },
+          { types: ['number'], style: { color: 'rgb(247, 140, 108)' } },
+          {
+            types: ['builtin', 'char', 'constant'],
+            style: { color: 'rgb(130, 170, 255)' },
+          },
+          {
+            types: ['selector', 'doctype', 'value'],
+            style: { color: 'rgb(199, 146, 234)', fontStyle: 'italic' },
+          },
+          { types: ['class-name'], style: { color: '#7ee787' } },
+          { types: ['operator', 'keyword'], style: { color: '#ff7b72' } },
+          { types: ['boolean'], style: { color: '#79c0ff' } },
+          { types: ['property'], style: { color: 'rgb(128, 203, 196)' } },
+          {
+            types: ['namespace', 'option'],
+            style: { color: 'rgb(178, 204, 214)' },
+          },
+        ],
+      };
+      // adapted from https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/themes/github.js
+      const lightTheme = {
+        mode: 'light',
+        plain: {
+          // color: '#393A34',
+          // backgroundColor: '#f6f8fa',
+        },
+        styles: [
+          {
+            types: ['comment', 'blockquote'],
+            style: { color: '#969896', fontStyle: 'italic' },
+          },
+          { types: ['cdata'], style: { color: '#183691' } },
+          {
+            types: ['doctype', 'punctuation', 'variable', 'macro property'],
+            style: { color: '#333' },
+          },
+          {
+            types: ['important', 'rule', 'builtin'],
+            style: { color: '#a71d5d' },
+          },
+          { types: ['keyword', 'operator'], style: { color: '#d73a49' } },
+          {
+            types: ['string', 'url', 'regex', 'attr-value'],
+            style: { color: '#032f62' },
+          },
+          {
+            types: [
+              'property',
+              'number',
+              'boolean',
+              'entity',
+              'atrule',
+              'constant',
+              'symbol',
+              'command',
+              'code',
+            ],
+            style: { color: '#005cc5' },
+          },
+          { types: ['attr-name', 'function'], style: { color: '#6f42c1' } },
+          { types: ['selector', 'prolog'], style: { color: '#63a35c' } },
+          {
+            types: [
+              'namespace',
+              'pseudo-element',
+              'class',
+              'class-name',
+              'pseudo-class',
+              'id',
+              'url-reference',
+            ],
+            style: { color: '#22863a' },
+          },
+          { types: ['title'], style: { color: '#1d3e81', fontWeight: 'bold' } },
+          { types: ['list'], style: { color: '#ed6a43' } },
+          {
+            types: ['inserted'],
+            style: { color: '#55a532', backgroundColor: '#eaffea' },
+          },
+          {
+            types: ['deleted'],
+            style: { color: '#bd2c00', backgroundColor: '#ffecec' },
+          },
+          { types: ['bold'], style: { fontWeight: 'bold' } },
+          { types: ['italic'], style: { fontStyle: 'italic' } },
+          {
+            languages: ['json'],
+            types: ['property'],
+            style: { color: '#183691' },
+          },
+          {
+            languages: ['markup'],
+            types: ['tag punctuation'],
+            style: { color: '#333' },
+          },
+          {
+            languages: ['css'],
+            types: ['function'],
+            style: { color: '#0086b3' },
+          },
+          {
+            languages: ['yaml'],
+            types: ['atrule'],
+            style: { color: '#63a35c' },
+          },
+          {
+            languages: ['markdown'],
+            types: ['url'],
+            style: { color: '#795da3' },
+          },
+          {
+            languages: ['bash'],
+            types: ['keyword'],
+            style: { color: '#0086b3' },
+          },
+          { types: ['option'], style: { opacity: 0.7 } },
+          { types: ['value'], style: { color: '#e3116c' } },
+          { types: ['function-variable'], style: { color: '#6f42c1' } },
+        ],
+      };
+      const $elements = document.getElementById('elements');
+      const updateStyle = (isDark) => {
+        for (const pre of $elements.querySelectorAll('pre.sl-code-viewer')) {
+          const isPreDark = isDark || !!pre.closest('.sl-inverted');
+          const theme = isPreDark ? darkTheme : lightTheme;
+          for (const span of pre.querySelectorAll('span')) {
+            if (!span.classList.contains('token')) continue;
+            for (const { languages, types, style } of theme.styles) {
+              if (
+                types.some((x) => span.classList.contains(x)) &&
+                (!languages ||
+                  languages.some((x) =>
+                    pre.classList.contains(`language-${x}`),
+                  ))
+              ) {
+                if (theme.mode === 'dark' && isPreDark && !isDark)
+                  console.log(pre, span, theme.mode, style);
+                Object.assign(span.style, style);
+              }
+            }
+          }
+        }
+      };
+      const themeQuery = '(prefers-color-scheme: dark)';
+      const match = window.matchMedia(themeQuery);
+      match.addEventListener('change', (e) => updateStyle(e.matches));
+      new MutationObserver(() => updateStyle(match.matches)).observe(
+        $elements,
+        {
+          childList: true,
+          subtree: true,
+        },
+      );
+    </script>
   </body>
   <script type="module">
     import { define, html } from 'https://esm.sh/hybrids@^8';
@@ -240,12 +417,12 @@
         const src = Object.entries(iconMap).find(([namespace, f]) =>
           type?.startsWith(namespace),
         )?.[1]();
-        return html` <img src="${src}" /> `.css`
+        return html`<img src="${src}" />`.css`
           img {
             display: inline-block;
-            width: 1em;
-            height: 1em;
-            vertical-align: middle;
+              width: 1em;
+              height: 1em;
+              vertical-align: middle;
           }
         `;
       },
