@@ -13,3 +13,4 @@ import "./ProblemTitleTranslated.tsp";
 import "./ProblemTagNameTranslated.tsp";
 import "./ProblemTagAlias.tsp";
 import "./ProblemTag.tsp";
+import "./PaginatedList.tsp";

@@ -89,20 +89,7 @@ namespace SearchProblem {
   }
 
   @extension(XInternal, true)
-  model Ok {
+  model Ok is PaginatedList<Problem> {
     @statusCode status: 200;
-
-    /**
-     * 찾은 문제 수입니다.
-     *
-     * @example 1
-     */
-    count: uint64;
-
-    /**
-     * 찾은 문제 목록입니다.
-     * 만약 한 페이지에 담기에 너무 많다면 현재 페이지에 해당하는 문제 목록만 포함합니다.
-     */
-    items: Problem[];
   }
 }
