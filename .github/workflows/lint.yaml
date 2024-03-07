@@ -13,9 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v4
+      - run: pnpm build
       - uses: stoplightio/spectral-action@v0.8.10
         with:
-          file_glob: "src/*.yaml"
+          file_glob: 'tsp-output/*.yaml'
   library-deployment:
     needs: [lint]
     runs-on: ubuntu-latest
@@ -23,8 +25,8 @@ jobs:
     strategy:
       matrix:
         repo:
-          - "solvedac/api.ts"
-          - "solvedac/api.rs"
+          - 'solvedac/api.ts'
+          - 'solvedac/api.rs'
     steps:
       - name: Invoke Workflow
         uses: benc-uk/workflow-dispatch@v1
