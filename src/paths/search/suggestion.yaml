@@ -50,6 +50,7 @@ paths:
                       properties:
                         id:
                           type: "integer"
+                          format: "int64"
                           description: "문제 ID입니다."
                           example: 1763
                         title:
@@ -60,6 +61,7 @@ paths:
                           $ref: "../../schemas/problem-level.yaml#/components/schemas/ProblemLevel"
                         solved:
                           type: "integer"
+                          format: "int64"
                           description: "문제를 푼 사람 수입니다."
                           example: 126
                         caption:
@@ -93,6 +95,7 @@ paths:
                         problemCount:
                           description: "이 태그를 포함하는 문제의 수입니다."
                           type: "integer"
+                          format: "int64"
                           example: 1080
                         caption:
                           type: "string"
