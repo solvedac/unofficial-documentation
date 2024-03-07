@@ -6,3 +6,4 @@ await $`mkdir build`;
 await $`cp favicon.svg build`;
 await $`cp index.html build`;
 await $`cp -r tsp-output build`;
+await $`cp -r vnedors build`;
