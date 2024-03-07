@@ -49,27 +49,27 @@ paths:
                       type: "object"
                       properties:
                         id:
-                          type: int
+                          type: "integer"
                           description: "문제 ID입니다."
                           example: 1763
                         title:
-                          type: str
+                          type: "string"
                           description: "문제 제목입니다."
                           example: "트리 색칠"
                         level:
                           $ref: "../../schemas/problem-level.yaml#/components/schemas/ProblemLevel"
                         solved:
-                          type: int
+                          type: "integer"
                           description: "문제를 푼 사람 수입니다."
                           example: 126
                         caption:
-                          type: str
+                          type: "string"
                           example: "트리 색칠"
                         description:
-                          type: str
+                          type: "string"
                           example: "#1763"
                         href:
-                          type: str
+                          type: "string"
                           example: "https://www.acmicpc.net/problem/1763"
                   problemCount:
                     description: "찾은 문제 수입니다."
