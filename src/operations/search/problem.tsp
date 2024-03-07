@@ -53,14 +53,14 @@ op searchProblem(
    * <details>
    *     <summary>열거형 값 설명</summary>
    *
-   *     | 값          | 설명               |
-   *     | :---------- | :----------------- |
-   *     | id          | 백준에서의 문제 ID |
-   *     | level       | 문제 수준          |
-   *     | title       | 문제 제목          |
-   *     | solved      | 푼 사람 수         |
-   *     | average_try | 평균 시도          |
-   *     | random      | 랜덤               |
+   *     | 값          | 설명           |
+   *     | :---------- | :------------- |
+   *     | id          | 백준 문제 번호 |
+   *     | level       | 문제 수준      |
+   *     | title       | 문제 제목      |
+   *     | solved      | 푼 사람 수     |
+   *     | average_try | 평균 시도      |
+   *     | random      | 랜덤           |
    * </details>
    */
   @query

@@ -5,7 +5,7 @@ namespace SolvedAC;
  */
 model Problem {
   /**
-   * 문제 고유 ID입니다.
+   * 백준 문제 번호로, 문제마다 고유합니다.
    *
    * @example 13705
    */
