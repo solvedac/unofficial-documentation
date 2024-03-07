@@ -82,5 +82,4 @@ enum ProblemLevel {
   Ruby3: 28,
   Ruby2: 29,
   Ruby1: 30,
-  Master: 31,
 }
