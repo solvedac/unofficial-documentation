@@ -1,7 +1,6 @@
 /**
  * 페이지네이션 가능한 쿼리의 응답 결과입니다.
  */
-@friendlyName("PaginatedList.{name}", Item)
 model PaginatedList<Item> {
   /**
    * 전체 원소 수입니다.
