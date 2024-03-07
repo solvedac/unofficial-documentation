@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently npm:watch npm:serve",
     "build": "node ./scripts/build.js",
-    "watch": "nodemon --exec npm run build -e tsp",
+    "watch": "nodemon --exec tsp compile src -e tsp",
     "serve": "srr --port=8481 --ignore=node_modules/ --proxy=https://solved.ac/api/v3",
     "format": "prettier -w src",
     "lint:format": "prettier -c src",
