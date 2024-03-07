@@ -417,7 +417,7 @@
     define({
       tag: 'solved-icon',
       type: '',
-      content: ({ type }) => {
+      render: ({ type }) => {
         const iconMap = {
           'solve-tier': () => {
             const match = /solve-tier:(\d+|nr)/.exec(type);
