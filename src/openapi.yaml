@@ -36,8 +36,6 @@ paths:
           description: "TODO"
   /problem/class:
     $ref: "./paths/problem/class.yaml#/paths/Path"
-  /problem/level:
-    $ref: "./paths/problem/level.yaml#/paths/Path"
   /ranking/tier:
     $ref: "./paths/ranking/tier.yaml#/paths/Path"
   /ranking/class:
