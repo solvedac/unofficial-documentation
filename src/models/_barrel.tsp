@@ -14,3 +14,5 @@ import "./ProblemTagNameTranslated.tsp";
 import "./ProblemTagAlias.tsp";
 import "./ProblemTag.tsp";
 import "./PaginatedList.tsp";
+import "./User.tsp";
+import "./ArenaTier.tsp";

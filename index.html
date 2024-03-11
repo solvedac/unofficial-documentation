@@ -65,6 +65,16 @@
       }
       /* directly taken from solved.ac */
       :root {
+        --arena-tier-unrated: #818996;
+        --arena-tier-c-family: #725039;
+        --arena-tier-b-family: #2c4182;
+        --arena-tier-a-family: #ffa515;
+        --arena-tier-s-family: #46db66;
+        --arena-tier-ss-family: #30a1e5;
+        --arena-tier-sss-family: #ff143b;
+        --arena-tier-x: #000000;
+        --arena-tier-x-first-letter: #ff143b;
+
         --solve-tier-zero: #2d2d2d;
         --solve-tier-bronze5: #9d4900;
         --solve-tier-bronze4: #a54f00;
@@ -97,6 +107,45 @@
         --solve-tier-ruby2: #ff0062;
         --solve-tier-ruby1: #ff3071;
         --solve-tier-master: #b491ff;
+      }
+      [data-theme='dark'] {
+        --arena-tier-x: #ffffff;
+      }
+      .arena-tier {
+        display: inline-block;
+      }
+      .arena-tier.unrated {
+        color: var(--arena-tier-unrated);
+      }
+      .arena-tier.c,
+      .arena-tier.c\+ {
+        color: var(--arena-tier-c-family);
+      }
+      .arena-tier.b,
+      .arena-tier.b\+ {
+        color: var(--arena-tier-b-family);
+      }
+      .arena-tier.a,
+      .arena-tier.a\+ {
+        color: var(--arena-tier-a-family);
+      }
+      .arena-tier.s,
+      .arena-tier.s\+ {
+        color: var(--arena-tier-s-family);
+      }
+      .arena-tier.ss,
+      .arena-tier.ss\+ {
+        color: var(--arena-tier-ss-family);
+      }
+      .arena-tier.sss,
+      .arena-tier.sss\+ {
+        color: var(--arena-tier-sss-family);
+      }
+      .arena-tier.x {
+        color: var(--arena-tier-x);
+      }
+      .arena-tier.x::first-letter {
+        color: var(--arena-tier-x-first-letter);
       }
       .solve-tier.zero {
         color: var(--solve-tier-zero);
@@ -418,23 +467,36 @@
       tag: 'solved-icon',
       type: '',
       render: ({ type }) => {
-        const iconMap = {
-          'solve-tier': () => {
-            const match = /solve-tier:(\d+|nr)/.exec(type);
-            return match
-              ? `https://static.solved.ac/tier_small/${match[1]}.svg`
-              : null;
+        const iconMap = [
+          {
+            filter: /solve-tier:(\d+|nr)/,
+            url: (match) =>
+              `https://static.solved.ac/tier_small/${match[1]}.svg`,
           },
-        };
-        const src = Object.entries(iconMap).find(([namespace, f]) =>
-          type?.startsWith(namespace),
-        )?.[1]();
-        return html`<img src="${src}" />`.css`
+          {
+            filter: /arena-tier:(\d+)/,
+            url: (match) =>
+              `https://static.solved.ac/tier_arena/${match[1]}.svg`,
+            classList: () => ['icon-arena-tier'],
+          },
+        ];
+        const got = iconMap
+          .flatMap(({ filter, url, classList }) => {
+            const match = filter.exec(type);
+            return match ? [[url(match), classList?.(match) ?? []]] : [];
+          })
+          .at(0) ?? [null, null];
+        console.log(got);
+        const [src, classList] = got;
+        return html`<img src="${src}" class=${classList} />`.css`
           img {
             display: inline-block;
-              width: 1em;
-              height: 1em;
-              vertical-align: middle;
+            height: 1em;
+            vertical-align: middle;
+          }
+          img.icon-arena-tier {
+            height: 0.75em;
+            vertical-align: baseline;
           }
         `;
       },
