@@ -16,3 +16,4 @@ import "./ProblemTag.tsp";
 import "./PaginatedList.tsp";
 import "./User.tsp";
 import "./ArenaTier.tsp";
+import "./UserWithSocial.tsp";

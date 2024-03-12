@@ -52,8 +52,6 @@ paths:
     $ref: "./paths/ranking/organization.yaml#/paths/Path"
   /search/suggestion:
     $ref: "./paths/search/suggestion.yaml#/paths/Path"
-  /search/user:
-    $ref: "./paths/search/user.yaml#/paths/Path"
   /tag/list:
     get:
       description: "TODO"
@@ -82,8 +80,6 @@ paths:
       responses:
         "200":
           description: "TODO"
-  /user/show:
-    $ref: "./paths/user/show.yaml#/paths/Path"
   /user/top_100:
     $ref: "./paths/user/top_100.yaml#/paths/Path"
 
@@ -93,19 +89,11 @@ components:
       $ref: "./schemas/class-decoration.yaml#/components/schemas/ClassDecoration"
     CoinshopProduct:
       $ref: "./schemas/coinshop-product.yaml#/components/schemas/CoinshopProduct"
-    FullUser:
-      $ref: "./schemas/full-user.yaml#/components/schemas/FullUser"
     IconScheme:
       $ref: "./schemas/icon-scheme.yaml#/components/schemas/IconScheme"
     Item:
       $ref: "./schemas/item.yaml#/components/schemas/Item"
     Organization:
       $ref: "./schemas/organization.yaml#/components/schemas/Organization"
-    ProblemLevel:
-      $ref: "./schemas/problem-level.yaml#/components/schemas/ProblemLevel"
-    RankedUser:
-      $ref: "./schemas/ranked-user.yaml#/components/schemas/RankedUser"
     Settings:
       $ref: "./schemas/settings.yaml#/components/schemas/Settings"
-    User:
-      $ref: "./schemas/user.yaml#/components/schemas/User"
