@@ -479,6 +479,11 @@
               `https://static.solved.ac/tier_arena/${match[1]}.svg`,
             classList: () => ['icon-arena-tier'],
           },
+          {
+            filter: /class:(\d+[sg]?)/,
+            url: (match) => `https://static.solved.ac/class/c${match[1]}.svg`,
+            classList: () => ['class'],
+          },
         ];
         const got = iconMap
           .flatMap(({ filter, url, classList }) => {
@@ -497,6 +502,10 @@
           img.icon-arena-tier {
             height: 0.75em;
             vertical-align: baseline;
+          }
+          img.class {
+            height: 2em;
+            vertical-align: top;
           }
         `;
       },

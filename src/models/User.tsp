@@ -63,7 +63,9 @@ model User {
 
   /**
    * CLASS 완성도에 따른 장식입니다.
-   * 장식 없음 ("none"), 은장<sup>+</sup> ("silver"), 금장<sup>++</sup> ("gold")이 있습니다.
+   * <solved-icon type="class:1"></solved-icon> 장식 없음 ("none"),
+   * <solved-icon type="class:1s"></solved-icon> 은장<sup>+</sup> ("silver"),
+   * <solved-icon type="class:1g"></solved-icon> 금장<sup>++</sup> ("gold")이 있습니다.
    *
    * @example "none"
    */
