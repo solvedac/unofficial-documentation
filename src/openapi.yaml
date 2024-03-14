@@ -42,8 +42,6 @@ paths:
     $ref: "./paths/ranking/class.yaml#/paths/Path"
   /ranking/streak:
     $ref: "./paths/ranking/streak.yaml#/paths/Path"
-  /ranking/contribution:
-    $ref: "./paths/ranking/contribution.yaml#/paths/Path"
   /ranking/rival:
     $ref: "./paths/ranking/rival.yaml#/paths/Path"
   /ranking/reverse_rival:
@@ -85,8 +83,6 @@ paths:
 
 components:
   schemas:
-    ClassDecoration:
-      $ref: "./schemas/class-decoration.yaml#/components/schemas/ClassDecoration"
     CoinshopProduct:
       $ref: "./schemas/coinshop-product.yaml#/components/schemas/CoinshopProduct"
     IconScheme:

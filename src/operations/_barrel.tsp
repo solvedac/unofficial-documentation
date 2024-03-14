@@ -5,3 +5,4 @@ import "./site/_barrel.tsp";
 import "./search/_barrel.tsp";
 import "./problem/_barrel.tsp";
 import "./user/_barrel.tsp";
+import "./ranking/_barrel.tsp";
