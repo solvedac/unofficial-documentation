@@ -15,5 +15,6 @@ import "./ProblemTagAlias.tsp";
 import "./ProblemTag.tsp";
 import "./PaginatedList.tsp";
 import "./User.tsp";
+import "./RivalUser.tsp";
+import "./SocialUser.tsp";
 import "./ArenaTier.tsp";
-import "./UserWithSocial.tsp";

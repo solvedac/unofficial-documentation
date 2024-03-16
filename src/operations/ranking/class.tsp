@@ -4,16 +4,16 @@ using TypeSpec.OpenAPI;
 namespace SolvedAC;
 
 /**
- * 기여 횟수가 높은 사용자가 먼저 오도록 정렬한 사용자 목록을 가져옵니다.
+ * CLASS가 높은 사용자가 먼저 오도록 정렬한 사용자 목록을 가져옵니다.
  *
  * @return
  *     페이지네이션 가능한 사용자 목록을 반환합니다.
  */
-@summary("기여 순으로 정렬해 사용자 목록 가져오기")
+@summary("CLASS 순으로 정렬해 사용자 목록 가져오기")
 @tag("ranking")
 @get
-@route("/ranking/contribution")
-op getRankingByContribution(
+@route("/ranking/class")
+op getRankingByClass(
   /**
    * 응답을 받을 언어입니다.
    */
@@ -25,9 +25,9 @@ op getRankingByContribution(
    */
   @query
   page?: uint32,
-): GetRankingByContribution.Ok;
+): GetRankingByClass.Ok;
 
-namespace GetRankingByContribution {
+namespace GetRankingByClass {
   @extension(XInternal, true)
   model Ok is PaginatedList<RivalUser> {
     @statusCode status: 200;

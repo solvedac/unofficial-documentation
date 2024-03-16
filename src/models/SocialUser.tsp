@@ -3,7 +3,7 @@ namespace SolvedAC;
 /**
  * solved.ac 사용자 정보입니다.
  */
-model UserWithSocial is User {
+model SocialUser is User {
   /**
    * 라이벌 여부입니다.
    *
