@@ -34,8 +34,6 @@ paths:
       responses:
         "200":
           description: "TODO"
-  /problem/class:
-    $ref: "./paths/problem/class.yaml#/paths/Path"
   /ranking/tier:
     $ref: "./paths/ranking/tier.yaml#/paths/Path"
   /ranking/rival:
