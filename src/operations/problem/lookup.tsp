@@ -32,7 +32,8 @@ op getProblemsByIdList(
 
 namespace GetProblemsByIdList {
   @extension(XInternal, true)
-  model Ok extends PaginatedList<Problem> {
+  model Ok {
     @statusCode status: 200;
+    @body data: PaginatedList<Problem>;
   }
 }

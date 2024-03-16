@@ -29,7 +29,8 @@ op getBadge(
 
 namespace GetBadge {
   @extension(XInternal, true)
-  model Ok extends SolvedAC.Badge {
+  model Ok {
     @statusCode status: 200;
+    @body badge: Badge;
   }
 }

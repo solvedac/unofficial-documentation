@@ -25,7 +25,8 @@ op getBackground(
 
 namespace GetBackground {
   @extension(XInternal, true)
-  model Ok extends Background {
+  model Ok {
     @statusCode status: 200;
+    @body background: Background;
   }
 }

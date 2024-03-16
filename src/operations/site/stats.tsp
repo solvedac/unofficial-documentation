@@ -17,7 +17,8 @@ op getSiteStatistics(): GetSiteStatistics.Ok;
 
 namespace GetSiteStatistics {
   @extension(XInternal, true)
-  model Ok extends SolvedAC.SiteStatistics {
+  model Ok {
     @statusCode status: 200;
+    @body stats: SiteStatistics;
   }
 }

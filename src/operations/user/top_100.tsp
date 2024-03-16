@@ -29,7 +29,8 @@ op getUserTop100(
 
 namespace GetUserTop100 {
   @extension(XInternal, true)
-  model Ok extends PaginatedList<Problem> {
+  model Ok {
     @statusCode status: 200;
+    @body data: PaginatedList<Problem>;
   }
 }
