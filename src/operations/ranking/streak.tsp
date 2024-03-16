@@ -9,7 +9,7 @@ namespace SolvedAC;
  * @return
  *     페이지네이션 가능한 사용자 목록을 반환합니다.
  */
-@summary("최장 스트릭 순으로 정렬해 사용자 목록 가져오기")
+@summary("최장 스트릭 순 사용자 랭킹 가져오기")
 @tag("ranking")
 @get
 @route("/ranking/streak")
