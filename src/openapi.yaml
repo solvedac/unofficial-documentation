@@ -76,8 +76,6 @@ paths:
       responses:
         "200":
           description: "TODO"
-  /user/top_100:
-    $ref: "./paths/user/top_100.yaml#/paths/Path"
 
 components:
   schemas:
