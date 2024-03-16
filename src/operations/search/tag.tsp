@@ -35,7 +35,7 @@ op searchProblemTag(
 
 namespace SearchTag {
   @extension(XInternal, true)
-  model Ok is PaginatedList<ProblemTag> {
+  model Ok extends PaginatedList<ProblemTag> {
     @statusCode status: 200;
   }
 }

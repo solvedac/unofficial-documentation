@@ -35,7 +35,7 @@ op searchUser(
 
 namespace SearchUser {
   @extension(XInternal, true)
-  model Ok is PaginatedList<User> {
+  model Ok extends PaginatedList<User> {
     @statusCode status: 200;
   }
 }

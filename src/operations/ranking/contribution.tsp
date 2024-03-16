@@ -29,7 +29,7 @@ op getRankingByContribution(
 
 namespace GetRankingByContribution {
   @extension(XInternal, true)
-  model Ok is PaginatedList<RivalUser> {
+  model Ok extends PaginatedList<RivalUser> {
     @statusCode status: 200;
   }
 }

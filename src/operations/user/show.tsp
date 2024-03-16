@@ -32,7 +32,7 @@ op getUserByHandle(
 
 namespace GetUserByHandle {
   @extension(XInternal, true)
-  model Ok is SocialUser {
+  model Ok extends SocialUser {
     @statusCode status: 200;
   }
 }

@@ -29,7 +29,7 @@ op getProblemById(
 
 namespace GetProblemById {
   @extension(XInternal, true)
-  model Ok is Problem {
+  model Ok extends Problem {
     @statusCode status: 200;
   }
 }

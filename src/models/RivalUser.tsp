@@ -1,6 +1,6 @@
 namespace SolvedAC;
 
-model RivalUser is User {
+model RivalUser extends User {
   /**
    * 라이벌 여부입니다.
    *

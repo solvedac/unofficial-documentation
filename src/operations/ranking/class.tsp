@@ -29,7 +29,7 @@ op getRankingByClass(
 
 namespace GetRankingByClass {
   @extension(XInternal, true)
-  model Ok is PaginatedList<RivalUser> {
+  model Ok extends PaginatedList<RivalUser> {
     @statusCode status: 200;
   }
 }
