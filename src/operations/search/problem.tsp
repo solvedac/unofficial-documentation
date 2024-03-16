@@ -71,6 +71,7 @@ namespace SearchProblem {
   /**
    * 검색 결과 정렬 방향
    */
+  @extension(XInternal, true)
   enum QueryDirection {
     Ascend: "asc",
     Descend: "desc",
@@ -79,6 +80,7 @@ namespace SearchProblem {
   /**
    * 검색 결과 정렬 기준
    */
+  @extension(XInternal, true)
   enum QuerySort {
     BojId: "id",
     Level: "level",
