@@ -54,7 +54,7 @@ namespace GetClassesProblemCount {
      * 총 문제 수입니다.
      */
     total: uint32;
-    
+
     /**
      * 에센셜 문제 수입니다.
      */
