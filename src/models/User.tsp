@@ -59,7 +59,7 @@ model User {
    *
    * @example 8
    */
-  class: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+  class: 0 | Class;
 
   /**
    * CLASS 완성도에 따른 장식입니다.

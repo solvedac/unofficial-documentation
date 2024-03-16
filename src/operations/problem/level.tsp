@@ -61,7 +61,7 @@ namespace GetProblemsCountGroupByLevel {
   @extension(XInternal, true)
   model Ok {
     @statusCode status: 200;
-    items: LevelEntry[];
+    @body items: LevelEntry[];
   }
 
   @extension(XInternal, true)

@@ -18,3 +18,4 @@ import "./User.tsp";
 import "./RivalUser.tsp";
 import "./SocialUser.tsp";
 import "./ArenaTier.tsp";
+import "./Class.tsp";
