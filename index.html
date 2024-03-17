@@ -491,7 +491,6 @@
             return match ? [[url(match), classList?.(match) ?? []]] : [];
           })
           .at(0) ?? [null, null];
-        console.log(got);
         const [src, classList] = got;
         return html`<img src="${src}" class=${classList} />`.css`
           img {
