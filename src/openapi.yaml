@@ -2,25 +2,6 @@
 ---
 openapi: "3.1.0"
 
-
-tags:
-  - name: "account"
-    description: "계정과 관련이 있는 API입니다"
-  - name: "badge"
-    description: "뱃지와 관련이 있는 API입니다"
-  - name: "background"
-    description: "배경과 관련이 있는 API입니다"
-  - name: "coins"
-    description: "코인/별조각과 관련이 있는 API입니다"
-  - name: "other"
-    description: "아직 분류하지 못한 API입니다"
-  - name: "problem"
-    description: "문제와 관련이 있는 API입니다"
-  - name: "search"
-    description: "검색과 관련이 있는 API입니다"
-  - name: "user"
-    description: "사용자와 관련이 있는 API입니다"
-
 paths:
   /account/verify_credentials:
     $ref: "./paths/account/verify_credentials.yaml#/paths/Path"
@@ -36,8 +17,6 @@ paths:
           description: "TODO"
   /ranking/tier:
     $ref: "./paths/ranking/tier.yaml#/paths/Path"
-  /ranking/rival:
-    $ref: "./paths/ranking/rival.yaml#/paths/Path"
   /ranking/organization:
     $ref: "./paths/ranking/organization.yaml#/paths/Path"
   /search/suggestion:
