@@ -11,6 +11,7 @@ namespace SolvedAC;
  */
 @summary("기여 순 사용자 랭킹 가져오기")
 @tag("ranking")
+@useAuth(TokenAuth)
 @get
 @route("/ranking/contribution")
 op getRankingByContribution(

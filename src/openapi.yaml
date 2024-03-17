@@ -38,8 +38,6 @@ paths:
     $ref: "./paths/ranking/tier.yaml#/paths/Path"
   /ranking/rival:
     $ref: "./paths/ranking/rival.yaml#/paths/Path"
-  /ranking/reverse_rival:
-    $ref: "./paths/ranking/reverse_rival.yaml#/paths/Path"
   /ranking/organization:
     $ref: "./paths/ranking/organization.yaml#/paths/Path"
   /search/suggestion:
