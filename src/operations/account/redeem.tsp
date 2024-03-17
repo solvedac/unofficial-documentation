@@ -27,7 +27,7 @@ op redeemCode(
    * @example "R33D3MC0D3"
    */
   code: string,
-): NotAuthorized | RedeemCode.NotFound;
+): Unauthorized | RedeemCode.NotFound;
 
 namespace RedeemCode {
   /**

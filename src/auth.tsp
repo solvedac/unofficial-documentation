@@ -10,7 +10,7 @@ namespace SolvedAC {
    * `solvedacToken`이 올바르지 않은 경우입니다.
    */
   @error
-  model NotAuthorized {
-    @statusCode status: 403;
+  model Unauthorized {
+    @statusCode status: 401;
   }
 }

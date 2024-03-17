@@ -30,7 +30,7 @@ op updateAccountSettings(
    * @example true
    */
   value: unknown,
-): NotAuthorized | UpdateAccountSettings.Ok;
+): UpdateAccountSettings.Ok | Unauthorized;
 
 namespace UpdateAccountSettings {
   /**
