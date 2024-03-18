@@ -3,12 +3,14 @@ namespace SolvedAC;
 /**
  * solved.ac 사용자 정보입니다.
  */
+@withVisibility("full")
 model User {
   /**
    * 사용자명입니다.
    *
    * @example "shiftpsh"
    */
+  @visibility("brief", "full")
   handle: string;
 
   /**
@@ -16,27 +18,31 @@ model User {
    *
    * @example "🧡 이곳의 개발자입니다."
    */
+  @visibility("brief", "full")
   bio: string;
 
   /**
-   * 사용자가 장착 중인 뱃지 ID입니다.
+   * 장착 중인 뱃지 ID입니다.
    *
    * @example "ghudegy2022-1"
    */
+  @visibility("brief", "full")
   badgeId?: string | null;
 
   /**
-   * 사용자가 장착 중인 배경 ID입니다.
+   * 장착 중인 배경 ID입니다.
    *
    * @example "event240203"
    */
+  @visibility("brief", "full")
   backgroundId: string;
 
   /**
-   * 사용자의 프로필 사진으로 가는 하이퍼링크입니다.
+   * 프로필 사진으로 가는 하이퍼링크입니다.
    *
    * @example "https://static.solved.ac/uploads/profile/shiftpsh-picture-1693244003120.png"
    */
+  @visibility("brief", "full")
   profileImageUrl?: url | null;
 
   /**
@@ -44,6 +50,7 @@ model User {
    *
    * @example 3474
    */
+  @visibility("brief", "full")
   solvedCount: uint64;
 
   /**
@@ -51,6 +58,7 @@ model User {
    *
    * @example 1528
    */
+  @visibility("brief", "full")
   voteCount: uint64;
 
   /**
@@ -59,6 +67,7 @@ model User {
    *
    * @example 8
    */
+  @visibility("brief", "full")
   class: 0 | Class;
 
   /**
@@ -69,6 +78,7 @@ model User {
    *
    * @example "none"
    */
+  @visibility("brief", "full")
   classDecoration: "none" | "silver" | "gold";
 
   /**
@@ -76,6 +86,7 @@ model User {
    *
    * @example 57
    */
+  @visibility("brief", "full")
   rivalCount: uint64;
 
   /**
@@ -83,11 +94,13 @@ model User {
    *
    * @example 139
    */
+  @visibility("brief", "full")
   reverseRivalCount: uint64;
 
   /**
    * @example 26
    */
+  @visibility("brief", "full")
   tier: SolveTier;
 
   /**
@@ -95,6 +108,7 @@ model User {
    *
    * @example 2724
    */
+  @visibility("brief", "full")
   rating: uint32;
 
   /**
@@ -102,6 +116,7 @@ model User {
    *
    * @example 2294
    */
+  @visibility("brief", "full")
   ratingByProblemsSum: uint32;
 
   /**
@@ -109,6 +124,7 @@ model User {
    *
    * @example 230
    */
+  @visibility("brief", "full")
   ratingByClass: uint32;
 
   /**
@@ -116,6 +132,7 @@ model User {
    *
    * @example 175
    */
+  @visibility("brief", "full")
   ratingBySolvedCount: uint32;
 
   /**
@@ -123,6 +140,7 @@ model User {
    *
    * @example 25
    */
+  @visibility("brief", "full")
   ratingByVoteCount: uint32;
 
   /**
@@ -130,6 +148,7 @@ model User {
    *
    * @example 0
    */
+  @visibility("brief", "full")
   arenaTier: ArenaTier;
 
   /**
@@ -137,6 +156,7 @@ model User {
    *
    * @example 0
    */
+  @visibility("brief", "full")
   arenaRating: uint32;
 
   /**
@@ -144,6 +164,7 @@ model User {
    *
    * @example 0
    */
+  @visibility("brief", "full")
   arenaMaxTier: ArenaTier;
 
   /**
@@ -151,6 +172,7 @@ model User {
    *
    * @example 0
    */
+  @visibility("brief", "full")
   arenaMaxRating: uint32;
 
   /**
@@ -158,6 +180,7 @@ model User {
    *
    * @example 0
    */
+  @visibility("brief", "full")
   arenaCompetedRoundCount: uint64;
 
   /**
@@ -165,6 +188,7 @@ model User {
    *
    * @example 366
    */
+  @visibility("brief", "full")
   maxStreak: uint64;
 
   /**
@@ -173,6 +197,7 @@ model User {
    *
    * @example 1063
    */
+  @visibility("brief", "full")
   coins: uint64;
 
   /**
@@ -180,6 +205,7 @@ model User {
    *
    * @example 273583
    */
+  @visibility("brief", "full")
   stardusts: uint64;
 
   /**
@@ -188,6 +214,7 @@ model User {
    *
    * @example "2021-06-19T00:00:00.000Z"
    */
+  @visibility("brief", "full")
   joinedAt: offsetDateTime;
 
   /**
@@ -196,6 +223,7 @@ model User {
    *
    * @example "1970-01-01T00:00:00.000Z"
    */
+  @visibility("brief", "full")
   bannedUntil: offsetDateTime;
 
   /**
@@ -204,14 +232,16 @@ model User {
    *
    * @example "2099-12-31T14:59:59.000Z"
    */
+  @visibility("brief", "full")
   proUntil: offsetDateTime;
 
   /**
-   * 사용자의 순위입니다.
+   * 순위입니다.
    * 이 값은 요청하는 엔드포인트의 정렬 기준에 따라 다를 수 있습니다.
    * 예) /ranking/* 엔드포인트에서는 해당 랭킹의 순위, /show 엔드포인트에서는 문제풀이 레이팅 순위
    *
    * @example 130
    */
+  @visibility("full")
   rank: uint64;
 }

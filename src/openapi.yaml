@@ -19,8 +19,6 @@ paths:
     $ref: "./paths/ranking/tier.yaml#/paths/Path"
   /ranking/organization:
     $ref: "./paths/ranking/organization.yaml#/paths/Path"
-  /search/suggestion:
-    $ref: "./paths/search/suggestion.yaml#/paths/Path"
   /tag/list:
     get:
       description: "TODO"
