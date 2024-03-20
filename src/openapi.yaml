@@ -15,8 +15,6 @@ paths:
       responses:
         "200":
           description: "TODO"
-  /ranking/tier:
-    $ref: "./paths/ranking/tier.yaml#/paths/Path"
   /ranking/organization:
     $ref: "./paths/ranking/organization.yaml#/paths/Path"
   /tag/list:
