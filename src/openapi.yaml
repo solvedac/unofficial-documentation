@@ -9,42 +9,12 @@ paths:
     $ref: "./paths/coins/exchange_rate.yaml#/paths/Path"
   /coins/shop/list:
     $ref: "./paths/coins/shop/list.yaml#/paths/Path"
-  /post/show:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
   /ranking/organization:
     $ref: "./paths/ranking/organization.yaml#/paths/Path"
-  /tag/list:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
-  /user/class_stats:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
-  /user/contribution_stats:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
   /user/organizations:
     $ref: "./paths/user/organizations.yaml#/paths/Path"
   /user/problem_stats:
     $ref: "./paths/user/problem_stats.yaml#/paths/Path"
-  /user/problem_tag_stats:
-    get:
-      description: "TODO"
-      responses:
-        "200":
-          description: "TODO"
 
 components:
   schemas:
