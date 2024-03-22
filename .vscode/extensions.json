@@ -1,3 +1,7 @@
 {
-  "recommendations": ["redhat.vscode-yaml", "42crunch.vscode-openapi"]
+  "recommendations": [
+    "redhat.vscode-yaml",
+    "42crunch.vscode-openapi",
+    "typespec.typespec-vscode"
+  ]
 }

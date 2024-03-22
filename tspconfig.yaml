@@ -1,0 +1,10 @@
+linter:
+  extends:
+    - "@typespec/best-practices/recommended"
+imports:
+  - "./auth.tsp"
+emit:
+  - "@typespec/openapi3"
+options:
+  "@typespec/openapi3":
+    output-file: openapi.yaml
