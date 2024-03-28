@@ -5,8 +5,6 @@ openapi: "3.1.0"
 paths:
   /account/verify_credentials:
     $ref: "./paths/account/verify_credentials.yaml#/paths/Path"
-  /coins/exchange_rate:
-    $ref: "./paths/coins/exchange_rate.yaml#/paths/Path"
   /coins/shop/list:
     $ref: "./paths/coins/shop/list.yaml#/paths/Path"
   /ranking/organization:
