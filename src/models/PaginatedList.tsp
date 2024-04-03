@@ -1,7 +1,7 @@
 /**
  * 페이지네이션 가능한 쿼리의 응답 결과입니다.
  */
-model PaginatedList<Item> {
+model PaginatedList<T> {
   /**
    * 전체 원소 수입니다.
    *
@@ -12,5 +12,5 @@ model PaginatedList<Item> {
   /**
    * 현재 페이지의 원소 목록입니다.
    */
-  items: Item[];
+  items: T[];
 }

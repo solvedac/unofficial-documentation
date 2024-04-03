@@ -5,8 +5,6 @@ openapi: "3.1.0"
 paths:
   /account/verify_credentials:
     $ref: "./paths/account/verify_credentials.yaml#/paths/Path"
-  /coins/shop/list:
-    $ref: "./paths/coins/shop/list.yaml#/paths/Path"
   /ranking/organization:
     $ref: "./paths/ranking/organization.yaml#/paths/Path"
   /user/organizations:
@@ -16,12 +14,8 @@ paths:
 
 components:
   schemas:
-    CoinshopProduct:
-      $ref: "./schemas/coinshop-product.yaml#/components/schemas/CoinshopProduct"
     IconScheme:
       $ref: "./schemas/icon-scheme.yaml#/components/schemas/IconScheme"
-    Item:
-      $ref: "./schemas/item.yaml#/components/schemas/Item"
     Organization:
       $ref: "./schemas/organization.yaml#/components/schemas/Organization"
     Settings:
