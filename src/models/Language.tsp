@@ -1,3 +1,5 @@
+namespace SolvedAC;
+
 /**
  * solved.ac에서 지원하는 사용자 언어입니다
  */

@@ -1,3 +1,5 @@
+namespace SolvedAC;
+
 /**
  * 사용자가 사용할 수 있는 아이템입니다.
  */

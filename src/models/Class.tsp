@@ -1,3 +1,5 @@
+namespace SolvedAC;
+
 /**
  * [솔브드 CLASS](https://solved.ac/class)입니다.
  */

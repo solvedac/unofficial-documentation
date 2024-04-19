@@ -5,10 +5,6 @@ openapi: "3.1.0"
 paths:
   /account/verify_credentials:
     $ref: "./paths/account/verify_credentials.yaml#/paths/Path"
-  /ranking/organization:
-    $ref: "./paths/ranking/organization.yaml#/paths/Path"
-  /user/organizations:
-    $ref: "./paths/user/organizations.yaml#/paths/Path"
   /user/problem_stats:
     $ref: "./paths/user/problem_stats.yaml#/paths/Path"
 
@@ -16,7 +12,5 @@ components:
   schemas:
     IconScheme:
       $ref: "./schemas/icon-scheme.yaml#/components/schemas/IconScheme"
-    Organization:
-      $ref: "./schemas/organization.yaml#/components/schemas/Organization"
     Settings:
       $ref: "./schemas/settings.yaml#/components/schemas/Settings"

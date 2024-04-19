@@ -21,3 +21,6 @@ import "./ArenaTier.tsp";
 import "./Class.tsp";
 import "./CoinShopProduct.tsp";
 import "./Item.tsp";
+import "./Organization.tsp";
+import "./OrganizationType.tsp";
+import "./Ranked.tsp";

@@ -1,3 +1,5 @@
+namespace SolvedAC;
+
 /**
  * 배경을 작업한 작가입니다.
  */
