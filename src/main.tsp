@@ -33,7 +33,8 @@ using TypeSpec.Versioning;
     [GitHub에서 보기](https://github.com/solvedac/unofficial-documentation)
 
 
-    **주의**: (2023/03/08~) CORS 문제로 인해 API는 사이트 내에서 호출할 수 없으므로 별도 도구를 이용해주십시오. ([#51](https://github.com/solvedac/unofficial-documentation/issues/51))
+    **주의**: (2023/03/08~) CORS 문제로 인해 API는 사이트 내에서 호출할 수 없으므로 별도 도구를 이용해주십시오. ([#51](https://github.com/solvedac/unofficial-documentation/issues/51)) <br>
+    **참고**: 본 저장소를 내려받고, `pnpm dev`를 실행하시면 로컬 개발 서버를 프록시로 삼아 CORS를 무시할 수 있습니다. 
 
 
     ![@solvedac/unofficial-documentation banner](./assets/solvedac-ud-compact.png)

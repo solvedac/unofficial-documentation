@@ -5,8 +5,6 @@ openapi: "3.1.0"
 paths:
   /account/verify_credentials:
     $ref: "./paths/account/verify_credentials.yaml#/paths/Path"
-  /user/problem_stats:
-    $ref: "./paths/user/problem_stats.yaml#/paths/Path"
 
 components:
   schemas:
