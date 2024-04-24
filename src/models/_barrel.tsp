@@ -24,3 +24,4 @@ import "./Item.tsp";
 import "./Organization.tsp";
 import "./OrganizationType.tsp";
 import "./Ranked.tsp";
+import "./Emoticon.tsp";
