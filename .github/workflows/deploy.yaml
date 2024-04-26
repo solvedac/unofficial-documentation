@@ -46,7 +46,6 @@ jobs:
   library-deployment:
     needs: [lint]
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
     strategy:
       matrix:
         repo:
