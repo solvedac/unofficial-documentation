@@ -1,5 +1,5 @@
 <!-- HTML for static distribution bundle build -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -36,7 +36,7 @@
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" type="svg" href="favicon.svg" />
-    <script src="https://unpkg.com/@stoplight/elements/web-components.min.js"></script>
+    <script src="vendors/@stoplight/elements/web-components.min.js"></script>
     <link
       rel="stylesheet"
       href="https://unpkg.com/@stoplight/elements/styles.min.css"
@@ -55,30 +55,462 @@
           Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
           'Noto Sans KR', 'Malgun Gothic', sans-serif;
       }
+      #elements {
+        display: block;
+        height: 100vh;
+      }
+      .sl-bg-code {
+        background-color: var(--color-canvas-tint);
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+      /* directly taken from solved.ac */
+      :root {
+        --arena-tier-unrated: #818996;
+        --arena-tier-c-family: #725039;
+        --arena-tier-b-family: #2c4182;
+        --arena-tier-a-family: #ffa515;
+        --arena-tier-s-family: #46db66;
+        --arena-tier-ss-family: #30a1e5;
+        --arena-tier-sss-family: #ff143b;
+        --arena-tier-x: #000000;
+        --arena-tier-x-first-letter: #ff143b;
+
+        --solve-tier-zero: #2d2d2d;
+        --solve-tier-bronze5: #9d4900;
+        --solve-tier-bronze4: #a54f00;
+        --solve-tier-bronze3: #ad5600;
+        --solve-tier-bronze2: #b55d0a;
+        --solve-tier-bronze1: #c67739;
+        --solve-tier-silver5: #38546e;
+        --solve-tier-silver4: #3d5a74;
+        --solve-tier-silver3: #435f7a;
+        --solve-tier-silver2: #496580;
+        --solve-tier-silver1: #4e6a86;
+        --solve-tier-gold5: #d28500;
+        --solve-tier-gold4: #df8f00;
+        --solve-tier-gold3: #ec9a00;
+        --solve-tier-gold2: #f9a518;
+        --solve-tier-gold1: #ffb028;
+        --solve-tier-platinum5: #00c78b;
+        --solve-tier-platinum4: #00d497;
+        --solve-tier-platinum3: #27e2a4;
+        --solve-tier-platinum2: #3ef0b1;
+        --solve-tier-platinum1: #51fdbd;
+        --solve-tier-diamond5: #009ee5;
+        --solve-tier-diamond4: #00a9f0;
+        --solve-tier-diamond3: #00b4fc;
+        --solve-tier-diamond2: #2bbfff;
+        --solve-tier-diamond1: #41caff;
+        --solve-tier-ruby5: #e0004c;
+        --solve-tier-ruby4: #ea0053;
+        --solve-tier-ruby3: #f5005a;
+        --solve-tier-ruby2: #ff0062;
+        --solve-tier-ruby1: #ff3071;
+        --solve-tier-master: #b491ff;
+      }
+      [data-theme='dark'] {
+        --arena-tier-x: #ffffff;
+      }
+      .arena-tier {
+        display: inline-block;
+      }
+      .arena-tier.unrated {
+        color: var(--arena-tier-unrated);
+      }
+      .arena-tier.c,
+      .arena-tier.c\+ {
+        color: var(--arena-tier-c-family);
+      }
+      .arena-tier.b,
+      .arena-tier.b\+ {
+        color: var(--arena-tier-b-family);
+      }
+      .arena-tier.a,
+      .arena-tier.a\+ {
+        color: var(--arena-tier-a-family);
+      }
+      .arena-tier.s,
+      .arena-tier.s\+ {
+        color: var(--arena-tier-s-family);
+      }
+      .arena-tier.ss,
+      .arena-tier.ss\+ {
+        color: var(--arena-tier-ss-family);
+      }
+      .arena-tier.sss,
+      .arena-tier.sss\+ {
+        color: var(--arena-tier-sss-family);
+      }
+      .arena-tier.x {
+        color: var(--arena-tier-x);
+      }
+      .arena-tier.x::first-letter {
+        color: var(--arena-tier-x-first-letter);
+      }
+      .solve-tier.zero {
+        color: var(--solve-tier-zero);
+      }
+      [data-theme='dark'] .solve-tier.zero {
+        text-shadow:
+          1px 1px 0 #7a7a7a,
+          -0.5px 0.5px 0 #5a5a5a,
+          0.5px -0.5px 0 #5a5a5a,
+          -0.5px -0.5px 0 #5a5a5a;
+      }
+      .solve-tier.bronze5 {
+        color: var(--solve-tier-bronze5);
+      }
+      .solve-tier.bronze4 {
+        color: var(--solve-tier-bronze4);
+      }
+      .solve-tier.bronze3 {
+        color: var(--solve-tier-bronze3);
+      }
+      .solve-tier.bronze2 {
+        color: var(--solve-tier-bronze2);
+      }
+      .solve-tier.bronze1 {
+        color: var(--solve-tier-bronze1);
+      }
+      .solve-tier.silver5 {
+        color: var(--solve-tier-silver5);
+      }
+      .solve-tier.silver4 {
+        color: var(--solve-tier-silver4);
+      }
+      .solve-tier.silver3 {
+        color: var(--solve-tier-silver3);
+      }
+      .solve-tier.silver2 {
+        color: var(--solve-tier-silver2);
+      }
+      .solve-tier.silver1 {
+        color: var(--solve-tier-silver1);
+      }
+      .solve-tier.gold5 {
+        color: var(--solve-tier-gold5);
+      }
+      .solve-tier.gold4 {
+        color: var(--solve-tier-gold4);
+      }
+      .solve-tier.gold3 {
+        color: var(--solve-tier-gold3);
+      }
+      .solve-tier.gold2 {
+        color: var(--solve-tier-gold2);
+      }
+      .solve-tier.gold1 {
+        color: var(--solve-tier-gold1);
+      }
+      .solve-tier.platinum5 {
+        color: var(--solve-tier-platinum5);
+      }
+      .solve-tier.platinum4 {
+        color: var(--solve-tier-platinum4);
+      }
+      .solve-tier.platinum3 {
+        color: var(--solve-tier-platinum3);
+      }
+      .solve-tier.platinum2 {
+        color: var(--solve-tier-platinum2);
+      }
+      .solve-tier.platinum1 {
+        color: var(--solve-tier-platinum1);
+      }
+      .solve-tier.diamond5 {
+        color: var(--solve-tier-diamond5);
+      }
+      .solve-tier.diamond4 {
+        color: var(--solve-tier-diamond4);
+      }
+      .solve-tier.diamond3 {
+        color: var(--solve-tier-diamond3);
+      }
+      .solve-tier.diamond2 {
+        color: var(--solve-tier-diamond2);
+      }
+      .solve-tier.diamond1 {
+        color: var(--solve-tier-diamond1);
+      }
+      .solve-tier.ruby5 {
+        color: var(--solve-tier-ruby5);
+      }
+      .solve-tier.ruby4 {
+        color: var(--solve-tier-ruby4);
+      }
+      .solve-tier.ruby3 {
+        color: var(--solve-tier-ruby3);
+      }
+      .solve-tier.ruby2 {
+        color: var(--solve-tier-ruby2);
+      }
+      .solve-tier.ruby1 {
+        color: var(--solve-tier-ruby1);
+      }
+      .solve-tier.master {
+        background-color: #b491ff;
+        background-image: linear-gradient(0deg, #ff7ca8, #b491ff, #7cf9ff);
+        background-size: 80%;
+        background-repeat: repeat;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     </style>
   </head>
-
   <body>
+    <script>
+      if (window.matchMedia) {
+        const themeQuery = '(prefers-color-scheme: dark)';
+        const match = window.matchMedia(themeQuery);
+        const updateTheme = (isDark) => {
+          document.body.dataset.theme = isDark ? 'dark' : 'light';
+        };
+
+        match.addEventListener('change', (e) => updateTheme(e.matches));
+        updateTheme(match.matches);
+      }
+    </script>
     <elements-api
       id="elements"
-      apiDescriptionUrl="src/openapi.yaml"
+      apiDescriptionUrl="tsp-output/@typespec/openapi3/openapi.yaml"
       router="hash"
       logo="./favicon.svg"
       tryItCredentialsPolicy="include"
+      layout="responsive"
+      hideInternal="true"
     />
+    <script>
+      // https://github.com/stoplightio/elements/issues/1439#issuecomment-1922387443
+      // adapted from https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/themes/nightOwl.js
+      const darkTheme = {
+        mode: 'dark',
+        plain: {
+          // color: '#d6deeb',
+          // backgroundColor: '#011627',
+        },
+        styles: [
+          {
+            types: ['changed'],
+            style: { color: 'rgb(162, 191, 252)', fontStyle: 'italic' },
+          },
+          {
+            types: ['deleted'],
+            style: { color: 'rgba(239, 83, 80, 0.56)', fontStyle: 'italic' },
+          },
+          {
+            types: ['inserted', 'attr-name', 'function', 'url'],
+            style: { color: '#d2a8ff' },
+          },
+          { types: ['string', 'attr-value'], style: { color: '#a5d6ff' } },
+          { types: ['punctuation'], style: { color: 'inherit' } },
+          { types: ['comment'], style: { color: '#8b949e' } },
+          { types: ['variable'], style: { color: 'rgb(214, 222, 235)' } },
+          { types: ['number'], style: { color: 'rgb(247, 140, 108)' } },
+          {
+            types: ['builtin', 'char', 'constant'],
+            style: { color: 'rgb(130, 170, 255)' },
+          },
+          {
+            types: ['selector', 'doctype', 'value'],
+            style: { color: 'rgb(199, 146, 234)', fontStyle: 'italic' },
+          },
+          { types: ['class-name'], style: { color: '#7ee787' } },
+          { types: ['operator', 'keyword'], style: { color: '#ff7b72' } },
+          { types: ['boolean'], style: { color: '#79c0ff' } },
+          { types: ['property'], style: { color: 'rgb(128, 203, 196)' } },
+          {
+            types: ['namespace', 'option'],
+            style: { color: 'rgb(178, 204, 214)' },
+          },
+        ],
+      };
+      // adapted from https://github.com/FormidableLabs/prism-react-renderer/blob/master/src/themes/github.js
+      const lightTheme = {
+        mode: 'light',
+        plain: {
+          // color: '#393A34',
+          // backgroundColor: '#f6f8fa',
+        },
+        styles: [
+          {
+            types: ['comment', 'blockquote'],
+            style: { color: '#969896', fontStyle: 'italic' },
+          },
+          { types: ['cdata'], style: { color: '#183691' } },
+          {
+            types: ['doctype', 'punctuation', 'variable', 'macro property'],
+            style: { color: '#333' },
+          },
+          {
+            types: ['important', 'rule', 'builtin'],
+            style: { color: '#a71d5d' },
+          },
+          { types: ['keyword', 'operator'], style: { color: '#d73a49' } },
+          {
+            types: ['string', 'url', 'regex', 'attr-value'],
+            style: { color: '#032f62' },
+          },
+          {
+            types: [
+              'property',
+              'number',
+              'boolean',
+              'entity',
+              'atrule',
+              'constant',
+              'symbol',
+              'command',
+              'code',
+            ],
+            style: { color: '#005cc5' },
+          },
+          { types: ['attr-name', 'function'], style: { color: '#6f42c1' } },
+          { types: ['selector', 'prolog'], style: { color: '#63a35c' } },
+          {
+            types: [
+              'namespace',
+              'pseudo-element',
+              'class',
+              'class-name',
+              'pseudo-class',
+              'id',
+              'url-reference',
+            ],
+            style: { color: '#22863a' },
+          },
+          { types: ['title'], style: { color: '#1d3e81', fontWeight: 'bold' } },
+          { types: ['list'], style: { color: '#ed6a43' } },
+          {
+            types: ['inserted'],
+            style: { color: '#55a532', backgroundColor: '#eaffea' },
+          },
+          {
+            types: ['deleted'],
+            style: { color: '#bd2c00', backgroundColor: '#ffecec' },
+          },
+          { types: ['bold'], style: { fontWeight: 'bold' } },
+          { types: ['italic'], style: { fontStyle: 'italic' } },
+          {
+            languages: ['json'],
+            types: ['property'],
+            style: { color: '#183691' },
+          },
+          {
+            languages: ['markup'],
+            types: ['tag punctuation'],
+            style: { color: '#333' },
+          },
+          {
+            languages: ['css'],
+            types: ['function'],
+            style: { color: '#0086b3' },
+          },
+          {
+            languages: ['yaml'],
+            types: ['atrule'],
+            style: { color: '#63a35c' },
+          },
+          {
+            languages: ['markdown'],
+            types: ['url'],
+            style: { color: '#795da3' },
+          },
+          {
+            languages: ['bash'],
+            types: ['keyword'],
+            style: { color: '#0086b3' },
+          },
+          { types: ['option'], style: { opacity: 0.7 } },
+          { types: ['value'], style: { color: '#e3116c' } },
+          { types: ['function-variable'], style: { color: '#6f42c1' } },
+        ],
+      };
+      const $elements = document.getElementById('elements');
+      const updateStyle = (isDark) => {
+        for (const pre of $elements.querySelectorAll('pre.sl-code-viewer')) {
+          const isPreDark = isDark || !!pre.closest('.sl-inverted');
+          const theme = isPreDark ? darkTheme : lightTheme;
+          for (const span of pre.querySelectorAll('span')) {
+            if (!span.classList.contains('token')) continue;
+            for (const { languages, types, style } of theme.styles) {
+              if (
+                types.some((x) => span.classList.contains(x)) &&
+                (!languages ||
+                  languages.some((x) =>
+                    pre.classList.contains(`language-${x}`),
+                  ))
+              ) {
+                if (theme.mode === 'dark' && isPreDark && !isDark)
+                  console.log(pre, span, theme.mode, style);
+                Object.assign(span.style, style);
+              }
+            }
+          }
+        }
+      };
+      const themeQuery = '(prefers-color-scheme: dark)';
+      const match = window.matchMedia(themeQuery);
+      match.addEventListener('change', (e) => updateStyle(e.matches));
+      new MutationObserver(() => updateStyle(match.matches)).observe(
+        $elements,
+        {
+          childList: true,
+          subtree: true,
+        },
+      );
+    </script>
   </body>
+  <script type="module">
+    import { define, html } from 'https://esm.sh/hybrids@^8';
 
-  <script>
-    const elements = document.getElementById('elements');
-
-    function updateLayout() {
-      if (window.innerWidth <= 1200) {
-        elements.layout = 'stacked';
-      } else {
-        elements.layout = 'sidebar';
-      }
-    }
-
-    window.addEventListener('resize', updateLayout);
+    define({
+      tag: 'solved-icon',
+      type: '',
+      render: ({ type }) => {
+        const iconMap = [
+          {
+            filter: /solve-tier:(\d+|nr)/,
+            url: (match) =>
+              `https://static.solved.ac/tier_small/${match[1]}.svg`,
+          },
+          {
+            filter: /arena-tier:(\d+)/,
+            url: (match) =>
+              `https://static.solved.ac/tier_arena/${match[1]}.svg`,
+            classList: () => ['icon-arena-tier'],
+          },
+          {
+            filter: /class:(\d+[sg]?)/,
+            url: (match) => `https://static.solved.ac/class/c${match[1]}.svg`,
+            classList: () => ['class'],
+          },
+        ];
+        const got = iconMap
+          .flatMap(({ filter, url, classList }) => {
+            const match = filter.exec(type);
+            return match ? [[url(match), classList?.(match) ?? []]] : [];
+          })
+          .at(0) ?? [null, null];
+        const [src, classList] = got;
+        return html`<img src="${src}" class=${classList} />`.css`
+          img {
+            display: inline-block;
+            height: 1em;
+            vertical-align: middle;
+          }
+          img.icon-arena-tier {
+            height: 0.75em;
+            vertical-align: baseline;
+          }
+          img.class {
+            height: 2em;
+            vertical-align: top;
+          }
+        `;
+      },
+    });
   </script>
 </html>
