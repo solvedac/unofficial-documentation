@@ -69,5 +69,5 @@ jobs:
           repo: ${{ matrix.repo }}
           inputs: |
             {
-              "run-id": ${{ github.run_id }}
+              "run-id": "${{ github.run_id }}"
             }
