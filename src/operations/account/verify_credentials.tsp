@@ -25,7 +25,7 @@ op verifyAccountCredentials(
 
 namespace VerifyCredentials {
   /**
-   * 리딤 코드가 올바르지 않은 경우입니다.
+   * 크레데션 관련 본인 정보
    */
   @extension(XInternal, true)
   model Ok {
