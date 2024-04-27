@@ -9,7 +9,8 @@ await $`cp -r tsp-output build`;
 await $`cp -r vendors build`;
 await $`cp -r assets build`;
 
-if ((await $`git branch --show-current`) != 'main') {
+const branch = await $`git branch --show-current`.quiet();
+if (branch.stdout.trim() != 'main') {
   const hash = (await $`git rev-parse --short HEAD`.quiet()).toString().trim();
   const version = `${hash}`;
 
