@@ -67,3 +67,7 @@ jobs:
           workflow: Follow Up
           token: ${{ secrets.WORKFLOW_DISPATCH }}
           repo: ${{ matrix.repo }}
+          inputs: |
+            {
+              "run-id": ${{ github.run_id }}
+            }
