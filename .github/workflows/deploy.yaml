@@ -53,7 +53,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
   library-deployment:
-    needs: [lint]
+    needs: [page-deployment]
     runs-on: ubuntu-latest
     strategy:
       matrix:
