@@ -8,3 +8,4 @@ import "./search/_barrel.tsp";
 import "./site/_barrel.tsp";
 import "./user/_barrel.tsp";
 import "./post/_barrel.tsp";
+import "./tag/_barrel.tsp";
