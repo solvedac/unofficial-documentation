@@ -26,3 +26,4 @@ import "./OrganizationType.tsp";
 import "./Ranked.tsp";
 import "./Emoticon.tsp";
 import "./UserAdditionalInfo.tsp";
+import "./Post.tsp";

@@ -7,3 +7,4 @@ import "./ranking/_barrel.tsp";
 import "./search/_barrel.tsp";
 import "./site/_barrel.tsp";
 import "./user/_barrel.tsp";
+import "./post/_barrel.tsp";
