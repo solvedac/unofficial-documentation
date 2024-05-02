@@ -4,10 +4,10 @@ using TypeSpec.OpenAPI;
 namespace SolvedAC;
 
 /**
- * 해당 제목의 도움말를 가져옵니다.
+ * 해당 제목의 도움말을 가져옵니다.
  *
  * @return
- *     도움말를 가져옵니다.
+ *     도움말을 가져옵니다.
  */
 @summary("도움말 제목으로 도움말 가져오기")
 @tag("post")
