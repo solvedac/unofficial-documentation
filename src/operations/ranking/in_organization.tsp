@@ -13,7 +13,7 @@ namespace SolvedAC;
 @tag("ranking")
 @get
 @route("/ranking/in_organization")
-op getInOrganizationRankingByACRating(
+op getRankingByACRatingInOrganization(
   /**
    * 단체 ID
    */
@@ -25,9 +25,9 @@ op getInOrganizationRankingByACRating(
    */
   @query
   page?: uint32,
-): GetInOrganizationRankingByACRating.Ok;
+): GetRankingByACRatingInOrganization.Ok;
 
-namespace GetInOrganizationRankingByACRating {
+namespace GetRankingByACRatingInOrganization {
   @extension(XInternal, true)
   model Ok {
     @statusCode status: 200;
