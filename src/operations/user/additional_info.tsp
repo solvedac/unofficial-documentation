@@ -4,12 +4,12 @@ using TypeSpec.OpenAPI;
 namespace SolvedAC;
 
 /**
- * 해당 핸들의 사용자 개인정보를 가져옵니다.
+ * 해당 핸들을 가진 사용자의 부가 정보를 가져옵니다.
  *
  * @return
- *     사용자 개인정보를 가져옵니다
+ *     사용자 부가 정보를 가져옵니다
  */
-@summary("사용자 핸들로 개인정보 가져오기")
+@summary("사용자 핸들로 부가 정보 가져오기")
 @tag("user")
 @get
 @route("/user/additional_info")

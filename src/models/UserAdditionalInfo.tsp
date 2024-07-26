@@ -1,7 +1,7 @@
 namespace SolvedAC;
 
 /**
- * solved.ac 사용자 개인정보입니다.
+ * solved.ac 사용자 부가 정보입니다.
  */
 model UserAdditionalInfo {
   /**
