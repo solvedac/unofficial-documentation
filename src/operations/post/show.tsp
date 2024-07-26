@@ -4,12 +4,12 @@ using TypeSpec.OpenAPI;
 namespace SolvedAC;
 
 /**
- * 해당 제목의 도움말을 가져옵니다.
+ * 해당 제목의 게시글을 가져옵니다.
  *
  * @return
- *     도움말을 가져옵니다.
+ *     게시글을 가져옵니다.
  */
-@summary("도움말 제목으로 도움말 가져오기")
+@summary("게시글 제목으로 게시글 가져오기")
 @tag("post")
 @get
 @route("/post/show")
@@ -21,7 +21,7 @@ op getPostById(
   `x-solvedac-language`?: Language,
 
   /**
-   * 요청할 도움말의 제목
+   * 요청할 게시글의 제목
    */
   @query
   postId: string,
