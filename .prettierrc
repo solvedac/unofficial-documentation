@@ -1,4 +1,6 @@
 {
   "singleQuote": true,
-  "plugins": ["@typespec/prettier-plugin-typespec"]
+  "plugins": [
+    "@typespec/prettier-plugin-typespec"
+  ]
 }

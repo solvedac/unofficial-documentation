@@ -5,3 +5,5 @@ import "./reverse_rival.tsp";
 import "./rival.tsp";
 import "./tier.tsp";
 import "./organization.tsp";
+import "./in_organization.tsp";
+import "./arena_in_organization.tsp";
