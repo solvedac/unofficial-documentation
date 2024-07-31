@@ -85,7 +85,7 @@ index 9c49dcdfa10772985ae3ac8230c75a6b2a72ad13..2b082beec37037ebd8d948194a7cccac
          } catch (err) {
            const error = new Error(`Error Loading Client: ${err.message}`)
 diff --git a/lib/server.js b/lib/server.js
-index 50590f6c1e4f83481a310c2b253e707ed808b3f2..383899de32a33d02474d4de8e84dcdf40a7e8c24 100644
+index 50590f6c1e4f83481a310c2b253e707ed808b3f2..9701856ccc00dbb90639d36b63f591322b2e1f19 100644
 --- a/lib/server.js
 +++ b/lib/server.js
 @@ -15,7 +15,7 @@ class SRR {
@@ -106,6 +106,15 @@ index 50590f6c1e4f83481a310c2b253e707ed808b3f2..383899de32a33d02474d4de8e84dcdf4
  
      /* istanbul ignore next */
      watcher.on('ready', () => log('%dot:green Watching files in %s:yellow', cwd))
+@@ -35,7 +35,7 @@ class SRR {
+       this.exit()
+     })
+ 
+-    this.#instance.on('listening', () => log('%dot:green Listening on %s:yellow %d:red', this.#instance.address().address, this.#instance.address().port))
++    this.#instance.on('listening', () => log('%dot:green Listening on http://%s:yellow:%d:red/unofficial-documentation', this.#instance.address().address, this.#instance.address().port))
+     this.#instance.on('close', async () => {
+       log('%dot:red Server Stopped')
+ 
 @@ -44,7 +44,7 @@ class SRR {
      })
  

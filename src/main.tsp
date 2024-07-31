@@ -37,7 +37,7 @@ using TypeSpec.Versioning;
     **참고**: 본 저장소를 내려받고, `pnpm dev`를 실행하시면 로컬 개발 서버를 프록시로 삼아 CORS를 무시할 수 있습니다. 
 
 
-    ![@solvedac/unofficial-documentation banner](./assets/solvedac-ud-compact.png)
+    ![@solvedac/unofficial-documentation banner](/unofficial-documentation/assets/solvedac-ud-compact.png)
     """,
   contact: {
     name: "RanolP",
