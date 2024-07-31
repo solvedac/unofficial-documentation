@@ -17,5 +17,5 @@ if (branch.stdout.trim() != 'main') {
   const version = `${hash}`;
 
   $.quote = (s) => s;
-  await $`sed -E "s/version:.+/version: \\"${version}\\"/" -i "build/tsp-output/@typespec/openapi3/openapi.yaml"`;
+  await $`sed -E "s/version:.+/version: \\"${version}\\"/" -i "build/unofficial-documentation/tsp-output/@typespec/openapi3/openapi.yaml"`;
 }
