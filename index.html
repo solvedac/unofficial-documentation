@@ -35,8 +35,8 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="icon" type="svg" href="favicon.svg" />
-    <script src="vendors/@stoplight/elements/web-components.min.js"></script>
+    <link rel="icon" type="svg" href="/unofficial-documentation/favicon.svg" />
+    <script src="/unofficial-documentation/vendors/@stoplight/elements/web-components.min.js"></script>
     <link
       rel="stylesheet"
       href="https://unpkg.com/@stoplight/elements/styles.min.css"
@@ -275,9 +275,9 @@
     </script>
     <elements-api
       id="elements"
-      apiDescriptionUrl="tsp-output/@typespec/openapi3/openapi.yaml"
+      apiDescriptionUrl="/unofficial-documentation/tsp-output/@typespec/openapi3/openapi.yaml"
       router="hash"
-      logo="./favicon.svg"
+      logo="/unofficial-documentation/favicon.svg"
       tryItCredentialsPolicy="include"
       layout="responsive"
       hideInternal="true"
@@ -464,38 +464,40 @@
     </script>
   </body>
   <script type="module">
-    import { define, html } from 'https://esm.sh/hybrids@^8';
+    import { createMemo } from 'https://esm.sh/solid-js@^1.8.19';
+    import { customElement } from 'https://esm.sh/solid-element@^1.8.1';
+    import html from 'https://esm.sh/solid-js@1.8.1/html';
 
-    define({
-      tag: 'solved-icon',
-      type: '',
-      render: ({ type }) => {
-        const iconMap = [
-          {
-            filter: /solve-tier:(\d+|nr)/,
-            url: (match) =>
-              `https://static.solved.ac/tier_small/${match[1]}.svg`,
-          },
-          {
-            filter: /arena-tier:(\d+)/,
-            url: (match) =>
-              `https://static.solved.ac/tier_arena/${match[1]}.svg`,
-            classList: () => ['icon-arena-tier'],
-          },
-          {
-            filter: /class:(\d+[sg]?)/,
-            url: (match) => `https://static.solved.ac/class/c${match[1]}.svg`,
-            classList: () => ['class'],
-          },
-        ];
-        const got = iconMap
-          .flatMap(({ filter, url, classList }) => {
-            const match = filter.exec(type);
-            return match ? [[url(match), classList?.(match) ?? []]] : [];
-          })
-          .at(0) ?? [null, null];
-        const [src, classList] = got;
-        return html`<img src="${src}" class=${classList} />`.css`
+    const iconMap = [
+      {
+        filter: /solve-tier:(\d+|nr)/,
+        url: (match) => `https://static.solved.ac/tier_small/${match[1]}.svg`,
+      },
+      {
+        filter: /arena-tier:(\d+)/,
+        url: (match) => `https://static.solved.ac/tier_arena/${match[1]}.svg`,
+        classList: () => ['icon-arena-tier'],
+      },
+      {
+        filter: /class:(\d+[sg]?)/,
+        url: (match) => `https://static.solved.ac/class/c${match[1]}.svg`,
+        classList: () => ['class'],
+      },
+    ];
+    customElement('solved-icon', { type: '' }, (props) => {
+      const findIcon = createMemo(
+        () =>
+          iconMap
+            .flatMap(({ filter, url, classList }) => {
+              const match = filter.exec(props.type);
+              return match
+                ? [{ src: url(match), classList: classList?.(match) ?? [] }]
+                : [];
+            })
+            .at(0) ?? [null, null],
+      );
+      return html`
+        <style>
           img {
             display: inline-block;
             height: 1em;
@@ -509,8 +511,9 @@
             height: 2em;
             vertical-align: top;
           }
-        `;
-      },
+        </style>
+        <img src="${findIcon().src}" class="${findIcon().classList}" />
+      `;
     });
   </script>
 </html>
