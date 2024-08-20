@@ -4,7 +4,7 @@ using TypeSpec.OpenAPI;
 namespace SolvedAC;
 
 /**
- * 주어진 쿼리에 따라 문제를 검색합니다.
+ * 코인 → 별조각 환율을 가져옵니다.
  *
  * @return
  *     환율을 가져옵니다.
