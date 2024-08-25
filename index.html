@@ -431,7 +431,10 @@
       };
       const $elements = document.getElementById('elements');
       const updateStyle = (isDark) => {
-        for (const pre of $elements.querySelectorAll('pre.sl-code-viewer')) {
+        for (const pre of [
+          ...Array.from($elements.querySelectorAll('pre.sl-code-viewer')),
+          ...Array.from($elements.querySelectorAll('div.sl-code-editor')),
+        ]) {
           const isPreDark = isDark || !!pre.closest('.sl-inverted');
           const theme = isPreDark ? darkTheme : lightTheme;
           for (const span of pre.querySelectorAll('span')) {
