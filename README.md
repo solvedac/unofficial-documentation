@@ -1,4 +1,14 @@
-# <sub><img src="favicon.svg" height="32" /></sub> @solvedac/<ins>unofficial</ins>-documentation
+# ~~<sub><img src="favicon.svg" height="32" /></sub> @solvedac/<ins>unofficial</ins>-documentation~~
+
+### shiftpsh 님의 시간을 AI가 아꼈습니다~~아낍시다~~
+
+이제 [공식 API 문서](https://backstage.solved.ac/ko/developer/docs#description/introduction)를 참고하시면 되겠습니다.
+
+![shiftpsh blog](assets/shiftpsh-blog.png)
+
+- [solved.ac 화이트리스트 관련 입장 (5/8)](https://blog.shift.moe/2020/05/08/solved-ac-%ed%99%94%ec%9d%b4%ed%8a%b8%eb%a6%ac%ec%8a%a4%ed%8a%b8-%ea%b4%80%eb%a0%a8-%ec%9e%85%ec%9e%a5-5-8/), 2020/05/08, Shifted
+
+---
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/solvedac/unofficial-documentation/lint.yaml?branch=main&label=documentation+validity+check&style=for-the-badge)
 
@@ -15,9 +25,3 @@
 ## 기여하기
 
 [CONTRIBUTING.md](CONTRIBUTING.md)를 참조해주세요.
-
-### shiftpsh 님의 시간을 아낍시다
-
-![shiftpsh blog](assets/shiftpsh-blog.png)
-
-- [solved.ac 화이트리스트 관련 입장 (5/8)](https://blog.shift.moe/2020/05/08/solved-ac-%ed%99%94%ec%9d%b4%ed%8a%b8%eb%a6%ac%ec%8a%a4%ed%8a%b8-%ea%b4%80%eb%a0%a8-%ec%9e%85%ec%9e%a5-5-8/), 2020/05/08, Shifted
